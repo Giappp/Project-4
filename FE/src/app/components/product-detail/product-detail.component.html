@@ -1,0 +1,94 @@
+<div *ngIf="product" class="product-container">
+    <div class="product-image">
+        <img [src]="product.img" [alt]="product.name" />
+    </div>
+
+    <div class="product-details">
+        <h2 class="product-title">{{ product.name }}</h2>
+
+        <div class="product-rating">
+            <div class="stars">
+                <span *ngFor="let star of [1,2,3,4,5]" class="star" [class.filled]="star <= product.rating">★</span>
+            </div>
+            <span class="rating-text">({{ product.reviewsCount }} đánh giá)</span>
+        </div>
+
+        <p class="product-price">
+            <span class="original-price">{{ product.originalPrice | currency: 'VND' }}</span>
+            <span class="discounted-price">{{ product.discountedPrice | currency: 'VND' }}</span>
+            <span class="discount-percentage">(-{{ (100 - product.discountedPrice / product.originalPrice * 100).toFixed(2) }}%)</span>
+        </p>
+
+        <div class="return-policy">
+            <h4>Chính sách trả hàng:</h4>
+            <p>{{ product.returnPolicy }}</p>
+        </div>
+
+        <div class="shipping-info">
+            <h4>Thông tin vận chuyển:</h4>
+            <p>{{ product.shippingInfo }}</p>
+        </div>
+
+        <div class="product-options">
+            <div *ngIf="product.comboDeals" class="option">
+                <label for="combo">Combo khuyến mãi:</label>
+                <div class="combo-options">
+                    <ng-container *ngFor="let deal of product.comboDeals">
+                        <input type="radio" name="combo" [id]="'combo' + deal" [value]="deal"
+                            [(ngModel)]="selectedCombo">
+                        <label [for]="'combo' + deal" class="combo-option">{{ deal }}</label>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="option">
+                <label for="color">Color:</label>
+                <div class="color-options">
+                    <ng-container *ngFor="let color of product.colors">
+                        <input type="radio" name="color" [id]="'color' + color" [value]="color"
+                            [(ngModel)]="selectedColor">
+                        <label [for]="'color' + color" class="color-option">{{ color }}</label>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="option">
+                <label for="size">Size:</label>
+                <div class="size-options">
+                    <ng-container *ngFor="let size of product.size">
+                        <input type="radio" name="size" [id]="'size' + size" [value]="size" [(ngModel)]="selectedSize">
+                        <label [for]="'size' + size" class="size-option">{{ size }}</label>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="option">
+                <label for="quantity">Số lượng:</label>
+                <div class="quantity-control">
+                    <button type="button" class="quantity-btn" (click)="decreaseQuantity()">-</button>
+                    <input type="number" id="quantity" name="quantity" min="1" [value]="quantity"
+                        [(ngModel)]="quantity" />
+                    <button type="button" class="quantity-btn" (click)="increaseQuantity()">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="add-to-cart" (click)="addToCart()">Thêm vào giỏ hàng</button>
+            <button type="button" class="buy-now" (click)="buyNow()">Mua ngay</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="product" class="product-description">
+    <div class="highlighted-title">
+        <h3>Thông tin chi tiết sản phẩm</h3>
+    </div>
+    <p>{{ product.description }}</p>
+</div>
+
+<div *ngIf="product?.length" class="similar-products">
+    <h3>Sản phẩm tương tự</h3>
+    <div class="product-list">
+        <!-- Similar Products List -->
+    </div>
+</div>
