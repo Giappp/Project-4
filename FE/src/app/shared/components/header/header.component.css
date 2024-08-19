@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  margin-right: 20px;
+}
+
+.search-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+
+.list-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+.list-nav li {
+  display: inline;
+  padding: 3px;
+}
+.searchResult{
+  padding: 8px;
+  cursor: pointer;
+}
+.searchResult:hover{
+  background-color: white;
+}
+.searchDrop{
+  position: absolute;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  background-color: white;
+  color: black;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

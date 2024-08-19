@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
@@ -7,11 +7,19 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductServiceService {
-  private baseUrl = 'http://localhost:3000/clothes'; // URL to json-server API
+  baseUrl!: string;
+  constructor(private httpClient: HttpClient) {
+    this.baseUrl = "http://localhost:3000/";
+  };
 
-  constructor(private http: HttpClient) {}
+  public getAllProducts() : Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`${this.baseUrl}clothes` , {headers: this.getHeader()});
+  }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl);
+  private getHeader()
+  {
+    const header = new HttpHeaders()
+    .set('Content-Type', 'application/json');
+    return header;
   }
 }
