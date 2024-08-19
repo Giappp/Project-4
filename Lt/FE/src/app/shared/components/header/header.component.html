@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="logo">MyApp</div>
+    <ul class="list-nav">
+      <li>
+        <a href="">Home</a>
+      </li>
+      <li>
+        <a href="">Product</a>
+      </li>
+      <li>
+        <a href="">Contact us</a>
+      </li>
+    </ul>
+    <div class="search-container">
+      <input
+        [(ngModel)]="searchText"
+        (input)="checkInput($event)"
+        aria-label="Search"
+        type="text"
+        placeholder="search"
+        style="color: black;"
+      />
+      <ul class="searchDrop" *ngIf="searchText.length > 0">
+        <li class="searchResult" *ngFor="let item of productNames | filter: searchText" (click)="selectedItem(item)">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
