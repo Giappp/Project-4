@@ -4,8 +4,13 @@ import { PageModule } from './page/page.module';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'page',
     loadChildren: () => import('./page/page.module').then((m) => m.PageModule),
+  },
+  {
+    path: '',
+    redirectTo: 'page/home',
+    pathMatch: 'full',
   },
   {
     path: 'products',
