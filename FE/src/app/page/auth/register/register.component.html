@@ -14,7 +14,7 @@
       <input id="password" type="password" class="form-control" formControlName="password" required />
       <div *ngIf="!formRegisGroup.get('password')?.valid || (formRegisGroup.get('password')?.dirty)" class="error">
         <!-- check after touched -->
-        <small *ngIf="formRegisGroup.get('password')?.hasError('passwordValidator') && (formRegisGroup.get('password')?.touched || formRegisGroup.get('password')?.dirty)">
+        <small *ngIf="formRegisGroup.get('password')?.hasError('passwordInvalid') && (formRegisGroup.get('password')?.touched || formRegisGroup.get('password')?.dirty)">
           password need at least 1 uppercase letter and 1 digit
         </small>
         <!-- check before click regis but -->
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label for="re-password">Confirm Password</label>
       <input id="re-password"  type="password" class="form-control" formControlName="confirmPassword" required/>
-      <div *ngIf="formRegisGroup.get('confirmPassword')?.invalid"  class="error">
+      <div *ngIf="formRegisGroup.hasError('passMisMatch')  && (formRegisGroup.touched || formRegisGroup.dirty)"  class="error">
         confirm password is not the same
       </div>
     </div>
@@ -49,15 +49,12 @@
 
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input maxlength="11" id="phone" formControlName="phone" type="number" class="form-control" required />
+      <input maxlength="10" id="phone" formControlName="phone" type="tel" class="form-control" required />
       <div *ngIf="!phone?.valid"  class="error">
         <small *ngIf="phone.hasError('required')">
           please enter a phone
         </small>
-        <small *ngIf="phone.hasError('maxLength') || phone.hasError('minLength')" >
-          phonenumber only have 11 digit
-        </small>
-        <small *ngIf="phone.hasError('phoneValidator')">
+        <small *ngIf="phone.hasError('phoneNotMatch')">
           please check your number again
         </small>
       </div>

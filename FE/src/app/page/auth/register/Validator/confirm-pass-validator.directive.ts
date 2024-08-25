@@ -8,8 +8,7 @@ export const confirmPassValidator: ValidatorFn = (
 ): ValidationErrors | null => {
   const password = control.get('password');
   const confirmPass = control.get('confirmPassword');
-
-  return password && confirmPass && password.value === confirmPass.value ? {passMisMatch: true} : null;
+  return password && confirmPass && (password.value !== confirmPass.value) ? {passMisMatch: true} : null;
 }
 
 @Directive({
