@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { ProductServiceService } from '../../../products/services/product-service.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../../products/models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { Product } from '../../../products/models/product';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
   @Input() items: string[] = [];
   @Output() selectItem = new EventEmitter<string>();
 
@@ -19,7 +21,7 @@ export class HeaderComponent {
   productNames: String[] = [];
   check!: string;
 
-  constructor(private productService: ProductServiceService) {
+  constructor(private productService: ProductServiceService, private router: Router) {
     this.product$ = productService.getAllProducts();
 
     this.product$.subscribe(val => {
@@ -45,5 +47,9 @@ export class HeaderComponent {
 
   private nomallizeString(args: string): string {
     return args.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
+  }
+
+  navigateRegis() {
+    this.router.navigate(['/auth/register'])
   }
 }
