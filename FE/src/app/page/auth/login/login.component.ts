@@ -1,31 +1,39 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { log } from 'console';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export default class LoginComponent {
-  fb = inject(FormBuilder);
-  // authService = inject(AuthService);
-  router = inject(Router)
-
+export class LoginComponent implements OnInit {
   loginForm !: FormGroup;
+  errorMessage: string = '';
+
+  constructor(private fb: FormBuilder, private router: Router
+    //private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.compose([Validators.required, Validators.email])]
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required]
     })
   }
 
-  login() {
-    console.log(this.loginForm.value);
+  login(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      // this.authService.login(email, password).subscribe(
+      //   response => {
+      //     console.log('Login successfull', response);
+      //     this.router.navigate(['/home-page']);
+      //   },
+      //   errorMes => {
+      //     this.errorMessage = 'Invalid login credentials';
+      //   }
+      // ); // chua co authService
+    }
   }
 }

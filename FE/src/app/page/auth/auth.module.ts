@@ -7,10 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPassValidatorDirective } from './register/Validator/confirm-pass-validator.directive';
 import { PassValidatorDirective } from './register/Validator/passwordValidator/pass-validator.directive';
 import { PhoneValidatorDirective } from './register/Validator/phoneValidator/phone-validator.directive';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, ConfirmPassValidatorDirective, PassValidatorDirective, PhoneValidatorDirective],
+  declarations: [RegisterComponent, ConfirmPassValidatorDirective, PassValidatorDirective, PhoneValidatorDirective, LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
