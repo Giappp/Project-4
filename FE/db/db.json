@@ -1,7 +1,7 @@
 {
-    "clothes": [
-        {
-      "id": 1,
+  "clothes": [
+    {
+      "id": "1",
       "name": "T-Shirt",
       "category": "Tops",
       "price": 19.99,
@@ -10,7 +10,7 @@
       "imageUrl": "assets/images/t-shirt.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jeans",
       "category": "Bottoms",
       "price": 49.99,
@@ -19,7 +19,7 @@
       "imageUrl": "assets/images/jeans.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Jacket",
       "category": "Outerwear",
       "price": 89.99,
@@ -27,77 +27,84 @@
       "color": "Black",
       "imageUrl": "assets/images/jacket.jpg"
     }
-    ],
-    "user": [
-        {
-      "id": 1,
+  ],
+  "user": [
+    {
+      "id": "1",
       "username": "johndoe",
       "password": "password123",
       "email": "johndoe@example.com",
       "phone": "1234567890"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "janedoe",
       "password": "securepass",
       "email": "janedoe@example.com",
       "phone": "2345678901"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "bobsmith",
       "password": "bobspassword",
       "email": "bobsmith@example.com",
       "phone": "3456789012"
     },
     {
-      "id": 4,
+      "id": "4",
       "username": "alicejones",
       "password": "alice1234",
       "email": "alicejones@example.com",
       "phone": "4567890123"
     },
     {
-      "id": 5,
+      "id": "5",
       "username": "charlieb",
       "password": "charliepwd",
       "email": "charlieb@example.com",
       "phone": "5678901234"
     },
     {
-      "id": 6,
+      "id": "6",
       "username": "danielw",
       "password": "danielpass",
       "email": "danielw@example.com",
       "phone": "6789012345"
     },
     {
-      "id": 7,
+      "id": "7",
       "username": "emilyr",
       "password": "emilysecure",
       "email": "emilyr@example.com",
       "phone": "7890123456"
     },
     {
-      "id": 8,
+      "id": "8",
       "username": "frankk",
       "password": "frank123",
       "email": "frankk@example.com",
       "phone": "8901234567"
     },
     {
-      "id": 9,
+      "id": "9",
       "username": "graceh",
       "password": "gracepassword",
       "email": "graceh@example.com",
       "phone": "9012345678"
     },
     {
-      "id": 10,
+      "id": "10",
       "username": "harryp",
       "password": "harrysecure",
       "email": "harryp@example.com",
       "phone": "0123456789"
+    },
+    {
+      "id": 12,
+      "username": "lt",
+      "password": "L1",
+      "email": "L@gmail.com",
+      "phone": "0999999999"
     }
-    ]
+  ]
 }
