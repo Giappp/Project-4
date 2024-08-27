@@ -9,7 +9,7 @@ import { ProductServiceService } from '../../../../products/services/product-ser
   styleUrl: './accessory-collection.component.css'
 })
 export class AccessoryCollectionComponent {
-products$!: Observable<Product[]>;
+  products$!: Observable<Product[]>;
   products!: Product[];
   constructor(private productService: ProductServiceService) {
     this.products$ = productService.getAllProducts();

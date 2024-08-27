@@ -26,6 +26,42 @@
       "size": "L",
       "color": "Black",
       "imageUrl": "assets/images/jacket.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Sneakers",
+      "category": "Footwear",
+      "price": 59.99,
+      "size": "10",
+      "color": "White",
+      "imageUrl": "assets/images/sneakers.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Cap",
+      "category": "Accessories",
+      "price": 15.99,
+      "size": "One Size",
+      "color": "Black",
+      "imageUrl": "assets/images/cap.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Dress",
+      "category": "Dresses",
+      "price": 39.99,
+      "size": "S",
+      "color": "Green",
+      "imageUrl": "assets/images/dress.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Sweater",
+      "category": "Tops",
+      "price": 29.99,
+      "size": "M",
+      "color": "Gray",
+      "imageUrl": "assets/images/sweater.jpg"
     }
   ],
   "user": [

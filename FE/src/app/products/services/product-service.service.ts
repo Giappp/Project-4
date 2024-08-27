@@ -12,14 +12,13 @@ export class ProductServiceService {
     this.baseUrl = "http://localhost:3000/";
   };
 
-  public getAllProducts() : Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`${this.baseUrl}clothes` , {headers: this.getHeader()});
+  public getAllProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`${this.baseUrl}clothes`, { headers: this.getHeader() });
   }
 
-  private getHeader()
-  {
+  private getHeader() {
     const header = new HttpHeaders()
-    .set('Content-Type', 'application/json');
+      .set('Content-Type', 'application/json');
     return header;
   }
 }

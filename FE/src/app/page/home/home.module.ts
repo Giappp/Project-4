@@ -7,6 +7,7 @@ import {
   WinterCollectionComponent,
 } from './components/index';
 import { SharedModule } from '../../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { SharedModule } from '../../shared/shared.module';
     SummerCollectionComponent,
     WinterCollectionComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
 })
 export class HomeModule {}
