@@ -4,6 +4,9 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { confirmPassValidator } from './Validator/confirm-pass-validator.directive';
 import { passwordValidator } from './Validator/passwordValidator/pass-validator.directive';
 import { phoneValidator } from './Validator/phoneValidator/phone-validator.directive';
+import { UserService } from '../../../core/userService/user.service';
+import { randomInt, randomUUID } from 'crypto';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +17,10 @@ export class RegisterComponent implements OnInit {
 
   formcheck!: boolean;
   formRegisGroup!: FormGroup;
+  user = {} as User;
+  regisOb!: Observable<User>;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
 
   ngOnInit(): void {
     this.formRegisGroup = this.fb.group({
@@ -32,11 +37,26 @@ export class RegisterComponent implements OnInit {
     if(!this.formRegisGroup.valid) {
       console.log("not valid");
       this.formcheck = true;
+    } else {
+      console.log("valid");
+      this.formcheck = false;
     }
   }
 
   regis() {
-    console.log(this.formcheck);
+    if(this.formcheck) {
+      console.log("cant regis");
+    } else {
+      this.user.id = 12;
+      this.user.username = this.username?.value;
+      this.user.password = this.formRegisGroup.get('password')?.value;
+      this.user.email = this.email.value;
+      this.user.phone = this.phone.value;
+      this.regisOb = this.userService.insertUser(this.user);
+      this.regisOb.subscribe(val => {
+        console.log("success full");
+      });
+    }
   }
 
   get username() {
