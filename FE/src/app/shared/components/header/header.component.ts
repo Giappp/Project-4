@@ -52,4 +52,8 @@ export class HeaderComponent {
   navigateRegis() {
     this.router.navigate(['/auth/register'])
   }
+
+  navigateLogin() {
+    this.router.navigate(['/auth/login'])
+  }
 }
