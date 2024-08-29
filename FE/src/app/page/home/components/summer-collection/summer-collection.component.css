@@ -27,6 +27,8 @@
 .card-img{
   background-color: #333;
   box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  width: 150px;
+  height: 150px;
 }
 .img {
   width: 100%;

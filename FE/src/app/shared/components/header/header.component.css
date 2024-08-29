@@ -1,0 +1,33 @@
+.header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Căn các mục về phía bên trái */
+    padding: 6px 0;
+  }
+  
+  .navbar-container ul {
+    display: flex;
+    align-items: center;
+    margin-left: 16px; /* Để đảm bảo navbar và search sát nhau */
+  }
+  
+  .search-container {
+    margin-left: 16px; /* Điều chỉnh khoảng cách giữa search và navbar */
+  }
+  
+  .search-container input {
+    width: 100%;
+    max-width: 320px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .login-register-container {
+    margin-left: auto;
+    display: flex;
+  }
+  

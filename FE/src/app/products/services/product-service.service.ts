@@ -16,6 +16,10 @@ export class ProductServiceService {
     return this.httpClient.get<Product[]>(`${this.baseUrl}clothes`, { headers: this.getHeader() });
   }
 
+  getProductById(id: number): Observable<any> {
+    return this.httpClient.get<Product>(`${this.baseUrl}clothes/${id}`, { headers: this.getHeader() });
+  }
+
   private getHeader() {
     const header = new HttpHeaders()
       .set('Content-Type', 'application/json');

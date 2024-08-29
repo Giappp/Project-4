@@ -1,14 +1,14 @@
 <header class="px-12">
   <nav class="font-semibold text-lg">
     <!-- Navbar container -->
-    <div class="relative flex items-center py-6 justify-start">
+    <div class="relative flex items-center py-6">
       <div class="absolute inset-x-0 bottom-0 h-1 bg-slate-900/5"></div>
       <div class="flex items-center">
         <a [routerLink]="['page/home']" class="text-slate-900 cursor-pointer hover:text-color2 duration-200">
           SKBDShop</a>
         <div class="seperator h-10 bg-gray-200 mx-2 w-[1px]"></div>
       </div>
-      <ul class="ml-auto hidden lg:flex lg:items-start">
+      <ul class="flex items-start">
         <li
           class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
           <a [routerLink]="['page/home']">Home</a>
@@ -23,7 +23,7 @@
         </li>
       </ul>
       <!-- Search Container -->
-      <div class="mx-auto max-w-xl">
+      <div class="ml-4 max-w-xl">
         <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
           <div class="grid place-items-center h-full w-12 text-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -34,7 +34,7 @@
           </div>
           <!-- Search input and result -->
           <input [(ngModel)]="searchText" (input)="checkInput($event)" aria-label="Search" type="text"
-            placeholder="search"
+            placeholder="Search"
             class="h-full w-full outline-none text-sm text-gray-700 pr-2 xl:duration-200 xl:max-w-xl focus:max-w-2xl" />
           <div class="">
             <ul class="" *ngIf="searchText.length > 0">
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <!-- Login - Register Contaner -->
+      <!-- Login - Register Container -->
       <div class="flex flex-row ml-auto">
         <div
           class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">

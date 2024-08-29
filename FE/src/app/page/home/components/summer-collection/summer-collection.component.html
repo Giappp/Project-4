@@ -1,18 +1,20 @@
-<div class="card-hold" style="width: 13rem;"  *ngFor="let item of product">
-  <div role="button" class="card-button"></div>
-  <div class="card-img">
-    <img [src]="item.imageUrl" aria-hidden="falsed" draggable="false" loading="lazy" class="img">
-  </div>
-  <div class="card-info">
-    <div class="card-infor-holder">
+<div class="card-hold" style="width: 13rem;" *ngFor="let item of product">
+
+  <a [routerLink]="['/product-detail', item.id]" class="card-link">
+
+    <div role="button" class="card-button"></div>
+    <div class="card-img">
+      <img [src]="item.imageUrl" aria-hidden="falsed" draggable="false" loading="lazy" class="img">
+    </div>
+    <div class="card-info">
+      <div class="card-infor-holder">
         <p style="overflow-wrap: anywhere;" class="stageName">
           <span class="main-Infor">{{item.name}}</span>
         </p>
-      <div class="descript" style="padding: 3px;">
-        {{item.price}}
+        <div class="descript" style="padding: 3px;">
+          {{item.price}}
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
-
-
