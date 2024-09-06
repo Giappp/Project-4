@@ -2,66 +2,75 @@
   "clothes": [
     {
       "id": "1",
-      "name": "T-Shirt",
+      "name": "Regular Fit Linen-blend utility shirt",
       "category": "Tops",
       "price": 19.99,
       "size": "M",
-      "color": "Red",
-      "imageUrl": "assets/images/t-shirt.jpg"
+      "color": "Black",
+      "imageUrl": "assets/images/shirt.jpg"
     },
     {
       "id": "2",
-      "name": "Jeans",
+      "name": "Slim Fit Twill trousers",
       "category": "Bottoms",
       "price": 49.99,
       "size": "32",
       "color": "Blue",
-      "imageUrl": "assets/images/jeans.jpg"
+      "imageUrl": "assets/images/trousers.jpg"
     },
     {
       "id": "3",
-      "name": "Jacket",
+      "name": "Sunglasses",
       "category": "Outerwear",
       "price": 89.99,
-      "size": "L",
+      "size": "",
       "color": "Black",
-      "imageUrl": "assets/images/jacket.jpg"
+      "imageUrl": "assets/images/sunglasses.jpg"
     },
     {
       "id": "4",
-      "name": "Sneakers",
+      "name": "Slim Fit Textured-knit polo Shirt",
       "category": "Footwear",
       "price": 59.99,
       "size": "10",
       "color": "White",
-      "imageUrl": "assets/images/sneakers.jpg"
+      "imageUrl": "assets/images/SlimFitTextured-knit-polo-shirt.jpg"
     },
     {
       "id": "5",
-      "name": "Cap",
+      "name": "Regular Fit Textured-knit polo Shirt",
       "category": "Accessories",
       "price": 15.99,
       "size": "One Size",
       "color": "Black",
-      "imageUrl": "assets/images/cap.jpg"
+      "imageUrl": "assets/images/regular-fit-textured-knit-polo-shirt.jpg"
     },
     {
       "id": "6",
-      "name": "Dress",
-      "category": "Dresses",
+      "name": "Regular Fit Linen-blend trousers",
+      "category": "Trousers",
       "price": 39.99,
       "size": "S",
       "color": "Green",
-      "imageUrl": "assets/images/dress.jpg"
+      "imageUrl": "assets/images/regular-fit-linen-blend-trousers.jpg"
     },
     {
       "id": "7",
-      "name": "Sweater",
+      "name": "Slim Fit Cotton Trousers",
       "category": "Tops",
       "price": 29.99,
       "size": "M",
       "color": "Gray",
-      "imageUrl": "assets/images/sweater.jpg"
+      "imageUrl": "assets/images/slim-fit-cotton-trousers.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Slim Fit Textured-knit polo Shirt",
+      "category": "Tops",
+      "price": 29.99,
+      "size": "M",
+      "color": "Gray",
+      "imageUrl": "assets/images/slim-fit-textured-knit-polo-shirt.jpg"
     }
   ],
   "user": [

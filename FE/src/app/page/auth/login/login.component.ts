@@ -5,21 +5,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  loginForm !: FormGroup;
+  loginForm!: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router
-    //private authService: AuthService
-  ) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) //private authService: AuthService
+  {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required]
-    })
+      password: ['', Validators.required],
+    });
   }
 
   login(): void {

@@ -1,5 +1,5 @@
 <!-- Container -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 overflow-auto">
     <!-- product card -->
     <div *ngFor="let product of products">
         <a [routerLink]="['/{{product.id}}']" class="flex flex-col hover:drop-shadow-sm">
