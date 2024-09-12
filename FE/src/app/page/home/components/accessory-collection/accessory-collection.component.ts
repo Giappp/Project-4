@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../../../../products/models/product';
 import { ProductServiceService } from '../../../../products/services/product-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accessory-collection',
@@ -11,11 +12,15 @@ import { ProductServiceService } from '../../../../products/services/product-ser
 export class AccessoryCollectionComponent {
   products$!: Observable<Product[]>;
   products!: Product[];
+  private router = inject(Router);
   constructor(private productService: ProductServiceService) {
     this.products$ = productService.getAllProducts();
 
     this.products$.subscribe((val) => {
       this.products = val;
     });
+  }
+  goDetail(item: any): void {
+    this.router.navigate(['/product-detail', item.id]);
   }
 }

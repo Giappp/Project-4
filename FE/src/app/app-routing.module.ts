@@ -1,15 +1,15 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageModule } from './page/page.module';
+import { HomeComponent } from './page/home/components';
 
 const routes: Routes = [
   {
-    path: 'page',
-    loadChildren: () => import('./page/page.module').then((m) => m.PageModule),
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: '',
-    redirectTo: 'page/home',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {

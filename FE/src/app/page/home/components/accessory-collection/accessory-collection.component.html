@@ -10,7 +10,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 overflow-auto">
   <div class="card-hold" *ngFor="let item of products">
 
-    <a [routerLink]="['/product-detail', item.id]" class="card-link">
+    <a (click)="goDetail(item)" class="card-link">
 
       <div role="button" class="card-button"></div>
       <div class="card-img">
