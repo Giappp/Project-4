@@ -1,16 +1,19 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './page/home/components';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: '',
+    loadComponent: () =>
+      import('./page/home/homepage/home.component').then(
+        (c) => c.HomeComponent
+      ),
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    loadComponent: () =>
+      import('./layout/header/header.component').then((m) => m.HeaderComponent),
+    outlet: 'navbar',
   },
   {
     path: 'products',

@@ -1,13 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../../../../products/models/product';
-import { ProductServiceService } from '../../../../products/services/product-service.service';
-import { Router } from '@angular/router';
+import { Product } from '../../../products/models/product';
+import { ProductServiceService } from '../../../products/services/product-service.service';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-summer-collection',
   templateUrl: './summer-collection.component.html',
   styleUrl: './summer-collection.component.css',
+  imports: [RouterModule, CommonModule],
 })
 export class SummerCollectionComponent implements OnInit {
   product$!: Observable<Product[]>;

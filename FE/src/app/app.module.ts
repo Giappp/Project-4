@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "./layout/footer/footer.component";
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     ProductsModule,
     FormsModule,
-  ],
+    FooterComponent
+],
   providers: [provideClientHydration(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
