@@ -1,18 +1,28 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ProductServiceService } from '../../products/services/product-service.service';
+import { ProductService } from '../../products/services/product.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../products/models/product';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  imports: [RouterModule, CommonModule, FormsModule, SharedModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    SharedModule,
+    FontAwesomeModule,
+  ],
 })
 export class HeaderComponent {
   @Input() items: string[] = [];
@@ -26,11 +36,12 @@ export class HeaderComponent {
   check!: string;
 
   constructor(
-    private productService: ProductServiceService,
-    private router: Router
+    private productService: ProductService,
+    private router: Router,
+    library: FaIconLibrary
   ) {
     this.product$ = productService.getAllProducts();
-
+    library.addIcons();
     this.product$.subscribe((val) => {
       this.products = val;
       this.products.forEach((val) => {

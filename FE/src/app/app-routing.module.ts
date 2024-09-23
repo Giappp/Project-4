@@ -16,6 +16,11 @@ const routes: Routes = [
     outlet: 'navbar',
   },
   {
+    path: 'about',
+    loadComponent: () =>
+      import('./page/about/about.component').then((c) => c.AboutComponent),
+  },
+  {
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),

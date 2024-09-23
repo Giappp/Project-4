@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../../../products/models/product';
-import { ProductServiceService } from '../../../products/services/product-service.service';
+import { ProductService } from '../../../products/services/product.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -17,7 +17,7 @@ export class SummerCollectionComponent implements OnInit {
   product!: Product[];
   private router = inject(Router);
 
-  constructor(private productService: ProductServiceService) {}
+  constructor(private productService: ProductService) {}
   ngOnInit(): void {
     this.product$ = this.productService.getAllProducts();
     this.product$.subscribe((val) => {

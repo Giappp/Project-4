@@ -1,4 +1,18 @@
 <div class="w-4/5 mx-auto">
+  <div class="flex">
+    <!-- <swiper-container *ngIf="isBrowser" loop="true" navigation="true" pagination="true">
+      <swiper-slide *ngFor="let imgUrl of imgs" class="flex items-center relative">
+        <img ngSrc="{{ imgUrl }}" class="w-full h-auto" placeholder [placeholderConfig]="{blur: true}">
+        <div class="absolute w-3/5 mx-auto items-center flex">
+          <h1>Shopping with SKBD</h1>
+        </div>
+      </swiper-slide>
+    </swiper-container> -->
+    <img ngSrc="{{img}}" class="flex items-center relative w-max h-auto" width="400" height="200">
+    <div class="absolute content-center">
+      <h1 class="text-center">Hello</h1>
+    </div>
+  </div>
   <h5 class="text-lg font-semibold mb-4">Collections</h5>
   <div class="content space-y-4">
     <div class="summer">

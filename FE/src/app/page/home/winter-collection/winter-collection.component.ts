@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router, RouterModule } from '@angular/router';
 import { Product } from '../../../products/models/product';
-import { ProductServiceService } from '../../../products/services/product-service.service';
+import { ProductService } from '../../../products/services/product.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class WinterCollectionComponent {
   products$!: Observable<Product[]>;
   products!: Product[];
   private router = inject(Router);
-  constructor(private productService: ProductServiceService) {
+  constructor(private productService: ProductService) {
     this.products$ = productService.getAllProducts();
 
     this.products$.subscribe((val) => {

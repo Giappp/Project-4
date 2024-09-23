@@ -9,8 +9,8 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from "./layout/footer/footer.component";
-
+import { FooterComponent } from './layout/footer/footer.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -19,9 +19,10 @@ import { FooterComponent } from "./layout/footer/footer.component";
     SharedModule,
     ProductsModule,
     FormsModule,
-    FooterComponent
-],
+    FooterComponent,
+  ],
   providers: [provideClientHydration(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
