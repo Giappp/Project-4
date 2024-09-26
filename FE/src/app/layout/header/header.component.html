@@ -1,9 +1,21 @@
-<header class="px-8 bg-white shadow-sm">
-    <div class="container flex items-center mx-auto px-4 py-3 justify-between">
-        <a [routerLink]="['/']" class="text-slate-900 cursor-pointer hover:text-color2 duration-200 text-xl font-bold">
-            SKBDShop</a>
+<header class="px-8 bg-white shadow-sm z-50 top-0 absolute w-full">
+    <div class="container flex items-center mx-auto px-4 py-3">
+        <div class="flex flex-shrink-0">
+            <a [routerLink]="['/']"
+                class="text-slate-50 cursor-pointer hover:text-color2 duration-200 text-xl font-bold">
+                SKBDShop</a>
+        </div>
+        <div class="flex ml-6">
+            <a [routerLink]="['/']" class="text-slate-50 cursor-pointer hover:text-color2 duration-200 text-lg mx-4">
+                Home</a>
+            <a [routerLink]="['/']" class="text-slate-50 cursor-pointer hover:text-color2 duration-200 text-lg mx-4">
+                About us</a>
+            <a [routerLink]="['/']" class="text-slate-50 cursor-pointer hover:text-color2 duration-200 text-lg mx-4">
+                Products</a>
+        </div>
+
         <!-- Search Container -->
-        <div class="ml-4 max-w-xl">
+        <div class="flex lg:max-w-96 w-full justify-end mx-auto">
             <div
                 class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden bg-gray-100">
                 <div class="grid place-items-center h-full w-12 text-gray-300">
@@ -13,48 +25,34 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
-                <div>
-                    <!-- Search input and result -->
-                    <input [(ngModel)]="searchText" (input)="checkInput($event)" aria-label="Search" type="text"
-                        placeholder="Search"
-                        class="h-full w-full outline-none text-sm text-gray-700 pr-2 xl:duration-200 xl:max-w-xl focus:max-w-2xl bg-transparent" />
-                    <div class="">
-                        <ul class="" *ngIf="searchText.length > 0">
-                            <li class="flex-row" *ngFor="let item of productNames | filter: searchText"
-                                (click)="selectedItem(item)">
-                                {{item}}
-                            </li>
-                        </ul>
-                    </div>
+                <input [(ngModel)]="searchText" (input)="checkInput($event)" aria-label="Search" type="text"
+                    placeholder="Search"
+                    class="h-full w-full outline-none text-sm text-gray-700 pr-2 xl:duration-200 xl:max-w-xl bg-transparent" />
+                <!-- Search input and result -->
+                <div class="">
+                    <ul class="" *ngIf="searchText.length > 0">
+                        <li class="flex-row" *ngFor="let item of productNames | filter: searchText"
+                            (click)="selectedItem(item)">
+                            {{item}}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Login - Register Container -->
-        <!-- <div class="flex flex-row">
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateRegis()">Sign Up</a>
-            </div>
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateLogin()">Sign In</a>
-            </div>
-        </div> -->
         <!-- Icon container -->
-        <div class="flex flex-row">
+        <div class="flex flex-row justify-between">
 
-            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer"
                 [ngClass]="{'active' : activeItem == 'shopping-cart'}">
                 <a mat-icon-button (click)="setActive('shopping-cart')">
-                    <fa-icon [icon]="'shopping-cart'"></fa-icon>
+                    <fa-icon [icon]="'shopping-cart'" class="text-slate-50"></fa-icon>
                 </a>
             </div>
 
-            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer"
                 [ngClass]="{'active' : activeItem == 'user'}">
                 <a mat-icon-button [matMenuTriggerFor]="userMenu" (click)="setActive('user')">
-                    <fa-icon [icon]="'user'"></fa-icon>
+                    <fa-icon [icon]="'user'" class="text-slate-50"></fa-icon>
                 </a>
                 <mat-menu #userMenu="matMenu" yPosition="below" xPosition="before"
                     class="ease-out duration-100 transform opacity-100 scale-100">
@@ -64,7 +62,7 @@
             </div>
         </div>
     </div>
-    <nav class="relative flex items-center py-6 ">
+    <nav class="flex items-center py-6 justify-between">
         <!-- Navigation List-->
         <ul class="flex items-start">
             <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
