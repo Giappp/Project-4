@@ -11,6 +11,7 @@ import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,7 +22,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
     FooterComponent,
   ],
-  providers: [provideClientHydration(), provideHttpClient(withFetch())],
+  providers: [provideClientHydration(), provideHttpClient(withFetch()), provideAnimationsAsync()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

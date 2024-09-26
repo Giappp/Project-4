@@ -43,22 +43,24 @@
         </div> -->
         <!-- Icon container -->
         <div class="flex flex-row">
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateRegis()"><fa-icon [icon]="'heart'"></fa-icon></a>
+
+            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+                [ngClass]="{'active' : activeItem == 'shopping-cart'}">
+                <a mat-icon-button (click)="setActive('shopping-cart')">
+                    <fa-icon [icon]="'shopping-cart'"></fa-icon>
+                </a>
             </div>
 
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateRegis()"><fa-icon [icon]="'shopping-cart'"></fa-icon></a>
-            </div>
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateRegis()"><fa-icon [icon]="'globe'"></fa-icon></a>
-            </div>
-            <div
-                class="px-4 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer active">
-                <a style="cursor: pointer;" (click)="navigateRegis()"><fa-icon [icon]="'user'"></fa-icon></a>
+            <div class="px-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+                [ngClass]="{'active' : activeItem == 'user'}">
+                <a mat-icon-button [matMenuTriggerFor]="userMenu" (click)="setActive('user')">
+                    <fa-icon [icon]="'user'"></fa-icon>
+                </a>
+                <mat-menu #userMenu="matMenu" yPosition="below" xPosition="before"
+                    class="ease-out duration-100 transform opacity-100 scale-100">
+                    <button mat-menu-item>Login</button>
+                    <button mat-menu-item>Sign In</button>
+                </mat-menu>
             </div>
         </div>
     </div>
