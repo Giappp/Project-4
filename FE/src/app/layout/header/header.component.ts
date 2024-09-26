@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { ProductService } from '../../products/services/product.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../products/models/product';
@@ -10,6 +17,9 @@ import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   standalone: true,
@@ -22,6 +32,9 @@ import {
     FormsModule,
     SharedModule,
     FontAwesomeModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconButton,
   ],
 })
 export class HeaderComponent {
@@ -34,11 +47,13 @@ export class HeaderComponent {
   products!: Product[];
   productNames: String[] = [];
   check!: string;
+  activeItem: string = '';
 
   constructor(
     private productService: ProductService,
     private router: Router,
-    library: FaIconLibrary
+    library: FaIconLibrary,
+    private eRef: ElementRef
   ) {
     this.product$ = productService.getAllProducts();
     library.addIcons();
@@ -69,12 +84,13 @@ export class HeaderComponent {
       .replace(/[\u0300-\u036f]/g, '')
       .toLocaleLowerCase();
   }
-
-  navigateRegis() {
-    this.router.navigate(['/auth/register']);
+  setActive(item: string) {
+    this.activeItem = item;
   }
-
-  navigateLogin() {
-    this.router.navigate(['/auth/login']);
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.activeItem = '';
+    }
   }
 }
