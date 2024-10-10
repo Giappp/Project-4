@@ -4,6 +4,7 @@ import {
   EventEmitter,
   HostListener,
   Input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { ProductService } from '../../products/services/product.service';
@@ -20,6 +21,7 @@ import {
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconButton } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   standalone: true,
@@ -35,12 +37,13 @@ import { MatIconButton } from '@angular/material/button';
     MatMenuModule,
     MatButtonModule,
     MatIconButton,
+    MatBadgeModule,
   ],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Input() items: string[] = [];
   @Output() selectItem = new EventEmitter<string>();
-
+  cartItem: number = 0;
   searchText = '';
   product!: any;
   product$!: Observable<Product[]>;
@@ -63,6 +66,9 @@ export class HeaderComponent {
         this.productNames.push(val.name);
       });
     });
+  }
+  ngOnInit(): void {
+    this.cartItem = 0;
   }
   checkInput($event: any) {
     this.check = $event.target.value;

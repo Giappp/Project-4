@@ -22,7 +22,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule,
     FooterComponent,
   ],
-  providers: [provideClientHydration(), provideHttpClient(withFetch()), provideAnimationsAsync()],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
