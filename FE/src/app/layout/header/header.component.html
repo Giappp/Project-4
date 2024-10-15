@@ -1,6 +1,6 @@
 <header class="bg-white shadow-sm z-50 top-0 w-full">
     <!-- Header content -->
-    <div class="bg-amber-100">
+    <div>
         <div class="container flex items-center mx-auto px-4 py-3 w-11/12">
             <div class="flex flex-shrink-0">
                 <a [routerLink]="['/']"
@@ -30,45 +30,31 @@
 
             <!-- Icon container -->
             <div class="flex flex-row sm:justify-between">
-                <div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer"
-                    [ngClass]="{'active' : activeItem == 'shopping-cart'}">
-                    <a mat-icon-button (click)="setActive('shopping-cart')">
-                        <div [matBadge]="15" class="items-center"></div>
-                        <fa-icon [icon]="'shopping-cart'" class="text-slate-800"></fa-icon>
-                    </a>
-                </div>
-
+                <app-shopping-cart></app-shopping-cart>
                 <div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer"
                     [ngClass]="{'active' : activeItem == 'user'}">
-                    <a mat-icon-button [matMenuTriggerFor]="userMenu" (click)="setActive('user')">
-                        <fa-icon [icon]="'user'" class="text-slate-800"></fa-icon>
-                    </a>
-                    <mat-menu #userMenu="matMenu" yPosition="below" xPosition="before"
-                        class="ease-out duration-100 transform opacity-100 scale-100">
-                        <button mat-menu-item class="bg-blue-500 hover:bg-blue-700 text-white">Login</button>
-                        <button mat-menu-item class="bg-blue-500 hover:bg-blue-700 text-white">Sign In</button>
-                    </mat-menu>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <nav class="flex py-6 items-center justify-between w-11/12 mx-auto">
-        <!-- Navigation List-->
-        <ul class="flex items-start">
-            <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                routerLinkActive="border-b-2 border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                <a [routerLink]="['/']" class="font-semibold text-base">Women</a>
-            </li>
-            <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                <a [routerLink]="['/']" class="font-semibold text-base">Men</a>
-            </li>
-            <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                <a [routerLink]="['/about']" class="font-semibold text-base">Sport</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="shadow-sm">
+        <nav class="flex py-4 items-center justify-between w-11/12 mx-auto">
+            <!-- Navigation List-->
+            <ul class="flex items-start">
+                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+                    routerLinkActive="border-b-2 border-green-500" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['/']" class="font-semibold text-base">Women</a>
+                </li>
+                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['/']" class="font-semibold text-base">Men</a>
+                </li>
+                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
+                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['/about']" class="font-semibold text-base">Sport</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>

@@ -18,10 +18,9 @@ import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconButton } from '@angular/material/button';
-import { MatBadgeModule } from '@angular/material/badge';
+import { Store } from '@ngrx/store';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
 
 @Component({
   standalone: true,
@@ -34,17 +33,13 @@ import { MatBadgeModule } from '@angular/material/badge';
     FormsModule,
     SharedModule,
     FontAwesomeModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconButton,
-    MatBadgeModule,
+    ShoppingCartComponent
   ],
 })
 export class HeaderComponent implements OnInit {
   @Input() items: string[] = [];
   @Output() selectItem = new EventEmitter<string>();
-  cartItem: number = 0;
-  searchText = '';
+  cartItems$ = this.store.select(selectCartItems);
   product!: any;
   product$!: Observable<Product[]>;
   products!: Product[];
@@ -56,7 +51,8 @@ export class HeaderComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     library: FaIconLibrary,
-    private eRef: ElementRef
+    private eRef: ElementRef,
+    private store: Store
   ) {
     this.product$ = productService.getAllProducts();
     library.addIcons();
@@ -67,9 +63,7 @@ export class HeaderComponent implements OnInit {
       });
     });
   }
-  ngOnInit(): void {
-    this.cartItem = 0;
-  }
+  ngOnInit(): void {}
   checkInput($event: any) {
     this.check = $event.target.value;
     console.log(this.check);
@@ -81,7 +75,6 @@ export class HeaderComponent implements OnInit {
     );
     console.log(this.product);
     this.productNames = [];
-    this.searchText = '';
   }
 
   private nomallizeString(args: string): string {

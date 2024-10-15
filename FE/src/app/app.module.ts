@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.state';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,6 +23,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ProductsModule,
     FormsModule,
     FooterComponent,
+    StoreModule.forRoot(reducers),
   ],
   providers: [
     provideClientHydration(),
