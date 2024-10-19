@@ -28,9 +28,5 @@ import { CommonModule, IMAGE_CONFIG, isPlatformBrowser, NgOptimizedImage, } from
 export class HomeComponent {
   img = 'assets/images/hero_img/hero.jpg';
   // Using Swiper library, which is purely client-side so this variable is a flag to render the swiper only in client-side
-  isBrowser: boolean;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+  swiperConfig: any;
 }
