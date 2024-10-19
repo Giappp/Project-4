@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -13,7 +10,9 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,8 +21,16 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule,
     FooterComponent,
   ],
-  providers: [provideClientHydration(), provideHttpClient(withFetch()), provideAnimationsAsync()],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync()
+  ],
+  bootstrap: [
+    AppComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
-export class AppModule {}
+export class AppModule { }

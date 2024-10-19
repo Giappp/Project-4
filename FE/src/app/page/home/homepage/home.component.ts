@@ -1,18 +1,8 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Inject,
-  PLATFORM_ID,
-} from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Inject, PLATFORM_ID, } from '@angular/core';
 import { SummerCollectionComponent } from '../summer-collection/summer-collection.component';
 import { AccessoryCollectionComponent } from '../accessory-collection/accessory-collection.component';
 import { WinterCollectionComponent } from '../winter-collection/winter-collection.component';
-import {
-  CommonModule,
-  IMAGE_CONFIG,
-  isPlatformBrowser,
-  NgOptimizedImage,
-} from '@angular/common';
+import { CommonModule, IMAGE_CONFIG, isPlatformBrowser, NgOptimizedImage, } from '@angular/common';
 @Component({
   standalone: true,
   selector: 'app-home',

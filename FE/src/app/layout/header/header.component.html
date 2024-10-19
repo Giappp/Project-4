@@ -56,8 +56,8 @@
                 </a>
                 <mat-menu #userMenu="matMenu" yPosition="below" xPosition="before"
                     class="ease-out duration-100 transform opacity-100 scale-100">
-                    <button mat-menu-item>Login</button>
-                    <button mat-menu-item>Sign In</button>
+                    <button mat-menu-item (click)="login()">Login</button>
+                    <button mat-menu-item (click)="signIn()">Sign In</button>
                 </mat-menu>
             </div>
         </div>

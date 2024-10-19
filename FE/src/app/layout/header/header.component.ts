@@ -93,4 +93,11 @@ export class HeaderComponent {
       this.activeItem = '';
     }
   }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
+  signIn() {
+    this.router.navigate(['/register']);
+  }
 }
