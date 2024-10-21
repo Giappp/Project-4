@@ -9,6 +9,7 @@ import { FlowbiteService } from './shared/services/flowbite.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+  title:string = 'Shopping with Skibidi';
   private iconLibrary = inject(FaIconLibrary);
 
   constructor(private flowbiteService: FlowbiteService) {
