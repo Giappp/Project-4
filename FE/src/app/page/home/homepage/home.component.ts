@@ -1,30 +1,25 @@
 import {
+  afterNextRender,
+  AfterViewInit,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-  Inject,
-  PLATFORM_ID,
+  ElementRef,
+  ViewChild,
 } from '@angular/core';
-import { SummerCollectionComponent } from '../summer-collection/summer-collection.component';
-import { AccessoryCollectionComponent } from '../accessory-collection/accessory-collection.component';
-import { WinterCollectionComponent } from '../winter-collection/winter-collection.component';
-import {
-  CommonModule,
-  IMAGE_CONFIG,
-  isPlatformBrowser,
-  NgOptimizedImage,
-} from '@angular/common';
+import { CommonModule, IMAGE_CONFIG, NgOptimizedImage } from '@angular/common';
+import { FlowbiteService } from '../../../shared/services/flowbite.service';
+import { Carousel } from 'flowbite';
+import { ProductService } from '../../../products/services/product.service';
+import { Observable } from 'rxjs';
+import { Product } from '../../../products/models/product';
+import { ProductCategory } from '../../../products/models/product-categories';
+import { ProductCategoryService } from '../../../products/services/product-category.service';
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [
-    SummerCollectionComponent,
-    AccessoryCollectionComponent,
-    WinterCollectionComponent,
-    CommonModule,
-    NgOptimizedImage,
-  ],
+  imports: [CommonModule, NgOptimizedImage],
   providers: [
     {
       provide: IMAGE_CONFIG,
@@ -36,7 +31,25 @@ import {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent {
-  img = 'assets/images/hero_img/hero.jpg';
-  // Using Swiper library, which is purely client-side so this variable is a flag to render the swiper only in client-side
-  swiperConfig: any;
+  carousel!: Carousel;
+  categories$!: Observable<ProductCategory[]>;
+  categories!: ProductCategory[];
+  @ViewChild('data-carousel-prev') $prevButton!: ElementRef;
+  @ViewChild('data-carousel-next') $nextButton!: ElementRef;
+  constructor(
+    private flowbiteService: FlowbiteService,
+    private productCategory: ProductCategoryService
+  ) {
+    this.categories$ = productCategory.getAllProducts();
+
+    this.categories$.subscribe((val) => {
+      this.categories = val;
+    });
+    afterNextRender(() => {
+      this.flowbiteService.loadFlowbite((flowbite) => {
+        console.log('loaded flowbite', flowbite);
+      });
+    });
+  }
+  initCarousel() {}
 }
