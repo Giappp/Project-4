@@ -1,52 +1,49 @@
-<div *ngIf="product" class="product-container">
-    <div class="product-image">
-        <img [src]="product.imageUrl" [alt]="product.name" />
+<div *ngIf="product" class="max-w-2xl mx-auto my-10 bg-white shadow-lg rounded-lg p-6">
+    <div class="text-center">
+        <img [src]="product.imageUrl" [alt]="product.name" class="w-full h-auto rounded-lg" />
     </div>
 
-    <div class="product-details">
-        <h2 class="product-title">{{ product.name }}</h2>
-
-        <p class="product-price">
-            <span>{{ product.price }}</span>
+    <div class="mt-6">
+        <h2 class="text-2xl font-bold">{{ product.name }}</h2>
+        <p class="text-xl text-red-600 mt-2">
+            <span>{{ product.price | currency }}</span>
         </p>
 
-        <div class="product-options">
-            <div class="option">
-                <label for="color">Color:</label>
-                <div class="color-options">
-                    <input type="radio" name="color" [id]="'color' + product.color" [value]="product.color" />
-                    <label [for]="'color' + product.color" class="color-option">{{ product.color }}</label>
+        <div class="mt-4">
+            <div class="mb-4">
+                <label for="color" class="block text-sm font-medium">Color:</label>
+                <div class="flex space-x-2">
+                    <input type="radio" name="color" [id]="'color' + product.color" [value]="product.color" class="h-4 w-4 text-blue-600 border-gray-300 rounded" />
+                    <label [for]="'color' + product.color" class="text-sm">{{ product.color }}</label>
                 </div>
             </div>
 
-            <div class="option">
-                <label for="size">Size:</label>
-                <div class="size-options">
-                    <input type="radio" name="size" [id]="'size' + product.size" [value]="product.size" />
-                    <label [for]="'size' + product.size" class="size-option">{{ product.size }}</label>
+            <div class="mb-4">
+                <label for="size" class="block text-sm font-medium">Size:</label>
+                <div class="flex space-x-2">
+                    <input type="radio" name="size" [id]="'size' + product.size" [value]="product.size" class="h-4 w-4 text-blue-600 border-gray-300 rounded" />
+                    <label [for]="'size' + product.size" class="text-sm">{{ product.size }}</label>
                 </div>
             </div>
 
-            <div class="option">
-                <label for="quantity">Số lượng:</label>
-                <div class="quantity-control">
-                    <button type="button" class="quantity-btn" (click)="decreaseQuantity()">-</button>
-                    <input type="number" id="quantity" name="quantity" min="1" [value]="quantity" />
-                    <button type="button" class="quantity-btn" (click)="increaseQuantity()">+</button>
+            <div class="mb-4">
+                <label for="quantity" class="block text-sm font-medium">Số lượng:</label>
+                <div class="flex items-center space-x-2">
+                    <button type="button" class="bg-gray-200 p-2 rounded" (click)="decreaseQuantity()">-</button>
+                    <input type="number" id="quantity" name="quantity" min="1" [value]="quantity" class="border border-gray-300 rounded p-2 w-16 text-center" />
+                    <button type="button" class="bg-gray-200 p-2 rounded" (click)="increaseQuantity()">+</button>
                 </div>
             </div>
         </div>
 
-        <div class="action-buttons">
-            <button type="submit" class="add-to-cart" (click)="addToCart()">Add to Cart</button>
-            <button type="button" class="buy-now" (click)="buyNow()">Buy Now!</button>
+        <div class="mt-6 flex space-x-4">
+            <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600" (click)="addToCart()">Add to Cart</button>
+            <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" (click)="buyNow()">Buy Now!</button>
         </div>
     </div>
-</div>
 
-<div *ngIf="product" class="product-description">
-    <div class="highlighted-title">
-        <h3>Product Details</h3>
+    <div class="mt-10">
+        <h3 class="text-lg font-semibold">Product Details</h3>
+        <p class="text-sm">{{ product.name }} - {{ product.category }}</p>
     </div>
-    <p>{{ product.name }} - {{ product.category }}</p>
 </div>

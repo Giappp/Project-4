@@ -11,6 +11,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
+
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +26,7 @@ import { reducers } from './store/app.state';
     FormsModule,
     FooterComponent,
     StoreModule.forRoot(reducers),
+    FontAwesomeModule
   ],
   providers: [
     provideClientHydration(),
@@ -32,4 +36,9 @@ import { reducers } from './store/app.state';
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Add biểu tượng vào IconLibrary
+    library.addIcons(faPlus);
+  }
+}
