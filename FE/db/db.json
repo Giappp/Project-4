@@ -151,5 +151,67 @@
       "email": "L@gmail.com",
       "phone": "0999999999"
     }
+  ],
+  "categories":[
+    {
+      "id": 1,
+      "name": "Giày thể thao nữ",
+      "imageIllustrator": "assets/images/1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Áo khoác nữ",
+      "imageIllustrator": "assets/images/2.webp"
+    },
+    {
+      "id": 3,
+      "name": "Áo chống nắng nữ",
+      "imageIllustrator": "assets/images/3.webp"
+    },
+    {
+      "id": 4,
+      "name": "Áo thun nữ",
+      "imageIllustrator": "assets/images/4.webp"
+    },
+    {
+      "id": 5,
+      "name": "Quần nữ",
+      "imageIllustrator": "assets/images/5.webp"
+    },
+    {
+      "id": 6,
+      "name": "Đồ lót nữ",
+      "imageIllustrator": "assets/images/6.webp"
+    },
+    {
+      "id": 7,
+      "name": "Giày thể thao name",
+      "imageIllustrator": "assets/images/7.webp"
+    },
+    {
+      "id": 8,
+      "name": "Áo khoác nam",
+      "imageIllustrator": "assets/images/8.webp"
+    },
+    {
+      "id": 9,
+      "name": "Áo thun nam",
+      "imageIllustrator": "assets/images/9.webp"
+    },
+    {
+      "id": 10,
+      "name": "Quần nam",
+      "imageIllustrator": "assets/images/10.webp"
+    },
+    {
+      "id": 11,
+      "name": "Áo chống nắng nam",
+      "imageIllustrator": "assets/images/11.webp"
+    },
+    {
+      "id": 12,
+      "name": "Đồ lót nam",
+      "imageIllustrator": "assets/images/12.webp"
+    }
   ]
 }

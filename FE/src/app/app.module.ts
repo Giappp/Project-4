@@ -6,14 +6,10 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './layout/footer/footer.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
-
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FooterComponent } from './layout/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent
@@ -34,7 +30,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {

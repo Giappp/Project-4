@@ -1,4 +1,4 @@
-<header class="bg-white shadow-sm z-50 top-0 w-full">
+<header class="bg-white shadow-sm z-50 top-0 w-full relative">
     <!-- Header content -->
     <div>
         <div class="container flex items-center mx-auto px-4 py-3 w-11/12">
@@ -30,9 +30,10 @@
 
             <!-- Icon container -->
             <div class="flex flex-row sm:justify-between">
-                <app-shopping-cart></app-shopping-cart>
-                <div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer"
-                    [ngClass]="{'active' : activeItem == 'user'}">
+                <ng-container *ngIf="isBrowser">
+                    <app-shopping-cart></app-shopping-cart>
+                </ng-container>
+                <div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer">
                 </div>
             </div>
         </div>
