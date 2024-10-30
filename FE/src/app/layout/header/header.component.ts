@@ -19,7 +19,6 @@ import {
 import { Store } from '@ngrx/store';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
-import { FlowbiteService } from '../../shared/services/flowbite.service';
 
 @Component({
   standalone: true,
@@ -43,15 +42,9 @@ export class HeaderComponent implements OnInit {
   constructor(
     library: FaIconLibrary,
     private store: Store,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private flowbiteService: FlowbiteService
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     library.addIcons();
-    afterNextRender(() => {
-      this.flowbiteService.loadFlowbite((flowbite) => {
-        console.log('loaded flowbite ', flowbite);
-      });
-    });
   }
   ngOnInit(): void {
     this.isBrowser = isPlatformBrowser(this.platformId);

@@ -1,33 +1,19 @@
 <div class="items-center">
   <div class="flex flex-wrap w-[1200px] mx-auto">
-    <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <div class="relative w-full">
       <!-- Carousel wrapper -->
-      <div class="relative overflow-hidden rounded-lg md:h-[500px] mx-auto h-full">
-        <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out w-[1200px]" data-carousel-item>
-          <img src="/assets/images/17277697730331009.webp"
-            class="absolute block w-full h-fit -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      <nz-carousel #carousel [nzEffect]="'scrollx'">
+        @for (index of carouselImageUrl; track index) {
+        <div nz-carousel-content>
+          <h3>{{ index }}</h3>
+          <img [src]="index" alt="Carousel Image" class="w-full h-fit">
         </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-          <img src="/assets/images/17150541229617388.webp"
-            class="absolute block w-full h-fit -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/assets/images/17289654441295587.webp"
-            class="absolute block w-full h-fit -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/assets/images/17291301779762643.webp"
-            class="absolute block w-full h-fit -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-      </div>
+        }
+      </nz-carousel>
       <!-- Slider controls -->
       <button type="button"
         class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev>
+        (click)="carousel.pre()">
         <span
           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
@@ -40,7 +26,7 @@
       </button>
       <button type="button"
         class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next>
+        (click)="carousel.next()">
         <span
           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"

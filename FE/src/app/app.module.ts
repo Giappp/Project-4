@@ -13,6 +13,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
 import { FooterComponent } from './layout/footer/footer.component';
+import { NZ_I18N, NzI18nModule } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,6 +34,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideAnimationsAsync(),
+    { provide: NZ_I18N, useValue: en_US },
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent],
   schemas: [],

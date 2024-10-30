@@ -1,15 +1,16 @@
 <!-- Shopping cart -->
-<div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer relative">
-    <button #dropdownBtn type="button" class="relative inline-flex items-center px-2 py-1.5">
-        <fa-icon [icon]="'shopping-cart'" class="text-slate-800 fa-lg"></fa-icon>
-        <div
-            class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
-            {{ (cartItems$ | async)?.length || 0 }}</div>
-    </button>
-    <div #dropdownMenu class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-        <div [ngClass]="{ 'animate-expand-dropdown': isOpenCartDropDown, 'animate-collapse-dropdown': !isOpenCartDropDown }"
-            class="overflow-hidden">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+<div>
+    <nz-badge [nzCount]="(cartItems$ | async)?.length || 0" [nzOverflowCount]="99" [nzDot]="false" [nzShowZero]="true"
+        [nzStandalone]="false">
+        <button nz-dropdown nzTrigger="click" [nzDropdownMenu]="dropdownMenu" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-slate-100
+            rounded-lg focus:ring-4 focus:outline-none">
+            <fa-icon [icon]="'shopping-cart'" class="text-slate-800 fa-lg"></fa-icon>
+        </button>
+    </nz-badge>
+    <nz-dropdown-menu #dropdownMenu="nzDropdownMenu"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 p-4">
+        <div class="overflow-hidden">
+            <ul class="text-sm text-gray-700 dark:text-gray-200 bg-gray-100 shadow-black">
                 <div *ngIf="(cartItems$ | async)?.length === 0" class="px-4 py-2 h-[200px]">
                     <p class="text-lg font-semibold text-gray-700 mb-2">Your Cart is Empty</p>
                     <p class="text-sm text-gray-500 mb-4">Looks like you haven't added anything to your cart yet.</p>
@@ -26,5 +27,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </nz-dropdown-menu>
 </div>

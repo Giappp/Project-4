@@ -11,7 +11,7 @@ export class ProductCategoryService implements OnInit {
   baseUrl!: string;
   private categoryCache$!: Observable<ProductCategory[]>;
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/';
+    this.baseUrl = 'http://localhost:3000';
   }
   ngOnInit(): void {}
 
@@ -19,7 +19,7 @@ export class ProductCategoryService implements OnInit {
     // Check if the cache exists, if not, make the API call an cache it
     if (!this.categoryCache$) {
       this.categoryCache$ = this.httpClient
-        .get<ProductCategory[]>(`${this.baseUrl}categories`, {
+        .get<ProductCategory[]>(`${this.baseUrl}/categories`, {
           headers: this.getHeader(),
         })
         .pipe(
