@@ -1,27 +1,37 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Observable } from 'rxjs';
-import { NzCarouselComponent, NzCarouselModule } from 'ng-zorro-antd/carousel';
-import { NzDemoBreadcrumbRouterComponent } from '../../shared/components/breadcrumb.component';
 import { Category } from '../../model/category';
-import { ProductService } from '../../products/services/product.service';
+import { ProductService } from '../../shared/services/product.service';
+import { CarouselModule } from 'primeng/carousel';
+import { GalleriaModule } from 'primeng/galleria';
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    NzCarouselModule,
-    NzDemoBreadcrumbRouterComponent,
-  ],
+  imports: [CommonModule, NgOptimizedImage, CarouselModule, GalleriaModule],
   providers: [],
 })
 export class HomeComponent {
-  @ViewChild('carousel') carousel!: NzCarouselComponent;
+  @ViewChild('carousel') carousel!: any;
   categories$!: Observable<Category[]>;
   carouselImageUrl!: string[];
+
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5,
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3,
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1,
+    },
+  ];
 
   constructor(private productService: ProductService) {
     this.categories$ = this.productService.getAllProductsCategories();

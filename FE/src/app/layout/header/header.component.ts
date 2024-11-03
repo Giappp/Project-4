@@ -10,12 +10,12 @@ import {
 import { Store } from '@ngrx/store';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
-import { map, Observable } from 'rxjs';
+import { last, Observable } from 'rxjs';
 import { Category } from '../../model/category';
 import { Gender } from '../../model/gender';
-import { ProductService } from '../../products/services/product.service';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { ProductService } from '../../shared/services/product.service';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { MegaMenuItem, MenuItem } from 'primeng/api';
 
 @Component({
   standalone: true,
@@ -29,18 +29,18 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     SharedModule,
     FontAwesomeModule,
     ShoppingCartComponent,
-    NzMenuModule,
-    NzDropDownModule,
+    MegaMenuModule,
   ],
 })
 export class HeaderComponent implements OnInit {
-  @Input() items: string[] = [];
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
-  genders!: Observable<Gender[]>;
+  genders$!: Observable<Gender[]>;
   uniqueLoai$!: Observable<string[]>;
   isBrowser: boolean = false;
-  groupedCategories: { loai: string; items: Category[] }[] = [];
+  menuItems: MegaMenuItem[] = [];
+  subMenuItems: MenuItem[] = [];
+  genders: Gender[] = [];
 
   constructor(
     library: FaIconLibrary,
@@ -50,31 +50,63 @@ export class HeaderComponent implements OnInit {
   ) {
     library.addIcons();
     this.categories$ = this.productService.getAllProductsCategories();
-    this.genders = this.productService.getProductGender();
+    this.genders$ = this.productService.getProductGender();
   }
-  ngOnInit(): void {
-    this.isBrowser = isPlatformBrowser(this.platformId);
+  ngOnInit() {
+    // Fetch the genders data as an observable
+    this.genders$ = this.productService.getProductGender(); // Fetch data from service
+
+    // Subscribe to the observable to populate menuItems with grouped categories
+    this.genders$.subscribe((genders) => {
+      this.menuItems = genders.map((gender) => ({
+        label: gender.name,
+        root: true,
+        items: this.groupCategoriesByLoai(gender.categories!),
+      }));
+    });
   }
-  groupByLoai(categories: any[]): any {
-    const categoryMap: Map<string, Category[]> = categories.reduce(
-      (categoryMap: Map<string, Category[]>, category) => {
-        const loai = category.loai;
-        if (!categoryMap.has(loai)) {
-          categoryMap.set(loai, []);
+
+  private groupCategoriesByLoai(categories: Category[]): MenuItem[][] {
+    const map: Map<string, string[]> = categories.reduce(
+      (acc: Map<string, string[]>, category: Category) => {
+        if (!acc.has(category.loai)) {
+          acc.set(category.loai, []);
         }
-        categoryMap.get(loai)?.push(category);
-        return categoryMap;
+        acc.get(category.loai)?.push(category.categoryName);
+        return acc;
       },
       new Map()
     );
-    return this.convertMapToArray(categoryMap);
-  }
-  convertMapToArray(
-    categoryMap: Map<string, Category[]>
-  ): { loai: string; items: Category[] }[] {
-    return Array.from(categoryMap.entries()).map(([loai, items]) => ({
-      loai,
-      items,
-    }));
+
+    const menu: MenuItem[][] = [];
+    let tempPair: MenuItem[] = []; // Temporary array to hold each pair
+
+    map.forEach((value: string[], key: string) => {
+      const menuItem: MenuItem = {
+        label: key,
+        subRoot: true,
+        items: value.map((categoryName) => ({
+          label: categoryName,
+        })),
+      };
+
+      if (menuItem.items!.length <= 5) {
+        tempPair.push(menuItem);
+      } else {
+        menu.push([menuItem]);
+      }
+
+      // If `tempPair` has 2 items, push it to `menu` and reset
+      if (tempPair.length === 2) {
+        menu.push(tempPair);
+        tempPair = []; // Reset the pair array
+      }
+    });
+
+    if (tempPair.length) {
+      menu.push(tempPair);
+    }
+
+    return menu;
   }
 }

@@ -7,14 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
 import { FooterComponent } from './layout/footer/footer.component';
-import { NZ_I18N, NzI18nModule } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HomeComponent } from './page/home/home.component';
@@ -27,17 +24,12 @@ registerLocaleData(en);
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ProductsModule,
     FormsModule,
     FooterComponent,
     HomeComponent,
     StoreModule.forRoot(reducers),
   ],
-  providers: [
-    provideAnimationsAsync(),
-    { provide: NZ_I18N, useValue: en_US },
-    provideHttpClient(withFetch()),
-  ],
+  providers: [provideAnimationsAsync(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
   schemas: [],
 })

@@ -199,19 +199,9 @@
           "loai": "Áo khoác"
         },
         {
-          "id": 11,
-          "categoryName": "Quần sịp",
-          "loai": "Đồ lót"
-        },
-        {
-          "id": 12,
-          "categoryName": "Tất chân",
-          "loai": "Phụ kiện"
-        },
-        {
           "id": 13,
-          "categoryName": "Giày Sneaker",
-          "loai": "Giày"
+          "categoryName": "Chân váy",
+          "loai": "Váy"
         }
       ]
     },
@@ -268,21 +258,6 @@
           "id": 10,
           "categoryName": "Áo khoác gió",
           "loai": "Áo khoác"
-        },
-        {
-          "id": 11,
-          "categoryName": "Quần sịp",
-          "loai": "Đồ lót"
-        },
-        {
-          "id": 12,
-          "categoryName": "Tất chân",
-          "loai": "Phụ kiện"
-        },
-        {
-          "id": 13,
-          "categoryName": "Giày Sneaker",
-          "loai": "Giày"
         }
       ]
     }
