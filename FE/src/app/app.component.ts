@@ -2,6 +2,7 @@ import { Component, Inject, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
 import { isPlatformBrowser } from '@angular/common';
+import { BreadcrumbService } from './shared/services/breadcrumb-service.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent implements OnInit {
   isBrowser: boolean = false;
   private iconLibrary = inject(FaIconLibrary);
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private breadcrumbService: BreadcrumbService
+  ) {
     this.iconLibrary.addIcons(...fontAwesomeIcons);
   }
   ngOnInit(): void {

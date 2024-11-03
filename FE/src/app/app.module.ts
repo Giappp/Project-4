@@ -17,8 +17,10 @@ import { NZ_I18N, NzI18nModule } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { HomeComponent } from './page/home/home.component';
 
 registerLocaleData(en);
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,14 +30,13 @@ registerLocaleData(en);
     ProductsModule,
     FormsModule,
     FooterComponent,
+    HomeComponent,
     StoreModule.forRoot(reducers),
   ],
   providers: [
-    provideClientHydration(),
-    provideHttpClient(withFetch()),
     provideAnimationsAsync(),
     { provide: NZ_I18N, useValue: en_US },
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent],
   schemas: [],

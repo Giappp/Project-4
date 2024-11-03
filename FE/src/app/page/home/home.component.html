@@ -1,14 +1,12 @@
+<app-breadcrumb></app-breadcrumb>
 <div class="items-center">
   <div class="flex flex-wrap w-[1200px] mx-auto">
     <div class="relative w-full">
       <!-- Carousel wrapper -->
-      <nz-carousel #carousel [nzEffect]="'scrollx'">
-        @for (index of carouselImageUrl; track index) {
-        <div nz-carousel-content>
-          <h3>{{ index }}</h3>
-          <img [src]="index" alt="Carousel Image" class="w-full h-fit">
+      <nz-carousel #carousel [nzEffect]="'scrollx'" class="h-[500px]" [nzEnableSwipe]="true" [nzDots]="true">
+        <div nz-carousel-content *ngFor="let url of carouselImageUrl">
+          <img [src]="url" alt="Carousel Image" class="z-10">
         </div>
-        }
       </nz-carousel>
       <!-- Slider controls -->
       <button type="button"
@@ -45,17 +43,15 @@
         WHAT TO BUY?
       </div>
       <div class="grid grid-cols-2 md:grid-cols-6 gap-[42px] pt-8">
-        <div *ngFor="let item of categories">
+        <div *ngFor="let item of categories$ | async">
 
           <a class="text-center">
             <div class="max-w-[160px] h-[160px]">
-              <img [src]="item.imageIllustrator" aria-hidden="falsed" draggable="false" loading="lazy"
-                class="w-[160px] h-[160px] object-cover">
             </div>
             <div>
               <div>
                 <p>
-                  <span>{{item.name}}</span>
+                  <span>{{item.categoryName}}</span>
                 </p>
               </div>
             </div>

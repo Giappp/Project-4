@@ -2,10 +2,8 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 overflow-auto">
     <!-- product card -->
     <div *ngFor="let product of products">
-        <a [routerLink]="['/{{product.id}}']" class="flex flex-col hover:drop-shadow-sm">
-            <img src="{{product.imageUrl}}" alt="{{product.name}}"
-                class="h-36 object-cover rounded-tl-sm rounded-tr-md">
-
+        <a class="flex flex-col hover:drop-shadow-sm">
+            <div class="h-36 object-cover rounded-tl-sm rounded-tr-md">{{product.name}}</div>
             <div class="px-3 py-2">
                 <h1 class="font-semibold">{{product.name}}</h1>
                 <p class="text-sm">{{product.price}}</p>

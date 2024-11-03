@@ -42,20 +42,38 @@
     <div class="shadow-sm">
         <nav class="flex py-4 items-center justify-between w-11/12 mx-auto">
             <!-- Navigation List-->
-            <ul class="flex items-start">
+            <div nz-menu nzMode="horizontal" nzSelectable="true">
+                <ul nz-submenu nzTitle="Thời trang {{gender.name}}" *ngFor="let gender of genders | async">
+                    <ul nz-menu-group *ngFor="let group of groupByLoai(gender.categories!)" [nzTitle]="group.loai">
+                        <div class="flex gap-4">
+                            <li *ngFor="let item of group.items" nz-menu-item class="!duration-75">{{item.categoryName}}
+                            </li>
+                        </div>
+                    </ul>
+                </ul>
+            </div>
+            <!-- <ul class="flex items-start h-7">
                 <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-b-2 border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/']" class="font-semibold text-base">Women</a>
+                    *ngFor="let gender of genders | async">
+                    <div [routerLink]="['/{{gender.id}}']" class="font-semibold text-base">
+                        <a nz-dropdown [nzDropdownMenu]="menu" [nzTrigger]="'click'">{{ gender.name
+                            }}</a>
+                        <nz-dropdown-menu #menu="nzDropdownMenu">
+                            <ul nz-menu class="flex !w-auto">
+                                <div class="w-1/4 flex-[0] p-2">
+                                    <ng-container *ngFor="let loaiGroup of groupByLoai(gender.categories!)">
+                                        <li class="text-slate-500">{{ loaiGroup.loai }}</li>
+                                        <ng-container *ngFor="let cate of loaiGroup.categories">
+                                            <li nz-menu-item>{{ cate.categoryName }}</li>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </ul>
+                        </nz-dropdown-menu>
+                    </div>
+
                 </li>
-                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/']" class="font-semibold text-base">Men</a>
-                </li>
-                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/about']" class="font-semibold text-base">Sport</a>
-                </li>
-            </ul>
+            </ul> -->
         </nav>
     </div>
 </header>

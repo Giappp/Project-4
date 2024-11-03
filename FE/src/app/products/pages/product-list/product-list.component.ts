@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
+import { NzDemoBreadcrumbRouterComponent } from '../../../shared/components/breadcrumb.component';
+import { Product } from '../../../model/product';
 
 @Component({
   selector: 'app-product-list',
