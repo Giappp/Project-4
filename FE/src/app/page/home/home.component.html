@@ -2,35 +2,19 @@
   <div class="flex flex-wrap w-[1200px] mx-auto">
     <div class="relative w-full">
       <!-- Carousel wrapper -->
-      <p-galleria (value)="carouselImageUrl" [numVisible]="5" [circular]="true" [showItemNavigators]="true"
-        [showThumbnails]="false">
+      <p-galleria [value]="carouselImageUrl" [numVisible]="5" [circular]="true" [showItemNavigators]="true"
+        [showThumbnails]="false" showTransitionOptions="0.5s ease-in-out"
+        changeItemAnimationOptions="fadeIn 0.5s ease-in-out">
         <ng-template pTemplate="item" let-item>
-          <p>{{item}}</p>
           <img [src]="item" style="width: 100%; display: block;" />
         </ng-template>
       </p-galleria>
-
-
       <!-- Category -->
       <div class="w-full pt-[60px]">
         <div class="flex justify-center text-lg font-bold text-color1">
           WHAT TO BUY?
         </div>
         <div class="grid grid-cols-2 md:grid-cols-6 gap-[42px] pt-8">
-          <div *ngFor="let item of categories$ | async">
-
-            <a class="text-center">
-              <div class="max-w-[160px] h-[160px]">
-              </div>
-              <div>
-                <div>
-                  <p>
-                    <span>{{item.categoryName}}</span>
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </div>

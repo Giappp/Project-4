@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Category } from '../../model/category';
@@ -13,10 +13,10 @@ import { GalleriaModule } from 'primeng/galleria';
   imports: [CommonModule, NgOptimizedImage, CarouselModule, GalleriaModule],
   providers: [],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   @ViewChild('carousel') carousel!: any;
   categories$!: Observable<Category[]>;
-  carouselImageUrl!: string[];
+  carouselImageUrl!: any[];
 
   responsiveOptions: any[] = [
     {
@@ -35,6 +35,8 @@ export class HomeComponent {
 
   constructor(private productService: ProductService) {
     this.categories$ = this.productService.getAllProductsCategories();
+  }
+  ngOnInit(): void {
     this.carouselImageUrl = [
       '/assets/images/17277697730331009.webp',
       '/assets/images/17150541229617388.webp',
