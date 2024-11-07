@@ -67,4 +67,8 @@ public class AuthenticationService {
             SecurityContextHolder.clearContext();
         }
     }
+
+    public AuthenticationResponse processRequest(String body) {
+        return null;
+    }
 }

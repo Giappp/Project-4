@@ -13,6 +13,8 @@ public enum ErrorCode {
     TOKEN_EXPIRED(1008, "Token has expired", HttpStatus.UNAUTHORIZED),
     UNSUPPORTED_TOKEN(1009, "Token format is not supported", HttpStatus.FORBIDDEN),
     MALFORMED_TOKEN(1010, "Token is malformed", HttpStatus.BAD_REQUEST),
+    NOT_FOUND(1012, "Not found", HttpStatus.NOT_FOUND),
+    ORDER_NOT_FOUND(1013,"Not found Order" ,HttpStatus.NOT_FOUND );
     ALREADY_LOGIN(1011, "User already logged in", HttpStatus.BAD_REQUEST);
 
     private final int code;
