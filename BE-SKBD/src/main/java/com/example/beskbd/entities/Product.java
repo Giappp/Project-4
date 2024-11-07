@@ -43,6 +43,13 @@ public class Product extends BaseEntity {
         this.stockQuantity = stockQuantity;
     }
 
+    public Product(String name, String description, double price, LocalDateTime createDate) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.createdDate = createDate;
+    }
+
     public void updateStock(int quantity) {
         this.stockQuantity -= quantity;
     }
