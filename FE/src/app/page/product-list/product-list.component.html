@@ -7,14 +7,14 @@
             <div class="my-4">
                 <div class="flex items-center text-center py-4">Sắp xếp khoảng giá</div>
                 <div class="options">
-                    <p-slider [(ngModel)]="priceRange" [range]="true" (onChange)="filterProducts()"></p-slider>
+                    <p-slider formControlName="priceRange" [range]="true"></p-slider>
                 </div>
             </div>
             <div class="my-4">
                 <div class="flex items-center text-center py-4 justify-between">
                     <div>Màu sắc</div>
-                    <p-dropdown [options]="['Red', 'Blue', 'Black']" (ngModel)="selectedColor"
-                        (onChange)="filterProducts()" placeholder="Select Color"></p-dropdown>
+                    <p-dropdown [options]="['Red', 'Blue', 'Black']" formControlName="selectedColor"
+                        placeholder="Select Color"></p-dropdown>
                 </div>
             </div>
             <div class="my-4">
@@ -43,8 +43,8 @@
         <div class="category-name flex gap-2 items-end mb-4">
             <h1>All Products</h1>
         </div>
-        <div *ngFor="let product of filteredProducts" class="p-card">
-            <img [src]="product.attributes[0].imageUrl[0]" alt="product image" style="width: 100%">
+        <div *ngFor="let product of products" class="p-card">
+            <!-- <img [src]="product.attributes[0].imageUrl[0]" alt="product image" style="width: 100%"> -->
             <div class="p-card-header">{{ product.name }}</div>
             <div class="p-card-body">
                 <p>{{ product.description }}</p>

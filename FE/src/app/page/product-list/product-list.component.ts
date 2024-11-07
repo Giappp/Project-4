@@ -6,6 +6,7 @@ import { BreadcrumbComponentDemo } from '../../shared/components/breadcrumb/brea
 import { SliderModule } from 'primeng/slider';
 import { DropdownModule } from 'primeng/dropdown';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -14,6 +15,7 @@ import {
 import { Category } from '../../model/category';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   standalone: true,
@@ -37,21 +39,28 @@ export class ProductListComponent implements OnInit {
     priceRange: '',
     category: '',
     productColor: '',
-  }
-
-  filteredProducts: any[] = [];
+  };
   formGroup!: FormGroup;
-  priceRange: number[] = [0, 500000];
-  selectedColor: string | null = null;
   categories: any[] = [];
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private fb: FormBuilder
+  ) {}
   ngOnInit(): void {
-    this.formGroup = new FormGroup({
-      selectedCategory: new FormControl(),
+    this.formGroup = this.fb.group({
+      priceRange: [[]],
+      selectedColor: [''],
+      selectedCategory: [''],
     });
+
+    this.formGroup.valueChanges
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .subscribe((filters) => {
+        this.filterProducts();
+      });
+
     this.productService.getAllProducts().subscribe((data: Product[]) => {
       this.products = data;
-      this.filteredProducts = data;
     });
     this.productService
       .getAllProductsCategories()
@@ -62,5 +71,9 @@ export class ProductListComponent implements OnInit {
         }));
       });
   }
-  filterProducts() {}
+
+  filterProducts(): any {
+    const filters = this.formGroup.value;
+    console.log('Filtered value ', filters);
+  }
 }

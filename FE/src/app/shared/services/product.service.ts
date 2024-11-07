@@ -22,7 +22,7 @@ export class ProductService implements OnInit {
     // Check if the cache exists, if not, make the API call an cache it
     if (!this.productCache$) {
       this.productCache$ = this.httpClient
-        .get<Product[]>(`${this.baseUrl}/clothes`, {
+        .get<Product[]>(`${this.baseUrl}/products`, {
           headers: this.getHeader(),
         })
         .pipe(
@@ -38,7 +38,7 @@ export class ProductService implements OnInit {
   }
 
   getProductById(id: number): Observable<any> {
-    return this.httpClient.get<Product>(`${this.baseUrl}/clothes/${id}`, {
+    return this.httpClient.get<Product>(`${this.baseUrl}/products/${id}`, {
       headers: this.getHeader(),
     });
   }
