@@ -27,7 +27,7 @@ import org.springframework.web.filter.CorsFilter;
 public class SecurityConfig {
     private static final String[] WHITE_LIST_URL = {
             "auth/registration",
-            "auth/token",
+            "auth/login",
     };
     private final JwtAuthFilter jwtAuthFilter;
     private final UserService userService;

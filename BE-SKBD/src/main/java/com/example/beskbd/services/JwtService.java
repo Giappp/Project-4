@@ -24,7 +24,7 @@ import java.util.Map;
 public class JwtService {
     private static final Logger logger = LoggerFactory.getLogger(JwtService.class);
     private final InvalidatedTokenRepository invalidatedTokenRepository;
-    @Value("${application.security.jwt.secret-key}")
+    @Value("${application.security.jwt.secret-key-v2}")
     private String secretKey;
     @Value("${application.security.jwt.expiration}")
     private long expiration;
@@ -44,7 +44,10 @@ public class JwtService {
 
     public boolean isValidJwtToken(String token) {
         try {
-            Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
+            Jwts.parserBuilder()
+                    .setSigningKey(getSignKey())
+                    .build()
+                    .parseClaimsJws(token);
             return true;
         } catch (MalformedJwtException e) {
             logger.error("Invalid JWT token: {}", e.getMessage());
