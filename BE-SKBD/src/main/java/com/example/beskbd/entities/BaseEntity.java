@@ -14,12 +14,22 @@ public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer id;
+    protected Long id;
 
     @Column(name = "created_at")
     protected LocalDateTime createdDate;
     @Column(name = "updated_at")
     protected LocalDateTime updatedDate;
+
+    public BaseEntity(Long id, LocalDateTime createDate, LocalDateTime updateDate) {
+        this.id = id;
+        this.createdDate = createDate;
+        this.updatedDate = updateDate;
+    }
+
+    public BaseEntity() {
+
+    }
 
     @PrePersist
     protected void onCreate() {
