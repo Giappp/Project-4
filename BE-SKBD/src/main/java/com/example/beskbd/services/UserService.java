@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -44,11 +45,11 @@ public class UserService implements UserDetailsService {
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .address(request.getAddress())
-                .authorities(Collections.singleton(Role.ROLE_USER))
+                .authority(Role.ROLE_USER)
                 .isEnabled(true)
                 .build();
         userRepository.save(user);
-        var token = jwtService.generateToken(user);
+        CompletableFuture<String> token = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(token)
                 .authenticated(true)

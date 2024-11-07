@@ -3,7 +3,9 @@ package com.example.beskbd.config;
 import com.example.beskbd.security.JwtAuthFilter;
 import com.example.beskbd.security.JwtAuthenticationEntryPoint;
 import com.example.beskbd.services.UserService;
+
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -28,8 +30,12 @@ public class SecurityConfig {
     private static final String[] WHITE_LIST_URL = {
             "auth/registration",
             "auth/token",
+            "api/test",
+            "api/getTest",
+            "paypal/pay"
     };
-    private final JwtAuthFilter jwtAuthFilter;
+    @Autowired
+    private JwtAuthFilter jwtAuthFilter;
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
