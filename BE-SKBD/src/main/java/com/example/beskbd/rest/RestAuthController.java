@@ -2,6 +2,7 @@ package com.example.beskbd.rest;
 
 import com.example.beskbd.dto.request.AuthenticationRequest;
 import com.example.beskbd.dto.request.LogoutRequest;
+import com.example.beskbd.dto.request.RefreshRequest;
 import com.example.beskbd.dto.request.UserCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.dto.response.AuthenticationResponse;
@@ -24,7 +25,7 @@ public class RestAuthController {
     AuthenticationService authenticationService;
     UserService userService;
 
-    @PostMapping("/token")
+    @PostMapping("/login")
     public ApiResponse<AuthenticationResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
         var result = authenticationService.authenticate(request);
         return ApiResponse.<AuthenticationResponse>builder()
@@ -38,6 +39,12 @@ public class RestAuthController {
         return ApiResponse.<AuthenticationResponse>builder()
                 .data(result)
                 .build();
+    }
+
+    @PostMapping("/refresh")
+    public ApiResponse<AuthenticationResponse> refreshToken(@RequestBody RefreshRequest request) {
+        var result = authenticationService.refreshToken(request);
+        return ApiResponse.<AuthenticationResponse>builder().data(result).build();
     }
 
     @PostMapping("/signout")

@@ -2,6 +2,7 @@ package com.example.beskbd.services;
 
 import com.example.beskbd.dto.request.AuthenticationRequest;
 import com.example.beskbd.dto.request.LogoutRequest;
+import com.example.beskbd.dto.request.RefreshRequest;
 import com.example.beskbd.dto.response.AuthenticationResponse;
 import com.example.beskbd.exception.AppException;
 import com.example.beskbd.exception.ErrorCode;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
     UserRepository userRepository;
     JwtService jwtService;
+    UserService userService;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
@@ -38,6 +40,19 @@ public class AuthenticationService {
                 .token(token)
                 .authenticated(true)
                 .build();
+    }
+
+    public AuthenticationResponse refreshToken(RefreshRequest request) {
+        var checkValidToken = jwtService.isValidJwtToken(request.getRefreshToken());
+        if (checkValidToken) {
+            jwtService.invalidateToken(request.getRefreshToken());
+            var username = jwtService.extractUserName(request.getRefreshToken());
+            var user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new AppException(ErrorCode.UNAUTHENTICATED));
+            var token = jwtService.generateToken(user);
+            return AuthenticationResponse.builder().token(token).authenticated(true).build();
+        }
+        throw new AppException(ErrorCode.UNSUPPORTED_TOKEN);
     }
 
     public void logout(LogoutRequest request) {
