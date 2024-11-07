@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class OrderDTO extends OrderEntity {
+public class OrderDTO  {
     private Long orderId;
     private User userId;
     private List<OrderItemDTO> orderItems;
