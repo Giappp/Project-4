@@ -22,16 +22,27 @@ public class User extends BaseEntity implements UserDetails {
     @Column(unique = true)
     private String email;
 
-    private String password; // Note: In real scenarios, exclude from JSON serialization with @JsonIgnore
+    private String password;
 
     private Set<Role> authorities;
     private String firstName;
     private String lastName;
     private String phone;
     private String address;
+    private String resetToken;
 
     private boolean accountNonExpired;
     private boolean isEnabled;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
+<<<<<<< Updated upstream
+=======
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(authority);
+    }
+
+
+>>>>>>> Stashed changes
 }

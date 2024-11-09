@@ -28,6 +28,15 @@ public class SecurityConfig {
     private static final String[] WHITE_LIST_URL = {
             "auth/registration",
             "auth/token",
+<<<<<<< Updated upstream
+=======
+            "paypal/pay",
+            "auth/forgot-password",
+            "auth/reset-password",
+            "auth/registration",
+            "auth/signout",
+            "auth/login"
+>>>>>>> Stashed changes
     };
     private final JwtAuthFilter jwtAuthFilter;
     private final UserService userService;

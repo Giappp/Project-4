@@ -17,7 +17,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+<<<<<<< Updated upstream
 import java.util.Collections;
+=======
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+>>>>>>> Stashed changes
 
 @Service
 @RequiredArgsConstructor
@@ -54,4 +59,18 @@ public class UserService implements UserDetailsService {
                 .authenticated(true)
                 .build();
     }
+
+
+    public Optional<User> findByResetToken(String token) {
+        return userRepository.findByResetToken(token);
+    }
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);  // Ensure this returns Optional<User>
+    }
+
 }
