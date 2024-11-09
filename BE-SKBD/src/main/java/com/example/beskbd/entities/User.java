@@ -7,6 +7,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +33,8 @@ public class User extends BaseEntity implements UserDetails {
     private String lastName;
     private String phone;
     private String address;
-
+    private String resetToken;
+    private LocalDateTime resetTokenExpiryDate;
     private boolean accountNonExpired;
     private boolean isEnabled;
     private boolean accountNonLocked;

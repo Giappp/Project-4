@@ -53,7 +53,5 @@ public class AuthenticationService {
         }
     }
 
-    public AuthenticationResponse processRequest(String body) {
-        return null;
-    }
+
 }

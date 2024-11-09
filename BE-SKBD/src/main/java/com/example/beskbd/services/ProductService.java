@@ -47,18 +47,6 @@ public class ProductService {
         return productRepository.findByPriceBetween(minPrice, maxPrice);
     }
 
-    public Iterable<Product> getProductsByPriceAndName(double price, String name) {
-        return productRepository.findByPriceAndName(price, name);
-    }
-
-    public Iterable<Product> getProductsByPriceAndNameAndDescription(double price, String name, String description) {
-        return productRepository.findByPriceAndNameAndDescription(price, name, description);
-    }
-
-    public Iterable<Product> getProductsByPriceAndNameAndDescriptionAndCreateDate(double price, String name, String description, LocalDateTime createDate) {
-        return productRepository.findByPriceAndNameAndDescriptionAndCreateDate(price, name, description, createDate);
-    }
-
     public Iterable<Product> getProductsByCategory(String category) {
         return productRepository.findByCategory(category);
     }
@@ -71,11 +59,7 @@ public class ProductService {
         return productRepository.findByCategoryAndPriceAndName(category, price, name);
     }
 
-    public Iterable<Product> getProductsByCategoryAndNameAndDescription(String category, String name, String description) {
-        return productRepository.findByCategoryAndNameAndDescription(category, name, description);
-    }
-
     public Iterable<Product> getProductsByCategoryAndNameAndDescriptionAndCreateDate(String category, String name, String description, LocalDateTime createDate) {
-        return productRepository.findByCategoryAndNameAndDescriptionAndCreateDate(category, name, description, createDate);
+        return productRepository.findByCategoryAndNameAndDescriptionAndCreatedDate(category, name, description, createDate);
     }
 }

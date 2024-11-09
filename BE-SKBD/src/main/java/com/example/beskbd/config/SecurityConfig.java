@@ -32,7 +32,9 @@ public class SecurityConfig {
             "auth/token",
             "api/test",
             "api/getTest",
-            "paypal/pay"
+            "paypal/pay",
+            "auth/forgot-password",
+            "auth/user/all"
     };
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
