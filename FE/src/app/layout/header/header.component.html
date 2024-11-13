@@ -13,8 +13,8 @@
                 <div class="flex">
                     <div class="relative w-full">
                         <input type="search" id="search-dropdown"
-                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                            placeholder="Search Mockups, Logos, Design Templates..." required />
+                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Search" required />
                         <button type="submit"
                             class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -30,11 +30,7 @@
 
             <!-- Icon container -->
             <div class="flex flex-row sm:justify-between">
-                <ng-container *ngIf="isBrowser">
-                    <app-shopping-cart></app-shopping-cart>
-                </ng-container>
-                <div class="border-green-500 border-opacity-0 hover:border-opacity-100 duration-200 cursor-pointer">
-                </div>
+                <app-shopping-cart></app-shopping-cart>
             </div>
         </div>
     </div>
@@ -42,20 +38,16 @@
     <div class="shadow-sm">
         <nav class="flex py-4 items-center justify-between w-11/12 mx-auto">
             <!-- Navigation List-->
-            <ul class="flex items-start">
-                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-b-2 border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/']" class="font-semibold text-base">Women</a>
-                </li>
-                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/']" class="font-semibold text-base">Men</a>
-                </li>
-                <li class="px-4 border-green-500 border-opacity-0 border-b-2 hover:border-green-500 hover:border-opacity-100 hover:text-color2 duration-200 cursor-pointer"
-                    routerLinkActive="border-green-500" [routerLinkActiveOptions]="{exact: true}">
-                    <a [routerLink]="['/about']" class="font-semibold text-base">Sport</a>
-                </li>
-            </ul>
+            <p-megaMenu [model]="menuItems">
+                <ng-template pTemplate="item" let-item>
+                    <a *ngIf="item.root || item.subRoot" class="px-4 duration-200 cursor-pointer">
+                        <span class="ml-2"> {{item.label}}</span>
+                    </a>
+                    <a *ngIf="!item.root" class="flex align-items-center cursor-pointer mb-2 gap-2 p-2">
+                        <span class="font-medium text-sm text-900">{{ item.label }}</span>
+                    </a>
+                </ng-template>
+            </p-megaMenu>
         </nav>
     </div>
 </header>

@@ -1,217 +1,265 @@
 {
-  "clothes": [
-    {
-      "id": "1",
-      "name": "Regular Fit Linen-blend utility shirt",
-      "category": "Tops",
-      "price": 19.99,
-      "size": "M",
-      "color": "Black",
-      "imageUrl": "assets/images/shirt.jpg"
-    },
-    {
-      "id": "2",
-      "name": "Slim Fit Twill trousers",
-      "category": "Bottoms",
-      "price": 49.99,
-      "size": "32",
-      "color": "Blue",
-      "imageUrl": "assets/images/trousers.jpg"
-    },
-    {
-      "id": "3",
-      "name": "Sunglasses",
-      "category": "Outerwear",
-      "price": 89.99,
-      "size": "",
-      "color": "Black",
-      "imageUrl": "assets/images/sunglasses.jpg"
-    },
-    {
-      "id": "4",
-      "name": "Slim Fit Textured-knit polo Shirt",
-      "category": "Footwear",
-      "price": 59.99,
-      "size": "10",
-      "color": "White",
-      "imageUrl": "assets/images/SlimFitTextured-knit-polo-shirt.jpg"
-    },
-    {
-      "id": "5",
-      "name": "Regular Fit Textured-knit polo Shirt",
-      "category": "Accessories",
-      "price": 15.99,
-      "size": "One Size",
-      "color": "Black",
-      "imageUrl": "assets/images/regular-fit-textured-knit-polo-shirt.jpg"
-    },
-    {
-      "id": "6",
-      "name": "Regular Fit Linen-blend trousers",
-      "category": "Trousers",
-      "price": 39.99,
-      "size": "S",
-      "color": "Green",
-      "imageUrl": "assets/images/regular-fit-linen-blend-trousers.jpg"
-    },
-    {
-      "id": "7",
-      "name": "Slim Fit Cotton Trousers",
-      "category": "Tops",
-      "price": 29.99,
-      "size": "M",
-      "color": "Gray",
-      "imageUrl": "assets/images/slim-fit-cotton-trousers.jpg"
-    },
-    {
-      "id": "8",
-      "name": "Slim Fit Textured-knit polo Shirt",
-      "category": "Tops",
-      "price": 29.99,
-      "size": "M",
-      "color": "Gray",
-      "imageUrl": "assets/images/slim-fit-textured-knit-polo-shirt.jpg"
-    }
-  ],
-  "user": [
-    {
-      "id": "1",
-      "username": "johndoe",
-      "password": "password123",
-      "email": "johndoe@example.com",
-      "phone": "1234567890"
-    },
-    {
-      "id": "2",
-      "username": "janedoe",
-      "password": "securepass",
-      "email": "janedoe@example.com",
-      "phone": "2345678901"
-    },
-    {
-      "id": "3",
-      "username": "bobsmith",
-      "password": "bobspassword",
-      "email": "bobsmith@example.com",
-      "phone": "3456789012"
-    },
-    {
-      "id": "4",
-      "username": "alicejones",
-      "password": "alice1234",
-      "email": "alicejones@example.com",
-      "phone": "4567890123"
-    },
-    {
-      "id": "5",
-      "username": "charlieb",
-      "password": "charliepwd",
-      "email": "charlieb@example.com",
-      "phone": "5678901234"
-    },
-    {
-      "id": "6",
-      "username": "danielw",
-      "password": "danielpass",
-      "email": "danielw@example.com",
-      "phone": "6789012345"
-    },
-    {
-      "id": "7",
-      "username": "emilyr",
-      "password": "emilysecure",
-      "email": "emilyr@example.com",
-      "phone": "7890123456"
-    },
-    {
-      "id": "8",
-      "username": "frankk",
-      "password": "frank123",
-      "email": "frankk@example.com",
-      "phone": "8901234567"
-    },
-    {
-      "id": "9",
-      "username": "graceh",
-      "password": "gracepassword",
-      "email": "graceh@example.com",
-      "phone": "9012345678"
-    },
-    {
-      "id": "10",
-      "username": "harryp",
-      "password": "harrysecure",
-      "email": "harryp@example.com",
-      "phone": "0123456789"
-    },
-    {
-      "id": 12,
-      "username": "lt",
-      "password": "L1",
-      "email": "L@gmail.com",
-      "phone": "0999999999"
-    }
-  ],
-  "categories":[
+  "products": [
     {
       "id": 1,
-      "name": "Giày thể thao nữ",
-      "imageIllustrator": "assets/images/1.webp"
+      "name": "T-shirt",
+      "description": "Classic cotton T-shirt",
+      "price": 19.99,
+      "attributes": [
+        {
+          "id": 1,
+          "color": "Red",
+          "size": 32,
+          "stock": 20,
+          "price": 19.99,
+          "imageUrl": [
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg"
+          ]
+        },
+        {
+          "id": 2,
+          "color": "Blue",
+          "size": 34,
+          "stock": 15,
+          "price": 21.99,
+          "imageUrl": [
+            "https://example.com/image3.jpg"
+          ]
+        }
+      ],
+      "categoryId": 2
     },
     {
       "id": 2,
-      "name": "Áo khoác nữ",
-      "imageIllustrator": "assets/images/2.webp"
+      "name": "Denim Jacket",
+      "description": "Stylish denim jacket",
+      "price": 49.99,
+      "attributes": [
+        {
+          "id": 3,
+          "color": "Black",
+          "size": 38,
+          "stock": 10,
+          "price": 52.99,
+          "imageUrl": [
+            "https://example.com/image4.jpg"
+          ]
+        }
+      ],
+      "categoryId": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Áo polo",
+      "loai": "Áo"
+    },
+    {
+      "id": 2,
+      "categoryName": "Áo thun",
+      "loai": "Áo"
     },
     {
       "id": 3,
-      "name": "Áo chống nắng nữ",
-      "imageIllustrator": "assets/images/3.webp"
+      "categoryName": "Áo sơ mi",
+      "loai": "Áo"
     },
     {
       "id": 4,
-      "name": "Áo thun nữ",
-      "imageIllustrator": "assets/images/4.webp"
+      "categoryName": "Áo Vjp",
+      "loai": "Áo"
     },
     {
       "id": 5,
-      "name": "Quần nữ",
-      "imageIllustrator": "assets/images/5.webp"
+      "categoryName": "Quần jeans",
+      "loai": "Quần"
     },
     {
       "id": 6,
-      "name": "Đồ lót nữ",
-      "imageIllustrator": "assets/images/6.webp"
+      "categoryName": "Quần shorts",
+      "loai": "Quần"
     },
     {
       "id": 7,
-      "name": "Giày thể thao name",
-      "imageIllustrator": "assets/images/7.webp"
+      "categoryName": "Quần dài",
+      "loai": "Quần"
     },
     {
       "id": 8,
-      "name": "Áo khoác nam",
-      "imageIllustrator": "assets/images/8.webp"
+      "categoryName": "Áo khoác lông",
+      "loai": "Áo khoác"
     },
     {
       "id": 9,
-      "name": "Áo thun nam",
-      "imageIllustrator": "assets/images/9.webp"
+      "categoryName": "Áo khoác chống nắng",
+      "loai": "Áo khoác"
     },
     {
       "id": 10,
-      "name": "Quần nam",
-      "imageIllustrator": "assets/images/10.webp"
+      "categoryName": "Áo khoác gió",
+      "loai": "Áo khoác"
     },
     {
       "id": 11,
-      "name": "Áo chống nắng nam",
-      "imageIllustrator": "assets/images/11.webp"
+      "categoryName": "Quần sịp",
+      "loai": "Đồ lót"
     },
     {
       "id": 12,
-      "name": "Đồ lót nam",
-      "imageIllustrator": "assets/images/12.webp"
+      "categoryName": "Tất chân",
+      "loai": "Phụ kiện"
+    },
+    {
+      "id": 13,
+      "categoryName": "Giày Sneaker",
+      "loai": "Giày"
+    }
+  ],
+  "genders": [
+    {
+      "id": 1,
+      "name": "Men",
+      "categories": [
+        {
+          "id": 1,
+          "categoryName": "Áo polo",
+          "loai": "Áo"
+        },
+        {
+          "id": 2,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        },
+        {
+          "id": 3,
+          "categoryName": "Áo sơ mi",
+          "loai": "Áo"
+        },
+        {
+          "id": 4,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Women",
+      "categories": [
+        {
+          "id": 1,
+          "categoryName": "Áo polo",
+          "loai": "Áo"
+        },
+        {
+          "id": 2,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        },
+        {
+          "id": 3,
+          "categoryName": "Áo sơ mi",
+          "loai": "Áo"
+        },
+        {
+          "id": 4,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        },
+        {
+          "id": 5,
+          "categoryName": "Quần jeans",
+          "loai": "Quần"
+        },
+        {
+          "id": 6,
+          "categoryName": "Quần shorts",
+          "loai": "Quần"
+        },
+        {
+          "id": 7,
+          "categoryName": "Quần dài",
+          "loai": "Quần"
+        },
+        {
+          "id": 8,
+          "categoryName": "Áo khoác lông",
+          "loai": "Áo khoác"
+        },
+        {
+          "id": 9,
+          "categoryName": "Áo khoác chống nắng",
+          "loai": "Áo khoác"
+        },
+        {
+          "id": 10,
+          "categoryName": "Áo khoác gió",
+          "loai": "Áo khoác"
+        },
+        {
+          "id": 13,
+          "categoryName": "Chân váy",
+          "loai": "Váy"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Unisex",
+      "categories": [
+        {
+          "id": 1,
+          "categoryName": "Áo polo",
+          "loai": "Áo"
+        },
+        {
+          "id": 2,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        },
+        {
+          "id": 3,
+          "categoryName": "Áo sơ mi",
+          "loai": "Áo"
+        },
+        {
+          "id": 4,
+          "categoryName": "Áo thun",
+          "loai": "Áo"
+        },
+        {
+          "id": 5,
+          "categoryName": "Quần jeans",
+          "loai": "Quần"
+        },
+        {
+          "id": 6,
+          "categoryName": "Quần shorts",
+          "loai": "Quần"
+        },
+        {
+          "id": 7,
+          "categoryName": "Quần dài",
+          "loai": "Quần"
+        },
+        {
+          "id": 8,
+          "categoryName": "Áo khoác lông",
+          "loai": "Áo khoác"
+        },
+        {
+          "id": 9,
+          "categoryName": "Áo khoác chống nắng",
+          "loai": "Áo khoác"
+        },
+        {
+          "id": 10,
+          "categoryName": "Áo khoác gió",
+          "loai": "Áo khoác"
+        }
+      ]
     }
   ]
 }

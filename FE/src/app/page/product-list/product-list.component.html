@@ -1,0 +1,55 @@
+<!-- Container -->
+<app-breadcrumb class="py-6"></app-breadcrumb>
+
+<div class="mt-6 flex gap-5">
+    <div class="flex flex-col w-[210px]">
+        <form class="flex flex-col gap-3" [formGroup]="formGroup">
+            <div class="my-4">
+                <div class="flex items-center text-center py-4">Sắp xếp khoảng giá</div>
+                <div class="options">
+                    <p-slider formControlName="priceRange" [range]="true"></p-slider>
+                </div>
+            </div>
+            <div class="my-4">
+                <div class="flex items-center text-center py-4 justify-between">
+                    <div>Màu sắc</div>
+                    <p-dropdown [options]="['Red', 'Blue', 'Black']" formControlName="selectedColor"
+                        placeholder="Select Color"></p-dropdown>
+                </div>
+            </div>
+            <div class="my-4">
+                <div class="flex flex-col">
+                    <div>Danh mục</div>
+                    <div class="clear-both mt-5">
+                        <div *ngFor="let category of categories" class="flex items-center justify-start mb-4">
+                            <p-radioButton [inputId]="category.key" [value]="category.name"
+                                formControlName="selectedCategory" variant="filled" />
+                            <label [for]="category.key" class="ml-2">
+                                {{ category.name }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-4">
+                <div class="flex items-center text-center py-4 justify-between">
+                    <div>Đối tượng</div>
+                    <div class="text-lg font-bold leading-6">+</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="w-3/4 flex flex-col">
+        <div class="category-name flex gap-2 items-end mb-4">
+            <h1>All Products</h1>
+        </div>
+        <div *ngFor="let product of products" class="p-card">
+            <!-- <img [src]="product.attributes[0].imageUrl[0]" alt="product image" style="width: 100%"> -->
+            <div class="p-card-header">{{ product.name }}</div>
+            <div class="p-card-body">
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.price | currency }}</p>
+            </div>
+        </div>
+    </div>
+</div>
