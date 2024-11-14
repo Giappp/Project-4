@@ -1,28 +1,64 @@
-<div class="login-container">
-    <h3 class="login-title">Login</h3>
-    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
-        <div class="form-group">
-            <input class="form-control" type="email" placeholder="Email" formControlName="email">
-            <span *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"
-                class="error-message">Email is required</span>
-            <span *ngIf="loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched"
-                class="error-message">*Invalid email format</span>
+<div class="bg-gray-50">
+    <div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-3xl font-extrabold text-gray-900">Sign in</h1>
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" placeholder="Password" formControlName="password">
-            <span *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
-                class="error-message">*Password is required</span>
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-slate-900">Username</label>
+                        <div class="mt-1">
+                            <input id="username" type="text" formControlName="username"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': userName?.invalid && userName?.touched, 'border-gray-300': !userName?.invalid || !userName?.touched}"
+                                placeholder="Enter your email or username" #username />
+                            <div *ngIf="userName?.invalid && userName?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="userName?.errors?.['required']">Username is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-900">Password</label>
+                        <div class="mt-1">
+                            <input id="password" type="password" formControlName="password"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': password?.invalid && password?.touched, 'border-gray-300': !password?.invalid || !password?.touched}"
+                                placeholder="Enter your password" />
+                            <div *ngIf="password?.invalid && password?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="password?.errors?.['required']">Password is required.</small>
+                                <small *ngIf="password?.errors?.['minlength']">Password must be at least 6
+                                    characters.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember_me" name="remember_me" type="checkbox" formControlName="rememberMe"
+                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 disabled:cursor-wait disabled:opacity-50">
+                            <label for="remember_me" class="ml-2 block text-sm text-gray-900">Remember
+                                me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a class="font-medium text-indigo-400 hover:text-indigo-500" href="">
+                                Forgot your password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" [disabled]="loginForm.invalid"
+                            class="group relative flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <button [disabled]="loginForm.invalid" class="btn btn-primary" type="submit">Login</button>
-        </div>
-        <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-        </div>
-    </form>
-    <div class="register-link">
-        <span>Don't have an account yet?</span>
-        <br>
-        <a routerLink="/auth/register" class="link">Register here</a>
     </div>
 </div>

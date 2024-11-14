@@ -14,11 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 
 @Service
@@ -26,12 +24,12 @@ import java.util.concurrent.CompletableFuture;
 public class JwtService {
     private static final Logger logger = LoggerFactory.getLogger(JwtService.class);
     private final InvalidatedTokenRepository invalidatedTokenRepository;
-    @Value("${application.security.jwt.secret-key}")
+    @Value("${application.security.jwt.secret-key-v2}")
     private String secretKey;
     @Value("${application.security.jwt.expiration}")
     private long expiration;
 
-    public CompletableFuture<String> generateToken(User user) {
+    public String generateToken(User user) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId());
         claims.put("email", user.getEmail());
@@ -46,7 +44,10 @@ public class JwtService {
 
     public boolean isValidJwtToken(String token) {
         try {
-            Jwts.parser().verifyWith(getSignKey()).build().parseSignedClaims(token);
+            Jwts.parserBuilder()
+                    .setSigningKey(getSignKey())
+                    .build()
+                    .parseClaimsJws(token);
             return true;
         } catch (MalformedJwtException e) {
             logger.error("Invalid JWT token: {}", e.getMessage());
@@ -77,17 +78,14 @@ public class JwtService {
                 .getExpiration();
     }
 
-    private CompletableFuture<String> createToken(Map<String, Object> claims, String subject) {
-        byte[] keyBytes = Base64.getDecoder().decode(this.secretKey);
-        SecretKey key = Keys.hmacShaKeyFor(keyBytes);
-
-        return CompletableFuture.supplyAsync(() -> Jwts.builder()
-                .claims(claims)
-                .subject(subject)
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
-                .signWith(key)
-                .compact());
+    private String createToken(Map<String, Object> claims, String username) {
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(username)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSignKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
     private SecretKey getSignKey() {
@@ -96,11 +94,11 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parser()
-                .verifyWith(getSignKey())
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignKey())
                 .build()
-                .parseSignedClaims(token)
-                .getPayload();
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     public void invalidateToken(String token) {

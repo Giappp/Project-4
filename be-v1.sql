@@ -98,7 +98,8 @@ CREATE TABLE Admin (
 CREATE TABLE Promotion (
     id INT AUTO_INCREMENT PRIMARY KEY,
     description VARCHAR(100),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    start_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    end_date DATETIME DEFAULT NULL
 );
 
 -- PromotionProduct table (many-to-many relationship)

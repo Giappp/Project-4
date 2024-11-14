@@ -9,14 +9,15 @@ import { PassValidatorDirective } from './register/Validator/passwordValidator/p
 import { PhoneValidatorDirective } from './register/Validator/phoneValidator/phone-validator.directive';
 import { LoginComponent } from './login/login.component';
 
-
 @NgModule({
-  declarations: [RegisterComponent, ConfirmPassValidatorDirective, PassValidatorDirective, PhoneValidatorDirective, LoginComponent],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    ReactiveFormsModule
+  declarations: [
+    ConfirmPassValidatorDirective,
+    PassValidatorDirective,
+    PhoneValidatorDirective,
+    LoginComponent,
+    RegisterComponent,
   ],
-  exports: [RegisterComponent]
+  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule],
+  exports: [LoginComponent, RegisterComponent],
 })
-export class AuthModule { }
+export class AuthModule {}

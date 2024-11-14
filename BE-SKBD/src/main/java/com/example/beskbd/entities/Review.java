@@ -1,22 +1,20 @@
 package com.example.beskbd.entities;
 
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Table;
+import lombok.*;
 
-import java.time.LocalDateTime;
-
-@Setter
-@Getter
-@Entity
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "tbl_review")
 public class Review extends BaseEntity {
-
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -25,16 +23,4 @@ public class Review extends BaseEntity {
     private User user;
     private int rating; // Từ 1 đến 5
     private String comment;
-
-
-    public Review
-            (Long id, LocalDateTime createDate, LocalDateTime updateDate,
-             Product product, User user, int rating, String comment) {
-        super(id, createDate, updateDate);
-        this.product = product;
-        this.user = user;
-        this.rating = rating;
-        this.comment = comment;
-    }
-
 }

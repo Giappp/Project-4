@@ -2,21 +2,13 @@ package com.example.beskbd.repositories;
 
 import com.example.beskbd.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
+@Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-
-    Iterable<Product> findByPrice(double price);
-
-    Iterable<Product> findByPriceBetween(double minPrice, double maxPrice);
-
-    Iterable<Product> findByCategory(String category);
-
-    Iterable<Product> findByCategoryAndPrice(String category, double price);
-
-    Iterable<Product> findByCategoryAndPriceAndName(String category, double price, String name);
-
-    Iterable<Product> findByCategoryAndNameAndDescriptionAndCreatedDate(String category, String name, String description, LocalDateTime createDate);
+    @Query("SELECT Top(10) from Product p order by p.createdDate desc limit 10")
+    List<Product> findTop10ByOrderByCreatedAtDesc();
 }
