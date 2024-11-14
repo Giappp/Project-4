@@ -1,14 +1,13 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApplicationConfigService } from './config/application-config.service';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
+  exports: [],
+  providers: [ApplicationConfigService],
 })
-export class CoreModule {
-  constructor(@Optional() @SkipSelf() core: CoreModule) {
-    if (core) {
-      throw new Error('You should import core module only in the root module');
-    }
-  }
-}
+export class CoreModule {}
