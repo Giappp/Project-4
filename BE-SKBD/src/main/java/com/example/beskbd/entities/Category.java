@@ -1,27 +1,28 @@
 package com.example.beskbd.entities;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.*;
 
 import java.util.Set;
 
-
-@Getter
-@Setter
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Categories")
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
-    private String categoryName;
+@Table(name = "categories")
+public class Category extends BaseEntity {
+    private String name;
     private String description;
+    private Gender gender;
+    private String productType;
     @OneToMany(mappedBy = "category")
-    private Set<ProductCategory> productCategories;
+    private Set<Product> products;
 
+    public enum Gender {
+        MEN, WOMEN, UNISEX, CHILD
+    }
 }

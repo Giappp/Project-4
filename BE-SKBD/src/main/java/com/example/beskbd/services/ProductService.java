@@ -1,81 +1,134 @@
 package com.example.beskbd.services;
 
+import com.example.beskbd.dto.object.CategoryDto;
+import com.example.beskbd.dto.object.NewArrivalProductDto;
+import com.example.beskbd.dto.object.ProductAttributeDto;
+import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.entities.Product;
+import com.example.beskbd.entities.ProductAttribute;
+import com.example.beskbd.entities.ProductImage;
+import com.example.beskbd.exception.AppException;
+import com.example.beskbd.exception.ErrorCode;
+import com.example.beskbd.repositories.CategoryRepository;
 import com.example.beskbd.repositories.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
-    @Autowired
-    private ProductRepository productRepository;
+    private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
+    ProductRepository productRepository;
+    CategoryRepository categoryRepository;
+    CloudinaryService cloudinaryService;
 
-    public void createProduct(String name, String description, double price, LocalDateTime CreateDate) {
-        productRepository.save(new Product(name, description, price, CreateDate));
+    public Map<String, List<CategoryDto>> getCategoryByGender() {
+        return categoryRepository.findAll()
+                .stream()
+                .collect(groupingBy(category -> category.getGender().toString(),
+                        Collectors.mapping(CategoryDto::new, Collectors.toList())));
     }
 
-    public void updateProduct(Long id, String name, String description, double price, LocalDateTime updateDate) {
-        Product product = productRepository.findById(id).orElse(null);
-        if (product != null) {
-            product.setName(name);
-            product.setDescription(description);
-            product.setPrice(price);
-            product.setUpdatedDate(updateDate);
-            productRepository.save(product);
-        }
+    @Transactional
+    public void addProduct(ProductCreationRequest request) {
+        if (request == null) throw new AppException(ErrorCode.INVALID_REQUEST);
+
+        Product product = new Product();
+        product.setName(request.getProductName());
+        product.setDescription(request.getProductDescription());
+
+        var category = categoryRepository.findById(request.getCategoryId())
+                .orElseThrow(() -> new AppException(ErrorCode.INVALID_REQUEST));
+        product.setCategory(category);
+
+        var attributes = request.getAttributes()
+                .stream()
+                .map(dto -> toProductAttribute(dto, product))
+                .toList();
+        product.setAttributes(attributes);
+
+        productRepository.save(product);
     }
 
-    public void deleteProduct(Long id) {
-        productRepository.deleteById(id);
+    public List<NewArrivalProductDto> getNewArrivalProduct() {
+        return productRepository.findTop10ByOrderByCreatedAtDesc()
+                .stream()
+                .map(this::toNewArrival)
+                .toList();
     }
 
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+    private NewArrivalProductDto toNewArrival(Product product) {
+        return NewArrivalProductDto
+                .builder()
+                .productId(product.getId())
+                .productName(product.getName())
+                .minPrice(getMinPrice(product))
+                .maxPrice(getMaxPrice(product))
+                .imageUrl(getFirstImageUrl(product))
+                .build();
     }
 
-    public Iterable<Product> getAllProducts() {
-        return productRepository.findAll();
+    private String getFirstImageUrl(Product product) {
+        return product.getAttributes().stream()
+                .findFirst()
+                .flatMap(attr -> attr.getProductImages().stream().findFirst())
+                .map(ProductImage::getImageUrl)
+                .orElse(""); // Default to an empty string if no image is available
     }
 
-    public Iterable<Product> getProductsByPrice(double price) {
-        return productRepository.findByPrice(price);
+    private BigDecimal getMaxPrice(Product product) {
+        return product.getAttributes()
+                .stream()
+                .max(Comparator.comparing(ProductAttribute::getPrice))
+                .get().getPrice();
     }
 
-    public Iterable<Product> getProductsByPriceRange(double minPrice, double maxPrice) {
-        return productRepository.findByPriceBetween(minPrice, maxPrice);
+    private BigDecimal getMinPrice(Product product) {
+        return product.getAttributes()
+                .stream()
+                .min(Comparator.comparing(ProductAttribute::getPrice))
+                .get().getPrice();
     }
 
-    public Iterable<Product> getProductsByPriceAndName(double price, String name) {
-        return productRepository.findByPriceAndName(price, name);
-    }
+    private ProductAttribute toProductAttribute(ProductAttributeDto dto, Product product) {
+        ProductAttribute productAttribute = new ProductAttribute();
+        productAttribute.setProduct(product); // Set product reference
 
-    public Iterable<Product> getProductsByPriceAndNameAndDescription(double price, String name, String description) {
-        return productRepository.findByPriceAndNameAndDescription(price, name, description);
-    }
+        var productImages = dto.getImageFiles()
+                .stream()
+                .map(imageFile -> {
+                    String url;
+                    try {
+                        url = cloudinaryService.uploadImage(imageFile);
+                    } catch (IOException e) {
+                        throw new RuntimeException("Failed to upload image", e);
+                    }
+                    var productImage = new ProductImage();
+                    productImage.setImageUrl(url);
+                    return productImage;
+                })
+                .toList();
+        productAttribute.setProductImages(productImages);
 
-    public Iterable<Product> getProductsByPriceAndNameAndDescriptionAndCreateDate(double price, String name, String description, LocalDateTime createDate) {
-        return productRepository.findByPriceAndNameAndDescriptionAndCreateDate(price, name, description, createDate);
-    }
+        productAttribute.setSize(dto.getSize());
+        productAttribute.setStock(dto.getStock());
+        productAttribute.setPrice(dto.getPrice());
 
-    public Iterable<Product> getProductsByCategory(String category) {
-        return productRepository.findByCategory(category);
-    }
-
-    public Iterable<Product> getProductsByCategoryAndPrice(String category, double price) {
-        return productRepository.findByCategoryAndPrice(category, price);
-    }
-
-    public Iterable<Product> getProductsByCategoryAndPriceAndName(String category, double price, String name) {
-        return productRepository.findByCategoryAndPriceAndName(category, price, name);
-    }
-
-    public Iterable<Product> getProductsByCategoryAndNameAndDescription(String category, String name, String description) {
-        return productRepository.findByCategoryAndNameAndDescription(category, name, description);
-    }
-
-    public Iterable<Product> getProductsByCategoryAndNameAndDescriptionAndCreateDate(String category, String name, String description, LocalDateTime createDate) {
-        return productRepository.findByCategoryAndNameAndDescriptionAndCreateDate(category, name, description, createDate);
+        return productAttribute;
     }
 }

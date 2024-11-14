@@ -2,6 +2,7 @@ package com.example.beskbd.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -17,7 +17,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "tbl_users")
 public class User extends BaseEntity implements UserDetails {
     @Column(unique = true)
     private String username;
@@ -26,7 +26,6 @@ public class User extends BaseEntity implements UserDetails {
     private String email;
 
     private String password; // Note: In real scenarios, exclude from JSON serialization with @JsonIgnore
-
     private Role authority;
     private String firstName;
     private String lastName;
@@ -37,6 +36,12 @@ public class User extends BaseEntity implements UserDetails {
     private boolean isEnabled;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @OneToMany
+    private List<Review> reviews;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -21,16 +21,6 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "updated_at")
     protected LocalDateTime updatedDate;
 
-    public BaseEntity(Long id, LocalDateTime createDate, LocalDateTime updateDate) {
-        this.id = id;
-        this.createdDate = createDate;
-        this.updatedDate = updateDate;
-    }
-
-    public BaseEntity() {
-
-    }
-
     @PrePersist
     protected void onCreate() {
         createdDate = LocalDateTime.now();

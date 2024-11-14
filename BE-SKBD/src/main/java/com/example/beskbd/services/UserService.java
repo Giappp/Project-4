@@ -10,15 +10,10 @@ import com.example.beskbd.repositories.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -30,10 +25,9 @@ public class UserService implements UserDetailsService {
     JwtService jwtService;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
     }
 
     public AuthenticationResponse createUser(UserCreationRequest request) {
@@ -49,7 +43,7 @@ public class UserService implements UserDetailsService {
                 .isEnabled(true)
                 .build();
         userRepository.save(user);
-        CompletableFuture<String> token = jwtService.generateToken(user);
+        String token = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(token)
                 .authenticated(true)
