@@ -1,23 +1,22 @@
 package com.example.beskbd.rest;
 
-import com.example.beskbd.dto.request.AuthenticationRequest;
-import com.example.beskbd.dto.request.ForgotPasswordRequest;
-import com.example.beskbd.dto.request.LogoutRequest;
-import com.example.beskbd.dto.request.RefreshRequest;
-import com.example.beskbd.dto.request.UserCreationRequest;
+import com.example.beskbd.dto.request.*;
 import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.dto.response.AuthenticationResponse;
-import com.example.beskbd.entities.User;
 import com.example.beskbd.services.AuthenticationService;
 import com.example.beskbd.services.UserService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/auth")
@@ -50,14 +49,17 @@ public class RestAuthController {
         return ApiResponse.<AuthenticationResponse>builder().data(result).build();
     }
 
-    @PostMapping("/signout")
-    public ApiResponse<Void> logout(@RequestBody LogoutRequest request) {
+    @PostMapping("/sign-out")
+    public ResponseEntity<?> logout(@RequestBody LogoutRequest request) {
         authenticationService.logout(request);
-        return ApiResponse.<Void>builder().build();
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(ApiResponse.<Void>builder().build());
     }
+
     @PostMapping("/forgot-password")
-    public ResponseEntity<ApiResponse<Void>> forgotPassword(@RequestBody @Valid ForgotPasswordRequest request) {
-        userService.forgotPassword(request.getEmail()); // Assuming the DTO has an email field
+    public ResponseEntity<ApiResponse<Void>> forgotPassword(@RequestBody @Valid ForgotPasswordRequest requestBody,
+                                                            HttpServletRequest request) {
+        userService.forgotPassword(requestBody.getEmail(), request); // Assuming the DTO has an email field
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ApiResponse.<Void>builder().build());
     }

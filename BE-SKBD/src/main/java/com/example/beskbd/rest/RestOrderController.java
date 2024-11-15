@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.RestController;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class RestOrderController {
-    private static final Logger logger = LoggerFactory.getLogger(RestOrderController.class);
+    static Logger logger = LoggerFactory.getLogger(RestOrderController.class);
 }

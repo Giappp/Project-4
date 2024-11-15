@@ -10,19 +10,26 @@ import com.example.beskbd.repositories.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserService implements UserDetailsService {
-
+    static Logger logger = LoggerFactory.getLogger(UserService.class);
     UserRepository userRepository;
     BCryptPasswordEncoder passwordEncoder;
     JwtService jwtService;
+    EmailService emailService;
 
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -48,5 +55,18 @@ public class UserService implements UserDetailsService {
                 .token(token)
                 .authenticated(true)
                 .build();
+    }
+
+    public void forgotPassword(String email, HttpServletRequest request) {
+        logger.info("Requesting password reset for email: {}", email);
+
+        var user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new AppException(ErrorCode.EMAIL_NOT_EXISTS));
+        String token = UUID.randomUUID().toString();
+        user.setResetToken(token);
+        user.setResetTokenExpiryDate(LocalDateTime.now().plusHours(1)); // Token valid for 1 hour
+        userRepository.save(user);
+        String resetUrl = "http://localhost:8083/reset-password?token=" + token;
+        emailService.sendResetLink(email, "Password Reset Request", "Click the link (valid for 1 hour) to reset your password: " + resetUrl);
     }
 }

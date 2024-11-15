@@ -32,7 +32,7 @@ import static java.util.stream.Collectors.groupingBy;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
-    private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
+    Logger logger = LoggerFactory.getLogger(ProductService.class);
     ProductRepository productRepository;
     CategoryRepository categoryRepository;
     CloudinaryService cloudinaryService;

@@ -18,7 +18,8 @@ public enum ErrorCode {
     ORDER_NOT_FOUND(1013, "Not found Order", HttpStatus.NOT_FOUND),
     ALREADY_LOGIN(1011, "User already logged in", HttpStatus.BAD_REQUEST),
     INVALID_REQUEST(1012, "Invalid request", HttpStatus.BAD_REQUEST),
-    INVALID_CREDENTIALS(1013, "Expired or Invalid Token", HttpStatus.UNAUTHORIZED);
+    INVALID_CREDENTIALS(1013, "Expired or Invalid Token", HttpStatus.UNAUTHORIZED),
+    EMAIL_NOT_EXISTS(1014, "Email not found", HttpStatus.NOT_FOUND);
 
 
     private final int code;
