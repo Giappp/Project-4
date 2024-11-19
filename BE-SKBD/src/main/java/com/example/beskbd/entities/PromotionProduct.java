@@ -1,9 +1,6 @@
 package com.example.beskbd.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
@@ -14,10 +11,9 @@ import lombok.*;
 @Entity
 @Table(name = "tbl_promotion_product")
 public class PromotionProduct extends BaseEntity {
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
-    @ManyToOne
-    private Promotion promotion;
     @Column(name = "percentage")
     private Float percentage;
 }

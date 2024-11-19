@@ -29,7 +29,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
             HttpServletResponse response,
             AuthenticationException authException
     ) throws IOException {
-        logger.error("Unauthorized error for path: {}", request.getRequestURI(), authException);
+//        logger.error("Unauthorized error for path: {}", request.getRequestURI());
 
         ErrorCode errorCode = determineErrorCode(authException);
 

@@ -47,9 +47,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
       }),
     });
   }
+
   ngAfterViewInit(): void {
     this.username().nativeElement.focus();
   }
+
   ngOnInit(): void {
     this.accountService.identity().subscribe(() => {
       if (this.accountService.isAuthenticated()) {

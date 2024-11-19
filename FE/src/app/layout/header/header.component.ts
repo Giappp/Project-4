@@ -25,6 +25,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AccountService } from '../../core/auth/account.service';
 import { AuthServerProvider } from '../../core/auth/auth-jwt.service';
+import { LoginService } from '../../page/auth/login/login.service';
 
 @Component({
   standalone: true,
@@ -43,8 +44,8 @@ import { AuthServerProvider } from '../../core/auth/auth-jwt.service';
 })
 export class HeaderComponent implements OnInit {
   account = inject(AccountService).trackCurrentAccount();
-  authService = inject(AuthServerProvider);
-
+  
+  authService = inject(LoginService);
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
   genders$!: Observable<Gender[]>;

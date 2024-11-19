@@ -6,13 +6,15 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tbl_product_images")
-public class ProductImage extends BaseEntity {
-    @Column(name = "image_url")
-    private String imageUrl;
+@Table(name = "tbl_product_stock_size")
+public class ProductSize extends BaseEntity {
+    @Column(nullable = false)
+    private Integer stock;
+    @Column(nullable = false)
+    private Integer size;
 }

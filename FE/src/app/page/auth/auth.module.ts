@@ -8,6 +8,8 @@ import { ConfirmPassValidatorDirective } from './register/Validator/confirm-pass
 import { PassValidatorDirective } from './register/Validator/passwordValidator/pass-validator.directive';
 import { PhoneValidatorDirective } from './register/Validator/phoneValidator/phone-validator.directive';
 import { LoginComponent } from './login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent,
     RegisterComponent,
   ],
-  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule],
+  imports: [SharedModule, AuthRoutingModule, ReactiveFormsModule],
   exports: [LoginComponent, RegisterComponent],
 })
 export class AuthModule {}

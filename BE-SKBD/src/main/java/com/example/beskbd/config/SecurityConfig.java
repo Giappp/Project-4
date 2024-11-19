@@ -39,6 +39,8 @@ public class SecurityConfig {
             "/api/products/genders",
             "/paypal/pay",
             "/error",
+            "/api/categories",
+            "/api/products/"
     };
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;

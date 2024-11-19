@@ -16,9 +16,9 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 
-    @Column(name = "created_ed")
+    @Column(name = "created_at")
     protected LocalDateTime createdDate;
-    @Column(name = "updated_ed")
+    @Column(name = "updated_at")
     protected LocalDateTime updatedDate;
 
     @PrePersist

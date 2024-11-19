@@ -3,12 +3,13 @@ package com.example.beskbd.rest;
 import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.services.ProductService;
-import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,37 +21,38 @@ public class RestProductController {
     ProductService productService;
 
     @GetMapping("/genders")
-    public ApiResponse<?> getByGender() {
+    public ResponseEntity<?> getByGender() {
         var result = productService.getCategoryByGender();
-        return ApiResponse.builder()
+        return ResponseEntity.ok(ApiResponse.builder()
                 .data(result)
                 .success(true)
-                .build();
+                .build());
     }
 
-    @PostMapping("/")
-    public ApiResponse<?> createProduct(@RequestBody @Valid ProductCreationRequest request) {
+    @PostMapping(value = "/", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> createProduct(@ModelAttribute ProductCreationRequest request) {
+        logger.info(request.toString());
         productService.addProduct(request);
-        return ApiResponse.builder()
+        return ResponseEntity.ok(ApiResponse.builder()
                 .success(true)
-                .build();
+                .build());
     }
 
     @GetMapping("/new-arrivals")
-    public ApiResponse<?> getNewArrivals() {
+    public ResponseEntity<?> getNewArrivals() {
         var products = productService.getNewArrivalProduct();
-        return ApiResponse.builder()
+        return ResponseEntity.ok(ApiResponse.builder()
                 .data(products)
                 .success(true)
-                .build();
+                .build());
     }
 
     @GetMapping("/")
-    public ApiResponse<?> getAllProducts() {
+    public ResponseEntity<?> getAllProducts() {
         var products = productService;
-        return ApiResponse
+        return ResponseEntity.ok(ApiResponse
                 .builder()
                 .success(true)
-                .build();
+                .build());
     }
 }

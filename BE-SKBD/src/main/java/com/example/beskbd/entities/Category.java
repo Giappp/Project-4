@@ -1,8 +1,6 @@
 package com.example.beskbd.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
@@ -17,9 +15,11 @@ import java.util.Set;
 public class Category extends BaseEntity {
     private String name;
     private String description;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private String productType;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
     private Set<Product> products;
 
     public enum Gender {
