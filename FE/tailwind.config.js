@@ -20,7 +20,9 @@ module.exports = {
       green: colors.green,
       blue: colors.blue,
       white: colors.white,
-      amber: colors.amber
+      amber: colors.amber,
+      red:colors.red,
+      indigo: colors.indigo,
     }
   },
   plugins: [require('tailwindcss-primeui')]

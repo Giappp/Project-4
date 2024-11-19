@@ -10,7 +10,6 @@ import {
 import { confirmPassValidator } from './Validator/confirm-pass-validator.directive';
 import { passwordValidator } from './Validator/passwordValidator/pass-validator.directive';
 import { phoneValidator } from './Validator/phoneValidator/phone-validator.directive';
-import { UserService } from '../../../core/userService/user.service';
 import { randomInt, randomUUID } from 'crypto';
 import { Observable } from 'rxjs';
 
@@ -25,7 +24,7 @@ export class RegisterComponent implements OnInit {
   user = {} as User;
   regisOb!: Observable<User>;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.formRegisGroup = this.fb.group(
@@ -59,10 +58,8 @@ export class RegisterComponent implements OnInit {
     } else {
       this.user.id = 12;
       this.user.username = this.username?.value;
-      this.user.password = this.formRegisGroup.get('password')?.value;
       this.user.email = this.email.value;
       this.user.phone = this.phone.value;
-      this.regisOb = this.userService.insertUser(this.user);
       this.regisOb.subscribe((val) => {
         console.log('success full');
       });

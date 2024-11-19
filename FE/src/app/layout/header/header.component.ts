@@ -1,4 +1,11 @@
-import { Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  inject,
+  Inject,
+  Input,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +23,8 @@ import { Gender } from '../../model/gender';
 import { ProductService } from '../../shared/services/product.service';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
+import { AccountService } from '../../core/auth/account.service';
+import { AuthServerProvider } from '../../core/auth/auth-jwt.service';
 
 @Component({
   standalone: true,
@@ -33,6 +42,9 @@ import { MegaMenuItem, MenuItem } from 'primeng/api';
   ],
 })
 export class HeaderComponent implements OnInit {
+  account = inject(AccountService).trackCurrentAccount();
+  authService = inject(AuthServerProvider);
+
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
   genders$!: Observable<Gender[]>;
@@ -109,11 +121,7 @@ export class HeaderComponent implements OnInit {
 
     return menu;
   }
-
-  login() {
-    this.router.navigate(['/login']);
-  }
-  signIn() {
-    this.router.navigate(['/register']);
+  logout(): void {
+    this.authService.logout();
   }
 }

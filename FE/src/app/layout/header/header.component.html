@@ -30,7 +30,19 @@
 
             <!-- Icon container -->
             <div class="flex flex-row sm:justify-between">
-                <app-shopping-cart></app-shopping-cart>
+                <div class="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
+                    <app-shopping-cart></app-shopping-cart>
+                    @if (account() === null) {
+
+                    <a class="text-gray-700 hover:text-indigo-700 text-sm font-medium" href="javascript:void(0)"
+                        [routerLink]="['/auth/login']">Login</a>
+                    <a class="bg-indigo-500 hover:bg-indigo-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
+                        href="javascript:void(0)" [routerLink]="['/auth/register']">Sign up
+                    </a>
+                    }@else {
+                    <a href="javascript:void(0);" (click)="logout()">Logout</a>
+                    }
+                </div>
             </div>
         </div>
     </div>

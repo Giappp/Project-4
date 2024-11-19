@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Slf4j
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = RuntimeException.class)
-    ResponseEntity handleingRunTimeException(RuntimeException exception) {
+    ResponseEntity<ApiResponse<?>> handleingRunTimeException(RuntimeException exception) {
         log.error("Exception: " + exception);
-        ApiResponse apiResponse = new ApiResponse();
+        ApiResponse<?> apiResponse = new ApiResponse<>();
 
         apiResponse.setErrorCode(ErrorCode.UNCATEGORIZED_EXCEPTION.getCode());
         apiResponse.setErrorMessage(ErrorCode.UNCATEGORIZED_EXCEPTION.getMessage());
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(value = AccessDeniedException.class)
-    ResponseEntity<ApiResponse> handlingAccessDeniedException(AccessDeniedException exception) {
+    ResponseEntity<ApiResponse<?>> handlingAccessDeniedException(AccessDeniedException exception) {
         ErrorCode errorCode = ErrorCode.UNAUTHORIZED;
 
         return ResponseEntity.status(errorCode.getStatusCode())
