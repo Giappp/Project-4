@@ -75,7 +75,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String userName = jwtService.extractUserName(token);
         User user = userService.loadUserByUsername(userName);
 
-        if (!jwtService.validateToken(token, user)) {
+        if (jwtService.validateToken(token, user)) {
             throw new JwtAuthenticationException("Token validation failed");
         }
 

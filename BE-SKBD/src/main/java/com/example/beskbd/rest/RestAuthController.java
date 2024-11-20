@@ -59,7 +59,7 @@ public class RestAuthController {
     @PostMapping("/forgot-password")
     public ResponseEntity<ApiResponse<Void>> forgotPassword(@RequestBody @Valid ForgotPasswordRequest requestBody,
                                                             HttpServletRequest request) {
-        userService.forgotPassword(requestBody.getEmail(), request); // Assuming the DTO has an email field
+        userService.forgotPassword(requestBody.getEmail(), request);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ApiResponse.<Void>builder().build());
     }
