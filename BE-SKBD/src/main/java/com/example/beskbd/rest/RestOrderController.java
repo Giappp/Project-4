@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,10 +20,11 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class RestOrderController {
-    static Logger logger = LoggerFactory.getLogger(RestOrderController.class);
+    public static Logger logger = LoggerFactory.getLogger(RestOrderController.class);
+    @Autowired
     OrderService orderService;
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<ApiResponse> createOrder(@RequestBody OrderCreationRequest request) {
         logger.info("Creating order with details: {}", request);
         orderService.addOrder(request);  // Adjust this according to your service method

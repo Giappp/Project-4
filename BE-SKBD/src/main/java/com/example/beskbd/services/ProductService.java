@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,8 +36,11 @@ import static java.util.stream.Collectors.groupingBy;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
     Logger logger = LoggerFactory.getLogger(ProductService.class);
+    @Autowired
     ProductRepository productRepository;
+    @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
     CloudinaryService cloudinaryService;
 
     public Map<String, List<CategoryDto>> getCategoryByGender() {

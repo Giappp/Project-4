@@ -5,6 +5,7 @@ import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.dto.response.AuthenticationResponse;
 import com.example.beskbd.services.AuthenticationService;
 import com.example.beskbd.services.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/auth")
