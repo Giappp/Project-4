@@ -22,7 +22,6 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
     UserRepository userRepository;
     JwtService jwtService;
-    UserService userService;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);

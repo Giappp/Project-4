@@ -19,4 +19,6 @@ public class ApiResponse<T> {
     private Boolean success;
 
 
+    public ApiResponse(AuthenticationResponse sampleToken) {
+    }
 }

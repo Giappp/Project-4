@@ -6,6 +6,7 @@ import com.example.beskbd.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -37,6 +38,8 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+    @Value("${application.security.jwt.secret-key-v2}")
+    private String secretKey;
     private static final String[] WHITE_LIST_URL = {
             "/auth/registration",
             "/auth/login",
@@ -86,15 +89,16 @@ public class SecurityConfig {
             }
         };
     }
+
     private String generateJwt(OidcUser oidcUser) {
-        return Jwts.builder()
+        String jwt = Jwts.builder()
                 .setSubject(oidcUser.getEmail())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiration
-                .signWith(SignatureAlgorithm.HS256, "your_secret_key")
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour
+                .signWith(SignatureAlgorithm.HS256, "secretKey")
                 .compact();
+        return jwt;
     }
-
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
