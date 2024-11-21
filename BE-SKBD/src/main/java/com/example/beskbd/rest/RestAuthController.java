@@ -44,6 +44,7 @@ public class RestAuthController {
                 .build();
     }
 
+
     @PostMapping("/refresh")
     public ApiResponse<AuthenticationResponse> refreshToken(@RequestBody RefreshRequest request) {
         var result = authenticationService.refreshToken(request);
