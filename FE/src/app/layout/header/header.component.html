@@ -31,17 +31,27 @@
             <!-- Icon container -->
             <div class="flex flex-row sm:justify-between">
                 <div class="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
+                    <!-- Shopping Cart Component -->
                     <app-shopping-cart></app-shopping-cart>
-                    @if (account() === null) {
 
-                    <a class="text-gray-700 hover:text-indigo-700 text-sm font-medium" href="javascript:void(0)"
-                        [routerLink]="['/auth/login']">Login</a>
-                    <a class="bg-indigo-500 hover:bg-indigo-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
-                        href="javascript:void(0)" [routerLink]="['/auth/register']">Sign up
-                    </a>
-                    }@else {
-                    <a href="javascript:void(0);" (click)="logout()">Logout</a>
-                    }
+                    <!-- Conditional Rendering Based on Login State -->
+                    <ng-container *ngIf="(account() !== null); else loggedOut">
+                        <!-- Logout Button -->
+                        <span class="text-gray-700">{{ account()?.firstName }} {{ account()?.lastName }}</span>
+                        <button
+                            class="bg-red-500 hover:bg-red-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
+                            (click)="logout()">
+                            Logout
+                        </button>
+                    </ng-container>
+
+                    <!-- Template for Logged Out State -->
+                    <ng-template #loggedOut>
+                        <a class="text-gray-700 hover:text-indigo-700 text-sm font-medium"
+                            [routerLink]="['/auth/login']">Login</a>
+                        <a class="bg-indigo-500 hover:bg-indigo-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
+                            [routerLink]="['/auth/register']">Sign up</a>
+                    </ng-template>
                 </div>
             </div>
         </div>

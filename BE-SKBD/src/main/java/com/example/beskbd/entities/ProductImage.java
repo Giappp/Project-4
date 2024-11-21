@@ -1,6 +1,8 @@
 package com.example.beskbd.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
@@ -13,7 +15,4 @@ import lombok.*;
 public class ProductImage extends BaseEntity {
     @Column(name = "image_url")
     private String imageUrl;
-    @ManyToOne
-    @JoinColumn(name = "product_attributes_id")
-    private ProductAttribute productAttribute;
 }

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PUBLIC)
 public class ProductOrderRequest {
     Long productAttributeId;
     String color;

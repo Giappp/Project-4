@@ -7,6 +7,7 @@ import com.example.beskbd.entities.User;
 import com.example.beskbd.exception.AppException;
 import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.repositories.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,7 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 

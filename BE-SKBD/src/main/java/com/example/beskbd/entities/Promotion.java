@@ -1,12 +1,11 @@
 package com.example.beskbd.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -20,7 +19,8 @@ public class Promotion extends BaseEntity {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    @OneToMany(mappedBy = "promotion")
-    private List<PromotionProduct> promotionProductList;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "promotion_id")
+    private List<PromotionProduct> promotionProductList = new ArrayList<>();
 }
 

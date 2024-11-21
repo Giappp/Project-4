@@ -32,8 +32,12 @@ public class Order extends BaseEntity {
     @Column(name = "shipping_address", columnDefinition = "TEXT")
     private String shippingAddress;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
     private List<OrderItems> orderItems;
+
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
     public enum Status {
         PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED

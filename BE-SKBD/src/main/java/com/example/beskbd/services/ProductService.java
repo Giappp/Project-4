@@ -3,10 +3,12 @@ package com.example.beskbd.services;
 import com.example.beskbd.dto.object.CategoryDto;
 import com.example.beskbd.dto.object.NewArrivalProductDto;
 import com.example.beskbd.dto.object.ProductAttributeDto;
+import com.example.beskbd.dto.object.ProductSizeDto;
 import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.entities.Product;
 import com.example.beskbd.entities.ProductAttribute;
 import com.example.beskbd.entities.ProductImage;
+import com.example.beskbd.entities.ProductSize;
 import com.example.beskbd.exception.AppException;
 import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.repositories.CategoryRepository;
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,8 +36,11 @@ import static java.util.stream.Collectors.groupingBy;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
     Logger logger = LoggerFactory.getLogger(ProductService.class);
+    @Autowired
     ProductRepository productRepository;
+    @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
     CloudinaryService cloudinaryService;
 
     public Map<String, List<CategoryDto>> getCategoryByGender() {
@@ -55,14 +61,49 @@ public class ProductService {
         var category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() -> new AppException(ErrorCode.INVALID_REQUEST));
         product.setCategory(category);
-
-        var attributes = request.getAttributes()
-                .stream()
-                .map(dto -> toProductAttribute(dto, product))
-                .toList();
-        product.setAttributes(attributes);
-
+        if (request.getAttributes() != null) {
+            var attributes = request.getAttributes()
+                    .stream()
+                    .map(this::toProductAttribute)
+                    .toList();
+            product.setAttributes(attributes);
+        }
         productRepository.save(product);
+    }
+
+    private ProductAttribute toProductAttribute(ProductAttributeDto dto) {
+        ProductAttribute productAttribute = new ProductAttribute();
+        productAttribute.setColor(dto.getColor());
+        var productImages = dto.getImageFiles()
+                .stream()
+                .map(imageFile -> {
+                    String url;
+                    try {
+                        url = cloudinaryService.uploadImage(imageFile);
+                    } catch (IOException e) {
+                        throw new RuntimeException("Failed to upload image", e);
+                    }
+                    var productImage = new ProductImage();
+                    productImage.setImageUrl(url);
+                    return productImage;
+                })
+                .toList();
+        productAttribute.setProductImages(productImages);
+        productAttribute.setSizes(dto
+                .getSizes()
+                .stream()
+                .map(this::toProductSize)
+                .toList()
+        );
+        productAttribute.setPrice(dto.getPrice());
+        return productAttribute;
+    }
+
+    private ProductSize toProductSize(ProductSizeDto productSizeDto) {
+        return ProductSize.builder()
+                .size(productSizeDto.getSize())
+                .stock(productSizeDto.getStock())
+                .build();
     }
 
     public List<NewArrivalProductDto> getNewArrivalProduct() {
@@ -105,30 +146,4 @@ public class ProductService {
                 .get().getPrice();
     }
 
-    private ProductAttribute toProductAttribute(ProductAttributeDto dto, Product product) {
-        ProductAttribute productAttribute = new ProductAttribute();
-        productAttribute.setProduct(product); // Set product reference
-
-        var productImages = dto.getImageFiles()
-                .stream()
-                .map(imageFile -> {
-                    String url;
-                    try {
-                        url = cloudinaryService.uploadImage(imageFile);
-                    } catch (IOException e) {
-                        throw new RuntimeException("Failed to upload image", e);
-                    }
-                    var productImage = new ProductImage();
-                    productImage.setImageUrl(url);
-                    return productImage;
-                })
-                .toList();
-        productAttribute.setProductImages(productImages);
-
-        productAttribute.setSize(dto.getSize());
-        productAttribute.setStock(dto.getStock());
-        productAttribute.setPrice(dto.getPrice());
-
-        return productAttribute;
-    }
 }

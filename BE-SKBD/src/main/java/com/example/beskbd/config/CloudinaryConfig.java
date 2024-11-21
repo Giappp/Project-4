@@ -10,8 +10,14 @@ public class CloudinaryConfig {
     @Bean
     public Cloudinary cloudinary() {
         Dotenv dotenv = Dotenv.load();
-        com.cloudinary.Cloudinary cloudinary = new com.cloudinary.Cloudinary(dotenv.get("CLOUDINARY_URL"));
-        cloudinary.config.secure = true;
-        return cloudinary;
+
+        String cloudinaryUrl = dotenv.get("CLOUDINARY_URL");
+        if (cloudinaryUrl == null) {
+            throw new RuntimeException("CLOUDINARY_URL is not set in the environment variables.");
+        }
+
+        System.out.println("Cloudinary URL: " + cloudinaryUrl); // Debugging line
+
+        return new Cloudinary(cloudinaryUrl);
     }
 }

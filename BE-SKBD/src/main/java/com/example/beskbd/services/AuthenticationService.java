@@ -22,7 +22,6 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
     UserRepository userRepository;
     JwtService jwtService;
-    UserService userService;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
@@ -60,7 +59,7 @@ public class AuthenticationService {
         if (auth != null) {
             var user = (UserDetails) auth.getPrincipal();
             String token = request.getToken();
-            if (!jwtService.validateToken(token, user)) {
+            if (jwtService.validateToken(token, user)) {
                 throw new AppException(ErrorCode.UNAUTHENTICATED);
             }
             jwtService.invalidateToken(token);

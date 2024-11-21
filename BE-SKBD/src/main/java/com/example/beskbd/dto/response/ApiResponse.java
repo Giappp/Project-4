@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,4 +17,8 @@ public class ApiResponse<T> {
     private String errorMessage;
     private String message;
     private Boolean success;
+
+
+    public ApiResponse(AuthenticationResponse sampleToken) {
+    }
 }
