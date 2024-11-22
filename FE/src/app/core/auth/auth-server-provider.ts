@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StateStorageService } from './state-storage.service';
 import { ApplicationConfigService } from '../config/application-config.service';
-import { Observable } from 'rxjs';
+import {catchError, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Login } from '../../model/login';
 import { Register } from '../../model/register';
@@ -42,12 +42,18 @@ export class AuthServerProvider {
 
   register(model: Register): Observable<void> {
     return this.http
-      .post(this.applicationConfig.getEndpointFor('auth/registration'), model)
-      .pipe(
-        map((response: any) => {
-          this.authentiateSuccess(response, false);
-        })
-      );
+      .post(this.applicationConfig.getEndpointFor('auth/registration'), model).pipe(
+      map((response: any) => {
+        // Handle success and possibly store authentication tokens
+        this.authentiateSuccess(response, true); // Adjust as per your logic
+        return response; // Return the response for further handling if needed
+      }),
+      catchError((error) => {
+        // Handle error
+        console.error('Registration error:', error);
+        throw error; // Rethrow or handle it accordingly
+      })
+    );
   }
 
   private authentiateSuccess(response: any, rememberMe: boolean): void {

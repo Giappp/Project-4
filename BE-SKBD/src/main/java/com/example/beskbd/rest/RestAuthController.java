@@ -26,7 +26,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600000)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RestAuthController {
     @Autowired
