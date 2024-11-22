@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project-4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/BeSkbdApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/CloudinaryConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/MailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/PasswordConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/NewArrivalProductDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductOrderRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CartDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ForgotPasswordRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderCreationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/RefreshRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/OrderItemDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/InvalidatedToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/AppException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/ErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/InvalidatedTokenRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/PaypalController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/security/JwtAuthFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/BeSkbdApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/be-v1.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2pC7Is3I3e7zgWB8aAfOPIo4yS9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.BE-SKBD [clean].executor": "Run",
+    "Maven.BE-SKBD [verify].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyAccountsIdsRefresh": "true",
+    "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyMigrateChatHistory-v2": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "Spring Boot.BeSkbdApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dang",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="BeSkbdApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="BE-SKBD" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.beskbd.BeSkbdApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="" />
+      <created>1732258129532</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732258129532</updated>
+      <workItem from="1732258129810" duration="8983000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
