@@ -1,0 +1,91 @@
+<div class="bg-gray-50">
+    <div class="py-5">
+        <div class="grid grid-cols-2 gap-1">
+            <div class="text-center sm:text-left whitespace-nowrap">
+                <a [routerLink]="['/home']"
+                    class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-4 h-4 inline-block align-text-top">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span class="inline-block ml-1">Back to Homepage</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-3xl font-extrabold text-gray-900">Sign in</h1>
+        </div>
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-slate-900">Username</label>
+                        <div class="mt-1">
+                            <input id="username" type="text" formControlName="username"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': userName?.invalid && userName?.touched, 'border-gray-300': !userName?.invalid || !userName?.touched}"
+                                placeholder="Enter your email or username" #username />
+                            <div *ngIf="userName?.invalid && userName?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="userName?.errors?.['required']">Username is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-900">Password</label>
+                        <div class="mt-1">
+                            <input id="password" type="password" formControlName="password"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': password?.invalid && password?.touched, 'border-gray-300': !password?.invalid || !password?.touched}"
+                                placeholder="Enter your password" />
+                            <div *ngIf="password?.invalid && password?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="password?.errors?.['required']">Password is required.</small>
+                                <small *ngIf="password?.errors?.['minlength']">Password must be at least 6
+                                    characters.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember_me" name="remember_me" type="checkbox" formControlName="rememberMe"
+                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 disabled:cursor-wait disabled:opacity-50">
+                            <label for="remember_me" class="ml-2 block text-sm text-gray-900">Remember
+                                me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a class="font-medium text-indigo-400 hover:text-indigo-500" href="">
+                                Forgot your password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" [disabled]="loginForm.invalid"
+                            class="group relative flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                <div class="flex flex-col mt-4 items-center justify-center text-sm">
+                    <h3>
+                        Don't have an account?
+                        <a class="group text-blue-400 transition-all duration-100 ease-in-out"
+                            [routerLink]="['/auth/register']">
+                            <span
+                                class="bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+                                Sign Up
+                            </span>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

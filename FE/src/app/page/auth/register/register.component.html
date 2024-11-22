@@ -1,0 +1,149 @@
+<div class="bg-gray-50">
+    <div class="flex min-h-[80vh] flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="text-center sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-3xl font-extrabold text-gray-900">Sign Up</h1>
+        </div>
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()" class="space-y-4">
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-slate-900">Username</label>
+                        <div class="mt-1">
+                            <input id="username" type="text" formControlName="username"
+                                class="block w-full rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{
+                  'border-red-500': username?.invalid && username?.touched,
+                  'border-gray-300': !username?.invalid || !username?.touched
+                }" placeholder="Enter your username" />
+                            <div *ngIf="username?.invalid && username?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="username?.errors?.['required']">Username is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-900">Password</label>
+                        <div class="mt-1 relative">
+                            <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                                class="block w-full rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{
+                  'border-red-500': password?.invalid && password?.touched,
+                  'border-gray-300': !password?.invalid || !password?.touched
+                }" placeholder="Enter your password" />
+                            <button type="button" class="absolute inset-y-0 right-3 text-gray-400"
+                                (click)="toggleShowPassword()">
+                                <fa-icon [icon]="showPassword ? 'eye' : 'eye-slash' "></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-slate-900">Confirm
+                            Password</label>
+                        <div class="mt-1 relative">
+                            <input id="confirmPassword" [type]="showPassword ? 'text' : 'password'"
+                                formControlName="confirmPassword"
+                                class="block w-full rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{
+                  'border-red-500': confirmPassword?.invalid && confirmPassword?.touched,
+                  'border-gray-300': !confirmPassword?.invalid || !confirmPassword?.touched
+                }" placeholder="Confirm your password" />
+                            <button type="button" class="absolute inset-y-0 right-3 text-gray-400"
+                                (click)="toggleShowPassword()">
+                                <fa-icon [icon]="showPassword ? 'eye' : 'eye-slash' "></fa-icon>
+                            </button>
+                        </div>
+                        <div *ngIf="
+                confirmPassword?.errors?.['passwordsMismatch'] &&
+                confirmPassword?.touched
+              " class="text-red-500 text-sm mt-1">
+                            <small>Passwords do not match.</small>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-900">Email</label>
+                        <div class="mt-1">
+                            <input id="email" type="email" formControlName="email"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': email?.invalid && email?.touched, 'border-gray-300': !email?.invalid || !email?.touched}"
+                                placeholder="Enter your email" />
+                            <div *ngIf="email?.invalid && email?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="email?.errors?.['required']">Email is required.</small>
+                                <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-slate-900">Phone</label>
+                        <div class="mt-1">
+                            <input id="phone" type="text" formControlName="phone"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': phone?.invalid && phone?.touched, 'border-gray-300': !phone?.invalid || !phone?.touched}"
+                                placeholder="Enter your phone number" />
+                            <div *ngIf="phone?.invalid && phone?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="phone?.errors?.['required']">Phone number is required.</small>
+                                <small *ngIf="phone?.errors?.['maxlength']">Phone number cannot exceed 10
+                                    digits.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- First Name Field -->
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-slate-900">First Name</label>
+                        <div class="mt-1">
+                            <input id="firstName" type="text" formControlName="firstName"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': firstName?.invalid && firstName?.touched, 'border-gray-300': !firstName?.invalid || !firstName?.touched}"
+                                placeholder="Enter your first name" />
+                            <div *ngIf="firstName?.invalid && firstName?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="firstName?.errors?.['required']">First name is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Last Name Field -->
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-slate-900">Last Name</label>
+                        <div class="mt-1">
+                            <input id="lastName" type="text" formControlName="lastName"
+                                class="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm sm:text-sm"
+                                [ngClass]="{'border-red-500': lastName?.invalid && lastName?.touched, 'border-gray-300': !lastName?.invalid || !lastName?.touched}"
+                                placeholder="Enter your last name" />
+                            <div *ngIf="lastName?.invalid && lastName?.touched" class="text-red-500 text-sm mt-1">
+                                <small *ngIf="lastName?.errors?.['required']">Last name is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" [disabled]="signupForm.invalid"
+                            class="group relative flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col mt-4 items-center justify-center text-sm">
+                        <h3>
+                            Already have account?
+                            <a class="group text-blue-400 transition-all duration-100 ease-in-out"
+                                [routerLink]="['/auth/login']">
+                                <span
+                                    class="bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+                                    Sign In
+                                </span>
+                            </a>
+                        </h3>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

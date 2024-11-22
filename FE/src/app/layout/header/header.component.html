@@ -1,0 +1,75 @@
+<header class="bg-white shadow-sm z-50 top-0 w-full relative">
+    <!-- Header content -->
+    <div>
+        <div class="container flex items-center mx-auto px-4 py-3 w-11/12">
+            <div class="flex flex-shrink-0">
+                <a [routerLink]="['/']"
+                    class="text-slate-800 cursor-pointer hover:text-color2 duration-200 text-xl font-bold">
+                    SKBDShop</a>
+            </div>
+
+            <!-- Search Container -->
+            <form class="max-w-2xl mx-auto flex-1">
+                <div class="flex">
+                    <div class="relative w-full">
+                        <input type="search" id="search-dropdown"
+                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Search" required />
+                        <button type="submit"
+                            class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Icon container -->
+            <div class="flex flex-row sm:justify-between">
+                <div class="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
+                    <!-- Shopping Cart Component -->
+                    <app-shopping-cart></app-shopping-cart>
+
+                    <!-- Conditional Rendering Based on Login State -->
+                    <ng-container *ngIf="(account() !== null); else loggedOut">
+                        <!-- Logout Button -->
+                        <span class="text-gray-700">{{ account()?.firstName }} {{ account()?.lastName }}</span>
+                        <button
+                            class="bg-red-500 hover:bg-red-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
+                            (click)="logout()">
+                            Logout
+                        </button>
+                    </ng-container>
+
+                    <!-- Template for Logged Out State -->
+                    <ng-template #loggedOut>
+                        <a class="text-gray-700 hover:text-indigo-700 text-sm font-medium"
+                            [routerLink]="['/auth/login']">Login</a>
+                        <a class="bg-indigo-500 hover:bg-indigo-700 text-white inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
+                            [routerLink]="['/auth/register']">Sign up</a>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="shadow-sm">
+        <nav class="flex py-4 items-center justify-between w-11/12 mx-auto">
+            <!-- Navigation List-->
+            <p-megaMenu [model]="menuItems">
+                <ng-template pTemplate="item" let-item>
+                    <a *ngIf="item.root || item.subRoot" class="px-4 duration-200 cursor-pointer">
+                        <span class="ml-2"> {{item.label}}</span>
+                    </a>
+                    <a *ngIf="!item.root" class="flex align-items-center cursor-pointer mb-2 gap-2 p-2">
+                        <span class="font-medium text-sm text-900">{{ item.label }}</span>
+                    </a>
+                </ng-template>
+            </p-megaMenu>
+        </nav>
+    </div>
+</header>

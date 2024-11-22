@@ -5,75 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Project-4.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/BeSkbdApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/CloudinaryConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/MailConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/PasswordConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/NewArrivalProductDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductOrderRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CartDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ForgotPasswordRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/RefreshRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/OrderItemDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/InvalidatedToken.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/AppException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/ErrorCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/InvalidatedTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/PaypalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/security/JwtAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/BeSkbdApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/be-v1.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/CloudinaryConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/CloudinaryConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/NewArrivalProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/NewArrivalProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CartDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CartDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ForgotPasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ForgotPasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/OrderCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/RefreshRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/RefreshRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/OrderItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/OrderItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/PaypalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/PaypalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-jwt.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/auth-jwt.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/state-storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/state-storage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/model/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +68,6 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Maven.BE-SKBD [clean].executor": "Run",
-    "Maven.BE-SKBD [verify].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -110,7 +83,7 @@
     "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
     "Spring Boot.BeSkbdApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "dang",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -149,7 +122,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732258129532</updated>
-      <workItem from="1732258129810" duration="8983000" />
+      <workItem from="1732258129810" duration="8441000" />
     </task>
     <servers />
   </component>
