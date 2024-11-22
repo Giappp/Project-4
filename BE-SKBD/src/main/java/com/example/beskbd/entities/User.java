@@ -36,7 +36,17 @@ public class User extends BaseEntity implements UserDetails {
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+    private String imageUrl;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @OneToMany
+    private List<Review> reviews;
+>>>>>>> Stashed changes
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

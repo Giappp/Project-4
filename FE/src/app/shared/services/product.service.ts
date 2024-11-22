@@ -1,13 +1,20 @@
+<<<<<<< Updated upstream
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of, shareReplay } from 'rxjs';
 import { Product } from '../../model/product';
+=======
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
+>>>>>>> Stashed changes
 import { Category } from '../../model/category';
 import { Gender } from '../../model/gender';
 
 @Injectable({
   providedIn: 'root',
 })
+<<<<<<< Updated upstream
 export class ProductService implements OnInit {
   baseUrl!: string;
   private productCache$!: Observable<Product[]>;
@@ -81,5 +88,22 @@ export class ProductService implements OnInit {
   private getHeader() {
     const header = new HttpHeaders().set('Content-Type', 'application/json');
     return header;
+=======
+export class ProductService {
+  private apiUrl = 'http://localhost:8083/api/products'; // Base URL for your API
+
+  constructor(private http: HttpClient) {}
+
+  // Method to get all product categories from the API
+  getAllProductsCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.apiUrl}/ca tegory`); // Adjust the endpoint as needed
+  }
+
+  // Method to get product gender as an observable array
+  getProductGender(): Observable<Gender[]> {
+    return this.http.get<Gender>(`${this.apiUrl}/gender`).pipe(
+      map((gender) => [gender]) // Wrap the single Gender object in an array
+    );
+>>>>>>> Stashed changes
   }
 }

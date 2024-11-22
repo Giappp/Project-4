@@ -5,18 +5,19 @@ import { Category } from '../../model/category';
 import { ProductService } from '../../shared/services/product.service';
 import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
+
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],  // Corrected 'styleUrl' to 'styleUrls'
   imports: [CommonModule, NgOptimizedImage, CarouselModule, GalleriaModule],
   providers: [],
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('carousel') carousel!: any;
+  @ViewChild('carousel') carousel!: any; // Consider specifying the type more precisely if possible
   categories$!: Observable<Category[]>;
-  carouselImageUrl!: any[];
+  carouselImageUrl!: string[]; // Changed to string[] for clarity
 
   responsiveOptions: any[] = [
     {
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService) {
     this.categories$ = this.productService.getAllProductsCategories();
   }
+
   ngOnInit(): void {
     this.carouselImageUrl = [
       '/assets/images/17277697730331009.webp',

@@ -9,6 +9,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
+@Setter
 public class UserCreationRequest {
     @Size(min = 6)
     String username;

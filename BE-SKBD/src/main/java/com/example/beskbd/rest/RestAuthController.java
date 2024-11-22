@@ -25,6 +25,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", maxAge = 3600)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RestAuthController {
     AuthenticationService authenticationService;
@@ -33,10 +34,23 @@ public class RestAuthController {
 
     @PostMapping("/token")
     public ApiResponse<AuthenticationResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
-        var result = authenticationService.authenticate(request);
-        return ApiResponse.<AuthenticationResponse>builder()
-                .data(result)
-                .build();
+        try {
+            AuthenticationResponse result = authenticationService.authenticate(request);
+
+            if (result == null) {
+                return ApiResponse.<AuthenticationResponse>builder()
+                        .errorMessage("Invalid credentials")
+                        .build();
+            }
+
+            return ApiResponse.<AuthenticationResponse>builder()
+                    .data(result)
+                    .build();
+        } catch (Exception e) {
+            return ApiResponse.<AuthenticationResponse>builder()
+                    .errorMessage("Authentication failed: " + e.getMessage())
+                    .build();
+        }
     }
 
     @PostMapping("/registration")

@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
+@Setter
 public class AuthenticationResponse {
     String token;
     boolean authenticated;
