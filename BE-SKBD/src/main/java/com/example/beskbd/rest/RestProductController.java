@@ -1,7 +1,11 @@
 package com.example.beskbd.rest;
 
+import com.example.beskbd.dto.object.CategoryDto;
+import com.example.beskbd.dto.object.NewArrivalProductDto;
 import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
+import com.example.beskbd.dto.response.ProductDto;
+import com.example.beskbd.entities.Product;
 import com.example.beskbd.exception.AppException;
 import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.services.ProductService;
@@ -15,27 +19,29 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/products")
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
-    @Autowired
-    ProductService productService;
 
-    @GetMapping("/gender")
-    public ResponseEntity<?> getByGender() {
-        var result = productService.getCategoryByGender();
-        return ResponseEntity.ok(ApiResponse.builder()
-                .data(result)
+    @GetMapping("/by-gender")
+    public ResponseEntity<ApiResponse<Map<String, List<CategoryDto>>>> getByGender() {
+        // Call the service method to get categories by gender
+        Map<String, List<CategoryDto>> categories = productService.getCategoryByGender();
+
+        // Build and return the response with the categories
+        return ResponseEntity.ok(ApiResponse.<Map<String, List<CategoryDto>>>builder()
                 .success(true)
+                .data(categories) // Include the categories in the response
                 .build());
     }
-
     @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> createProduct(@ModelAttribute ProductCreationRequest request) {
+    public ResponseEntity<?> createProduct(@ModelAttribute Product request) {
         if (request == null) {
             throw new AppException(ErrorCode.INVALID_REQUEST);
         }
@@ -46,15 +52,20 @@ public class RestProductController {
                 .build());
     }
 
+
+    private final ProductService productService;
+    public RestProductController(ProductService productService){
+        this.productService = productService;
+    }// Constructor-based injection
+
     @GetMapping("/new-arrivals")
     public ResponseEntity<?> getNewArrivals() {
-        var products = productService.getNewArrivalProduct();
+        List<NewArrivalProductDto> newArrivals = productService.getNewArrivalProduct();
         return ResponseEntity.ok(ApiResponse.builder()
-                .data(products)
                 .success(true)
+                .data(newArrivals)
                 .build());
     }
-
     @GetMapping("/")
     public ResponseEntity<?> getAllProducts() {
         var products = productService;

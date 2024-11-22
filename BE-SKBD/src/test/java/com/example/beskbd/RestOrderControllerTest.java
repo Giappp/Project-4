@@ -14,6 +14,7 @@ import com.example.beskbd.rest.RestOrderController;
 import com.example.beskbd.services.OrderService;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,17 +35,11 @@ import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.MOCK,
-        classes = BeSkbdApplication.class)
-@AutoConfigureMockMvc
-@TestPropertySource(
-        locations = "classpath:application-integrationtest.properties")
+
 @ExtendWith(MockitoExtension.class)
 public class RestOrderControllerTest {
 
-    @Autowired
+    @InjectMocks
     RestOrderController restOrderController;// Creating an order with valid data returns a successful response
     @Test
     public void test_create_order_with_valid_data() {

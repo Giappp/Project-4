@@ -21,18 +21,20 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Key;
 import java.util.Date;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600000)
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 public class RestAuthController {
     @Autowired
     AuthenticationService authenticationService;
     @Autowired
     UserService userService;
+
 
 
     @PostMapping("/login")
@@ -79,13 +81,13 @@ public class RestAuthController {
         return ResponseEntity.ok("JWT: " + jwt);
     }
 
-    private String generateJwt(String email) {
-         String Key = "c6a403d10f47e77cef70cce1025aebae59fee67cad7fd400941946a152eff881040d3fe1e29960648f0e7ed5246ef7bba5ea5bbea6accaf8730fea6884144ead849d546444e9a8629d11ce3224b6ed8438127b24dd134933d142aeb9a5fb8c78a782882e6ee2ff9242886a35f90f553f9b40f913e783101a172a45e91983e2716f4715c2aed52172022d320315ec0186e5d19a50dfc1f14199adb6b71ad57534e15662ec386b825a01fe32741ff329d2efa34c32212058f7538ff4ca627413445fa3d91731d11b5a6080798ac3613547a91996d39b9ef29974abde090a6ccd7a21cd853c053c1671af614bf38e036975945cade7395112e36b31c650bfc42a71";
+    public String generateJwt(String email) {
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Use HS256 for simplicity
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3000000000L)) // Set expiration time
-                .signWith(SignatureAlgorithm.ES256,Key)
+                .setExpiration(new Date(System.currentTimeMillis() + 3000000L)) // 50 minutes
+                .signWith(key)
                 .compact();
     }
 
@@ -112,11 +114,15 @@ public class RestAuthController {
     }
 
     @PostMapping("/forgot-password")
-    public ResponseEntity<ApiResponse<Void>> forgotPassword(@RequestBody @Valid ForgotPasswordRequest requestBody,
+    public ResponseEntity<ApiResponse<String>> forgotPassword(@RequestBody @Valid ForgotPasswordRequest requestBody,
                                                             HttpServletRequest request) {
         userService.forgotPassword(requestBody.getEmail(), request);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(ApiResponse.<Void>builder().build());
+                .body(ApiResponse.<String>builder()
+                        .data("Password reset link sent successfully.") // Non-null placeholder value
+                        .success(true)
+                        .build());
     }
+
 
 }

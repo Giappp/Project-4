@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PUBLIC)
 @Getter
 @Setter
 public class CreateOrderRequest {

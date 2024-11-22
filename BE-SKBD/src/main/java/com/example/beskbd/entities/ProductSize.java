@@ -1,5 +1,6 @@
 package com.example.beskbd.entities;
 
+import com.example.beskbd.dto.object.ProductSizeDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -17,4 +18,9 @@ public class ProductSize extends BaseEntity {
     private Integer stock;
     @Column(nullable = false)
     private Integer size;
+
+    public ProductSize(ProductSizeDto productSizeDto) {
+            this.stock = productSizeDto.getStock();
+        this.size = productSizeDto.getSize();
+    }
 }

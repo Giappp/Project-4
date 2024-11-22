@@ -18,10 +18,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+
 public class AuthenticationService {
-    UserRepository userRepository;
-    JwtService jwtService;
+    private final UserRepository userRepository;
+    private final JwtService jwtService;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);

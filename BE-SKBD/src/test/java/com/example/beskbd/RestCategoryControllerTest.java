@@ -9,29 +9,27 @@ import com.example.beskbd.services.CategoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.MOCK,
-        classes = BeSkbdApplication.class)
-@AutoConfigureMockMvc
-@TestPropertySource(
-        locations = "classpath:application-integrationtest.properties")
 @ExtendWith(MockitoExtension.class)
+
 public class RestCategoryControllerTest {
     @Mock
     CategoryService categoryService;
@@ -39,13 +37,6 @@ public class RestCategoryControllerTest {
     RestCategoryController controller;
     @Mock
     CategoryCreationRequest request;
-    @BeforeEach
-    public void setUp() {
-        // Mock the CategoryService
-        categoryService = Mockito.mock(CategoryService.class);
-        // Initialize the controller with the mocked service
-        controller = new RestCategoryController(categoryService);
-    }
     @Test
     public void test_create_category_with_null_values() {
 
@@ -181,15 +172,20 @@ public class RestCategoryControllerTest {
     // Validate that the response contains success message upon category creation
     @Test
     public void test_create_category_returns_success_message() {
-        request.builder()
-            .categoryName("Electronics")
-            .categoryDescription("All electronic items")
-            .gender("UNISEX")
-            .productType("GADGETS")
-            .build();
-    
+        // Arrange
+        CategoryCreationRequest request = CategoryCreationRequest.builder()
+                .categoryName("Electronics")
+                .categoryDescription("All electronic items")
+                .gender("UNISEX")
+                .productType("GADGETS")
+                .build();
+
+        doNothing().when(categoryService).createNewCategory(request);
+
+        // Act
         ResponseEntity<?> response = controller.createCategory(request);
-    
+
+        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         ApiResponse<?> apiResponse = (ApiResponse<?>) response.getBody();
         assertNotNull(apiResponse);

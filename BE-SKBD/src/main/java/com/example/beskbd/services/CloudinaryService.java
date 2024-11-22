@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.util.Map;
 
 @Service
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+
 @RequiredArgsConstructor
 public class CloudinaryService {
-    Cloudinary cloudinary;
+    private final Cloudinary cloudinary;
 
     public String uploadImage(MultipartFile file) throws IOException {
         Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());

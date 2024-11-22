@@ -14,4 +14,9 @@ public class ProductSizeDto {
     @NotNull
     @Min(0)
     private Integer size;
+
+    public ProductSizeDto(Integer stock, Integer size) {
+        this.stock = stock;
+        this.size = size;
+    }
 }

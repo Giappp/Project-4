@@ -5,25 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/CategoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductAttributeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductAttributeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductFilterDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductSizeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/object/ProductSizeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CategoryCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/CreateOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/LogoutRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/UserCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AccountResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CategoryByGenderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CreateOrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/InvalidatedToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/InvalidatedToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/ProductSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/AuthService .ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/AuthService .ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-server-provider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/auth-server-provider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/model/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/model/register.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CloudinaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CloudinaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestOrderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestOrderControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -35,7 +73,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.Accounttestapi.executor": "Run",
+    "JUnit.PaypalAPITest.executor": "Run",
+    "JUnit.RestAuthControllerTest.executor": "Run",
     "JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Debug",
+    "JUnit.RestCategoryControllerTest.executor": "Run",
+    "JUnit.RestProductControllerTest.executor": "Run",
+    "JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor": "Profiler#1",
+    "JUnit.RestProductControllerTest.test_get_by_gender_success.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -49,12 +101,16 @@
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.BeSkbdApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "dang",
+    "go.import.settings.migrated": "true",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,12 +118,12 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
     "show.migrate.to.gradle.popup": "false",
-    "ts.external.directory.path": "C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\Admin\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
-    <configuration name="RestAuthControllerTest.test_register_user_with_valid_details" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data">
+    <configuration name="RestProductControllerTest.testGetNewArrivalsSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
         <pattern>
@@ -76,8 +132,72 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestAuthControllerTest" />
-      <option name="METHOD_NAME" value="test_register_user_with_valid_details" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
+      <option name="METHOD_NAME" value="testGetNewArrivalsSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestProductControllerTest.test_create_product_with_invalid_category_id" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
+      <option name="METHOD_NAME" value="test_create_product_with_invalid_category_id" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestProductControllerTest.test_create_product_with_multipart_form_data" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
+      <option name="METHOD_NAME" value="test_create_product_with_multipart_form_data" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestProductControllerTest.test_get_by_gender_empty_category_list" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
+      <option name="METHOD_NAME" value="test_get_by_gender_empty_category_list" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestProductControllerTest.test_get_new_arrivals_no_products" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
+      <option name="METHOD_NAME" value="test_get_new_arrivals_no_products" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,7 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RestAuthControllerTest.test_register_user_with_valid_details" />
+        <item itemvalue="JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data" />
+        <item itemvalue="JUnit.RestProductControllerTest.test_get_new_arrivals_no_products" />
+        <item itemvalue="JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id" />
+        <item itemvalue="JUnit.RestProductControllerTest.testGetNewArrivalsSuccess" />
+        <item itemvalue="JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list" />
       </list>
     </recent_temporary>
   </component>
@@ -115,10 +239,195 @@
       <updated>1732258129532</updated>
       <workItem from="1732258129810" duration="8441000" />
       <workItem from="1732274983191" duration="9077000" />
+      <workItem from="1732288325561" duration="16085000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>260</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>263</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>264</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>267</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>268</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
+          <line>78</line>
+          <properties class="com.example.beskbd.RestProductControllerTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

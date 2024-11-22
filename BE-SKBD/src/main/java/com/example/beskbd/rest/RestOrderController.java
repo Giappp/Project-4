@@ -17,13 +17,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class RestOrderController {
     public static Logger logger = LoggerFactory.getLogger(RestOrderController.class);
     @Autowired
     OrderService orderService;
+
 
     @PostMapping("/create")
     public ResponseEntity<ApiResponse> createOrder(@RequestBody OrderCreationRequest request) {

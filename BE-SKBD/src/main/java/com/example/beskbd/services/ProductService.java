@@ -5,10 +5,8 @@ import com.example.beskbd.dto.object.NewArrivalProductDto;
 import com.example.beskbd.dto.object.ProductAttributeDto;
 import com.example.beskbd.dto.object.ProductSizeDto;
 import com.example.beskbd.dto.request.ProductCreationRequest;
-import com.example.beskbd.entities.Product;
-import com.example.beskbd.entities.ProductAttribute;
-import com.example.beskbd.entities.ProductImage;
-import com.example.beskbd.entities.ProductSize;
+import com.example.beskbd.dto.response.ProductDto;
+import com.example.beskbd.entities.*;
 import com.example.beskbd.exception.AppException;
 import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.repositories.CategoryRepository;
@@ -24,52 +22,53 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+//@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 public class ProductService {
     Logger logger = LoggerFactory.getLogger(ProductService.class);
-    @Autowired
-    ProductRepository productRepository;
-    @Autowired
-    CategoryRepository categoryRepository;
-    @Autowired
-    CloudinaryService cloudinaryService;
+
+    private final ProductRepository productRepository;
+
+    private final CategoryRepository categoryRepository;
+
+    private final CloudinaryService cloudinaryService;
+
+
 
     public Map<String, List<CategoryDto>> getCategoryByGender() {
         return categoryRepository.findAll()
                 .stream()
-                .collect(groupingBy(category -> category.getGender().toString(),
+                .collect(Collectors.groupingBy(category -> category.getGender().toString(),
                         Collectors.mapping(CategoryDto::new, Collectors.toList())));
     }
 
-    @Transactional
-    public void addProduct(ProductCreationRequest request) {
-        if (request == null) throw new AppException(ErrorCode.INVALID_REQUEST);
+    public ProductDto addProduct(Product product) {
+        // Save the product and capture the saved object
+        Product savedProduct = productRepository.save(product);
 
-        Product product = new Product();
-        product.setName(request.getProductName());
-        product.setDescription(request.getProductDescription());
-
-        var category = categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new AppException(ErrorCode.INVALID_REQUEST));
-        product.setCategory(category);
-        if (request.getAttributes() != null) {
-            var attributes = request.getAttributes()
-                    .stream()
-                    .map(this::toProductAttribute)
-                    .toList();
-            product.setAttributes(attributes);
-        }
-        productRepository.save(product);
+        // Convert the saved product to a ProductDto
+        return toProductDto(savedProduct);
     }
+    public ProductDto toProductDto(Product product) {
+        return ProductDto.builder()
+                .productId(product.getId())
+                .productName(product.getName())
+                .productColors(product.getAttributes().stream()
+                        .map(ProductAttribute::getColor) // Collecting colors
+                        .collect(Collectors.toList()))
+                .productImageUrl(getFirstImageUrl(product)) // Assuming you want the first image URL
+                .productMinPrice(getMinPrice(product)) // Assuming you want min and max prices
+                .productMaxPrice(getMaxPrice(product))
+                .build();
+    }
+
 
     private ProductAttribute toProductAttribute(ProductAttributeDto dto) {
         ProductAttribute productAttribute = new ProductAttribute();

@@ -7,6 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -54,9 +55,11 @@ public class SecurityConfig  {
             "/error",
             "/api/categories",
             "/api/products/",
-            "/api/products/gender"  // Ensure this path is included
+            "/api/products/gender",
+            "/api/products/by-gender"
 
     };
+    @Autowired
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;

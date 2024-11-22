@@ -24,13 +24,13 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+
 public class UserService implements UserDetailsService {
     static Logger logger = LoggerFactory.getLogger(UserService.class);
-    UserRepository userRepository;
-    BCryptPasswordEncoder passwordEncoder;
-    JwtService jwtService;
-    EmailService emailService;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final EmailService emailService;
 
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -60,7 +60,6 @@ public class UserService implements UserDetailsService {
 
     public void forgotPassword(String email, HttpServletRequest request) {
         logger.info("Requesting password reset for email: {}", email);
-
         var user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new AppException(ErrorCode.EMAIL_NOT_EXISTS));
         String token = UUID.randomUUID().toString();

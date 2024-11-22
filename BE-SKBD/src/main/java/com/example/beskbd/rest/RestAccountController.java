@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/account")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 public class RestAccountController {
     public static Logger logger = LoggerFactory.getLogger(RestAccountController.class);
     AccountService accountService;
@@ -29,4 +29,5 @@ public class RestAccountController {
                 .success(true)
                 .build();
     }
+
 }

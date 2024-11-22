@@ -16,9 +16,8 @@ import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+
 public class AccountService {
-    UserRepository userRepository;
     Logger logger = LoggerFactory.getLogger(AccountService.class);
 
     public AccountResponse getAccountDetails() {

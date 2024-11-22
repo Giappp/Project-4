@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
 public class ProductDto {

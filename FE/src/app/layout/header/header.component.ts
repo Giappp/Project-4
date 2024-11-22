@@ -22,7 +22,7 @@ import { ProductService } from '../../shared/services/product.service';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AccountService } from '../../core/auth/account.service';
-import { LoginService } from '../../page/auth/login/login.service';
+
 
 @Component({
   standalone: true,
@@ -40,8 +40,7 @@ import { LoginService } from '../../page/auth/login/login.service';
   ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  account = inject(AccountService).trackCurrentAccount();
-  authService = inject(LoginService);
+
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
   genders$!: Observable<Gender[]>;
@@ -131,9 +130,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     return menu;
-  }
-  logout(): void {
-    this.authService.logout();
   }
 
   ngOnDestroy() {

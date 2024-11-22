@@ -1,5 +1,6 @@
 package com.example.beskbd.entities;
 
+import com.example.beskbd.dto.object.ProductAttributeDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Table(name = "tbl_product_attributes")
 public class ProductAttribute extends BaseEntity {
     @Column(length = 50)
@@ -25,4 +28,11 @@ public class ProductAttribute extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_attribute_id")
     private List<ProductImage> productImages = new ArrayList<>();
+
+    public ProductAttribute(ProductAttributeDto attributeDto) {
+            this.color = attributeDto.getColor();
+        this.price = attributeDto.getPrice();
+        this.sizes = attributeDto.getSizes().stream().map(ProductSize::new).toList();
+        this.productImages = attributeDto.getImageFiles().stream().map(ProductImage::new).toList();
+    }
 }
