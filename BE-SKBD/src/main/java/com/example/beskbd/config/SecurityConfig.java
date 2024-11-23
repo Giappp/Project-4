@@ -5,6 +5,7 @@ import com.example.beskbd.security.JwtAuthenticationEntryPoint;
 import com.example.beskbd.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,13 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
+import static java.lang.System.getProperty;
 
 @Configuration
 @EnableWebSecurity
@@ -64,7 +69,7 @@ public class SecurityConfig  {
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAuthFilter jwtAuthFilter;
-
+    SecretKey key = Keys.hmacShaKeyFor(getProperty(secretKey).getBytes(StandardCharsets.UTF_8));
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
@@ -105,13 +110,12 @@ public class SecurityConfig  {
     }
 
     private String generateJwt(OidcUser oidcUser) {
-        String jwt = Jwts.builder()
+        return Jwts.builder()
                 .setSubject(oidcUser.getEmail())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour
-                .signWith(SignatureAlgorithm.HS256, secretKey) // Use injected secret key
-                .compact();
-        return jwt;
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(key, SignatureAlgorithm.HS512).compact();
+
     }
 
     @Bean

@@ -8,8 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { confirmPassValidator } from './Validator/confirm-pass-validator.directive';
-import { passwordValidator } from './Validator/passwordValidator/pass-validator.directive';
-import { phoneValidator } from './Validator/phoneValidator/phone-validator.directive';
+
 import { AccountService } from '../../../core/auth/account.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
