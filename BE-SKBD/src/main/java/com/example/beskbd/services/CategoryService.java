@@ -18,12 +18,19 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     public void createNewCategory(CategoryCreationRequest request) {
-        Category category = Category.builder()
-                .gender(Category.Gender.valueOf(request.getGender().toUpperCase()))
-                .description(request.getCategoryDescription())
-                .name(request.getCategoryName())
-                .productType(request.getProductType())
-                .build();
-        categoryRepository.save(category);
+        try {
+            Category.Gender gender = Category.Gender.valueOf(request.getGender().toUpperCase());
+            Category category = Category.builder()
+                    .gender(gender)
+                    .description(request.getCategoryDescription())
+                    .name(request.getCategoryName())
+                    .productType(request.getProductType())
+                    .build();
+            categoryRepository.save(category);
+        } catch (IllegalArgumentException ex) {
+            throw new IllegalArgumentException("Invalid gender value: " + request.getGender());
+        }
     }
+
+
 }

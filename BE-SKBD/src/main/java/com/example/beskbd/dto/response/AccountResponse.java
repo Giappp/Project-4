@@ -16,6 +16,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AccountResponse {
     Boolean activated;
+    String name;
     List<String> authorities;
     String email;
     String firstName;

@@ -52,11 +52,7 @@ import static org.mockito.Mockito.*;
 
 public class RestProductControllerTest {
 
-    @InjectMocks
-    private RestProductController controller; // Inject mocked dependencies here
 
-    @Mock
-    private ProductService productService;
     // Handles empty category list gracefully
     @Test
     public void test_handles_empty_category_list_gracefully() {

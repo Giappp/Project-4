@@ -31,15 +31,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = BeSkbdApplication.class)
-@AutoConfigureMockMvc
+
 @ExtendWith(MockitoExtension.class)
 public class Accounttestapi {
 
     @Test
     public void test_get_details_authenticated_user() {
-        // Arrange
+        // Arrange: Create a mock user
         User mockUser = new User();
         mockUser.setEnabled(true);
         mockUser.setEmail("test@example.com");
@@ -48,39 +46,54 @@ public class Accounttestapi {
         mockUser.setUsername("johndoe");
         mockUser.setAuthority(Role.ROLE_USER);
 
+        // Mock Authentication and SecurityContext
         Authentication authentication = Mockito.mock(Authentication.class);
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
-        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
-        Mockito.when(authentication.getPrincipal()).thenReturn(mockUser);
         SecurityContextHolder.setContext(securityContext);
 
+        // Mock AccountService to return a valid response
+        AccountResponse mockAccountResponse = new AccountResponse();
+        mockAccountResponse.setEmail("test@example.com");
+        mockAccountResponse.setFirstName("John");
+        mockAccountResponse.setLastName("Doe");
+        mockAccountResponse.setName("johndoe");
+
         AccountService accountService = Mockito.mock(AccountService.class);
+        Mockito.when(accountService.getAccountDetails()).thenReturn(mockAccountResponse);
+
+        // Create the controller with the mocked service
         RestAccountController controller = new RestAccountController(accountService);
 
-        // Act
+        // Act: Call the getDetails method
         ApiResponse<?> response = controller.getDetails();
 
-        // Assert
+        // Assert: Verify the response is not null and contains the correct data
         assertNotNull(response);
         assertTrue(response.getSuccess());
         assertNotNull(response.getData());
+
+        // Optionally, verify the data
+        AccountResponse accountData = (AccountResponse) response.getData();
+        assertEquals("johndoe", accountData.getName());
+        assertEquals("test@example.com", accountData.getEmail());
+        assertEquals("John", accountData.getFirstName());
+        assertEquals("Doe", accountData.getLastName());
     }
 
     @Test
-    public void test_get_details_null_authentication() {
-        // Arrange
+    public void test_getAccountDetails_unauthenticated() {
+        // Arrange: Mock SecurityContext and set authentication to null
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
         Mockito.when(securityContext.getAuthentication()).thenReturn(null);
         SecurityContextHolder.setContext(securityContext);
 
-        // Mock the account service
-        AccountService accountService = Mockito.mock(AccountService.class);
-        // No need to stub accountService methods here since we expect an exception
+        // Create AccountService instance
+        AccountService accountService = new AccountService();
 
-        RestAccountController controller = new RestAccountController(accountService);
+        // Act & Assert: Expect AppException
+        AppException exception = assertThrows(AppException.class, accountService::getAccountDetails);
 
-        // Act & Assert
-        AppException exception = assertThrows(AppException.class, controller::getDetails);
+        // Assert the exception details
         assertEquals(ErrorCode.UNAUTHENTICATED, exception.getErrorCode());
     }
 
@@ -124,28 +137,52 @@ public class Accounttestapi {
 
     @Test
     public void test_get_details_with_incomplete_user_details() {
+        // Create a mock user with incomplete details
         User mockUser = new User();
         mockUser.setEnabled(true);
-        mockUser.setEmail(null);
-        mockUser.setFirstName(null);
+        mockUser.setEmail(null); // Email is null
+        mockUser.setFirstName(null); // First name is null
         mockUser.setLastName("Doe");
         mockUser.setUsername("johndoe");
         mockUser.setAuthority(Role.ROLE_USER);
 
+        // Mock the AccountService
+        AccountService accountService = Mockito.mock(AccountService.class);
+
+        // Mocking the authentication and security context
         Authentication authentication = Mockito.mock(Authentication.class);
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
-        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
-        Mockito.when(authentication.getPrincipal()).thenReturn(mockUser);
         SecurityContextHolder.setContext(securityContext);
 
-        AccountService accountService = Mockito.mock(AccountService.class);
+        // Mock the service response to return an AccountResponse
+        AccountResponse mockResponse = AccountResponse.builder()
+                .activated(mockUser.isEnabled())
+                .email(mockUser.getEmail()) // This will be null
+                .firstName(mockUser.getFirstName()) // This will be null
+                .lastName(mockUser.getLastName())
+                .authorities(List.of(mockUser.getAuthority().getAuthority()))
+                .login(mockUser.getUsername())
+                .imageUrl(mockUser.getImageUrl()) // Assuming getImageUrl() method exists
+                .build();
+
+        Mockito.when(accountService.getAccountDetails()).thenReturn(mockResponse);
+
+        // Create the controller with the mocked service
         RestAccountController controller = new RestAccountController(accountService);
 
+        // Call the method under test
         ApiResponse<?> response = controller.getDetails();
 
+        // Assertions
         assertNotNull(response);
         assertTrue(response.getSuccess());
-        assertNotNull(response.getData());
+        assertNotNull(response.getData()); // Ensure that data is not null
+
+        // Optionally, check specific fields in the response if needed
+        AccountResponse data = (AccountResponse) response.getData();
+        assertEquals("johndoe", data.getLogin());
+        assertNull(data.getEmail()); // Check that email is null
+        assertNull(data.getFirstName()); // Check that first name is null
     }
 
     @Test
@@ -175,17 +212,26 @@ public class Accounttestapi {
 
     @Test
     public void test_get_details_unauthenticated_user() {
+        // Mock the SecurityContext to simulate an unauthenticated user
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
         Mockito.when(securityContext.getAuthentication()).thenReturn(null);
         SecurityContextHolder.setContext(securityContext);
 
-        AccountService accountService = Mockito.mock(AccountService.class);
+        // Use the real AccountService
+        AccountService accountService = new AccountService();
+
+        // Create the controller with the real AccountService
         RestAccountController controller = new RestAccountController(accountService);
 
+        // Expect AppException to be thrown
         AppException exception = assertThrows(AppException.class, controller::getDetails);
-        assertEquals(ErrorCode.UNAUTHENTICATED, exception.getErrorCode());
-    }
 
+        // Check that the error code is UNAUTHENTICATED
+        assertEquals(ErrorCode.UNAUTHENTICATED, exception.getErrorCode());
+
+        // Clear the SecurityContext after the test
+        SecurityContextHolder.clearContext();
+    }
     @Test
     public void test_logger_initialization() {
         Logger logger = (Logger) LoggerFactory.getLogger(RestAccountController.class);

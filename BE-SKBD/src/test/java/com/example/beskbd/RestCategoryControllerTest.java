@@ -6,6 +6,8 @@ import com.example.beskbd.dto.request.CategoryCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.rest.RestCategoryController;
 import com.example.beskbd.services.CategoryService;
+import com.example.beskbd.services.ProductService;
+import jakarta.validation.Valid;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,29 +27,27 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 
 public class RestCategoryControllerTest {
-    @Mock
-    CategoryService categoryService;
-    @InjectMocks
-    RestCategoryController controller;
-    @Mock
-    CategoryCreationRequest request;
+
+
     @Test
     public void test_create_category_with_null_values() {
 
-       request.builder()
+       CategoryCreationRequest.builder()
             .categoryName(null)
             .categoryDescription("All electronic items")
             .gender(null)
             .productType(null)
             .build();
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         Exception exception = assertThrows(Exception.class, () -> {
+
             controller.createCategory(request);
         });
 
@@ -60,13 +60,15 @@ public class RestCategoryControllerTest {
     // Validate request body using @Valid annotation
     @Test
     public void test_create_category_with_invalid_data() {
-            request.builder()
+            CategoryCreationRequest.builder()
             .categoryName(null)  // Invalid data: categoryName is null
             .categoryDescription("All electronic items")
             .gender("UNISEX")
             .productType("GADGETS")
             .build();
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         Exception exception = assertThrows(MethodArgumentNotValidException.class, () -> {
             controller.createCategory(request);
         });
@@ -80,7 +82,9 @@ public class RestCategoryControllerTest {
     // Ensure CategoryService is correctly injected into RestCategoryController
     @Test
     public void test_category_service_injection() {
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         assertNotNull(controller);
         assertEquals(categoryService, controller.categoryService);
     }
@@ -89,13 +93,15 @@ public class RestCategoryControllerTest {
     @Test
     public void test_create_category_successful_response() {
 
-        request.builder()
+        CategoryCreationRequest.builder()
             .categoryName("Books")
             .categoryDescription("All kinds of books")
             .gender("UNISEX")
             .productType("LITERATURE")
             .build();
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         ResponseEntity<?> response = controller.createCategory(request);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -109,48 +115,59 @@ public class RestCategoryControllerTest {
     // Verify that the CategoryService's createNewCategory method is called once per request
     @Test
     public void test_create_new_category_called_once() {
-        request.builder()
+        CategoryCreationRequest.builder()
             .categoryName("Electronics")
             .categoryDescription("All electronic items")
             .gender("UNISEX")
             .productType("GADGETS")
             .build();
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         controller.createCategory(request);
 
         Mockito.verify(categoryService, times(1)).createNewCategory(request);
     }
 
-    // Handle invalid enum values for gender in CategoryCreationRequest
     @Test
     public void test_create_category_with_invalid_gender() {
-       request.builder()
-            .categoryName("Electronics")
-            .categoryDescription("All electronic items")
-            .gender("INVALID_GENDER")
-            .productType("GADGETS")
-            .build();
-    
+        // Arrange
+        CategoryCreationRequest request = CategoryCreationRequest.builder()
+                .categoryName("Electronics")
+                .categoryDescription("All electronic items")
+                .gender("INVALID_GENDER")
+                .productType("GADGETS")
+                .build();
+
+        // Create a mocked service (if it should handle validation)
+        CategoryService categoryService = mock(CategoryService.class);
+
+        // Create a controller instance with the mocked service
+        RestCategoryController controller = new RestCategoryController(categoryService);
+
+        // Act and Assert
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             controller.createCategory(request);
         });
-    
-        String expectedMessage = "No enum constant";
-        String actualMessage = exception.getMessage();
-    
-        assertTrue(actualMessage.contains(expectedMessage));
+
+        // Verify the exception message (if applicable)
+        assertTrue(exception.getMessage().contains("Invalid gender"));
     }
+
+
 
     // Ensure thread safety when handling concurrent requests
     @Test
     public void test_concurrent_category_creation_requests() throws InterruptedException {
-            request.builder()
+            CategoryCreationRequest.builder()
             .categoryName("Electronics")
             .categoryDescription("All electronic items")
             .gender("UNISEX")
             .productType("GADGETS")
             .build();
-    
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         Runnable task = () -> {
             ResponseEntity<?> response = controller.createCategory(request);
             assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -173,13 +190,16 @@ public class RestCategoryControllerTest {
     @Test
     public void test_create_category_returns_success_message() {
         // Arrange
-        CategoryCreationRequest request = CategoryCreationRequest.builder()
+
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
+        CategoryCreationRequest.builder()
                 .categoryName("Electronics")
                 .categoryDescription("All electronic items")
                 .gender("UNISEX")
                 .productType("GADGETS")
                 .build();
-
         doNothing().when(categoryService).createNewCategory(request);
 
         // Act
@@ -195,13 +215,15 @@ public class RestCategoryControllerTest {
     // Check for correct HTTP status code in the response
     @Test
     public void test_create_category_returns_ok_status() {
-        request.builder()
+        CategoryCreationRequest.builder()
             .categoryName("Electronics")
             .categoryDescription("All electronic items")
             .gender("UNISEX")
             .productType("GADGETS")
             .build();
-
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
         ResponseEntity<?> response = controller.createCategory(request);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -213,13 +235,15 @@ public class RestCategoryControllerTest {
     // Successfully create a category with valid input data
     @Test
     public void test_create_category_with_valid_data() {
-        request.builder()
+        CategoryCreationRequest request = mock(CategoryCreationRequest.class);
+        CategoryService categoryService = mock(CategoryService.class);
+        RestCategoryController controller = new RestCategoryController(categoryService);
+        CategoryCreationRequest.builder()
             .categoryName("Electronics")
             .categoryDescription("All electronic items")
             .gender("UNISEX")
             .productType("GADGETS")
             .build();
-
         ResponseEntity<?> response = controller.createCategory(request);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());

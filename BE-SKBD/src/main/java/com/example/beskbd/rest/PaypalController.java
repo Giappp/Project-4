@@ -34,17 +34,22 @@ public class PaypalController {
             return "Error processing payment";
         }
     }
-
     @GetMapping("/success")
-    public String success(@RequestParam String paymentId, @RequestParam String PayerID) {
+    public String success(String paymentId, String payerID) {
         try {
-            Payment payment = paypalService.executePayment(paymentId, PayerID);
-            return "Payment successful! Payment ID: " + payment.getId();
-        } catch (PayPalRESTException e) {
-            e.printStackTrace();
+            if (payerID == null || payerID.isEmpty()) {
+                return "Error processing payment";
+            }
+            Payment payment = paypalService.executePayment(paymentId, payerID);
+            if (payment == null) {  // Check if payment is null
+                return "Error processing payment";
+            }
+            return "Payment success, ID: " + payment.getId();
+        } catch (Exception e) {
             return "Error processing payment";
         }
     }
+
 
     @GetMapping("/cancel")
     public ResponseEntity<String> cancel() {

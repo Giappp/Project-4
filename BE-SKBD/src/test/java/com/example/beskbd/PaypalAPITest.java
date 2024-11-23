@@ -16,13 +16,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.util.ReflectionTestUtils;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.MOCK,
-        classes = BeSkbdApplication.class)
-@AutoConfigureMockMvc
-@TestPropertySource(
-        locations = "classpath:application-integrationtest.properties")
 @ExtendWith(MockitoExtension.class)
 public class PaypalAPITest {
 
@@ -42,7 +35,8 @@ public class PaypalAPITest {
             ReflectionTestUtils.setField(paypalController, "paypalService", paypalService);
 
             String result = paypalController.success("PAY-123456789", "PAYER-123");
-            Assertions.assertEquals("Payment successful! Payment ID: PAY-123456789", result);
+            Assertions.assertEquals("Payment success, ID: PAY-123456789", result);
+
         }
 
         // PaymentId is null or empty
@@ -77,7 +71,8 @@ public class PaypalAPITest {
             ReflectionTestUtils.setField(paypalController, "paypalService", paypalService);
 
             String result = paypalController.success("PAY-123456789", "PAYER-123");
-            Assertions.assertEquals("Payment successful! Payment ID: PAY-123456789", result);
+            Assertions.assertEquals("Payment success, ID: PAY-123456789", result);
+
         }
 
         // Handles PayPalRESTException gracefully and returns error message
@@ -101,14 +96,27 @@ public class PaypalAPITest {
 
         // PayerID is null or empty
         @Test
-        public void test_success_with_null_or_empty_payer_id() {
+        public void test_success_with_null_or_empty_payer_id() throws PayPalRESTException {
+            // Mock the PaypalService
             PaypalService paypalService = Mockito.mock(PaypalService.class);
+
+            // Create a dummy Payment object to return when executePayment is called
+            Payment mockPayment = Mockito.mock(Payment.class);
+
+            // Use lenient stubbing to allow executePayment to be called with any arguments
+            Mockito.lenient()
+                    .when(paypalService.executePayment(Mockito.anyString(), Mockito.anyString()))
+                    .thenReturn(mockPayment);
+
+            // Initialize the PaypalController and inject the mocked service
             PaypalController paypalController = new PaypalController();
             ReflectionTestUtils.setField(paypalController, "paypalService", paypalService);
 
+            // Test with null payer ID
             String resultWithNullPayerID = paypalController.success("PAY-123456789", null);
             Assertions.assertEquals("Error processing payment", resultWithNullPayerID);
 
+            // Test with empty payer ID
             String resultWithEmptyPayerID = paypalController.success("PAY-123456789", "");
             Assertions.assertEquals("Error processing payment", resultWithEmptyPayerID);
         }
