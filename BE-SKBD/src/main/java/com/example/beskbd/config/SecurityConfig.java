@@ -111,10 +111,10 @@ public class SecurityConfig  {
 
     private String generateJwt(OidcUser oidcUser) {
         return Jwts.builder()
-                .setSubject(oidcUser.getEmail())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
-                .signWith(key, SignatureAlgorithm.HS512).compact();
+                .subject(oidcUser.getEmail())
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(key, Jwts.SIG.HS256).compact();
 
     }
 

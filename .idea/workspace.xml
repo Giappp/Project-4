@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id">
+  <component name="RunManager" selected="JUnit.PaypalAPITest.test_payment_id_null_or_empty">
     <configuration name="PaypalAPITest.test_payment_id_null_or_empty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
@@ -222,7 +220,8 @@
       <workItem from="1732288325561" duration="16085000" />
       <workItem from="1732345213403" duration="5437000" />
       <workItem from="1732380334884" duration="1927000" />
-      <workItem from="1732386440449" duration="305000" />
+      <workItem from="1732386440449" duration="377000" />
+      <workItem from="1732387457373" duration="1184000" />
     </task>
     <servers />
   </component>
