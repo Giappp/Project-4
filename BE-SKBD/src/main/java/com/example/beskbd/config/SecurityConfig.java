@@ -6,6 +6,7 @@ import com.example.beskbd.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,8 @@ import static java.lang.System.getProperty;
 @RequiredArgsConstructor
 public class SecurityConfig  {
     @Value("${application.security.jwt.secret-key-v2}")
-    private String secretKey;
+    private String  secretKey;
+    private SecretKey key;
     private static final String[] WHITE_LIST_URL = {
             "/auth/registration",
             "/auth/login",
@@ -69,7 +71,13 @@ public class SecurityConfig  {
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAuthFilter jwtAuthFilter;
-    SecretKey key = Keys.hmacShaKeyFor(getProperty(secretKey).getBytes(StandardCharsets.UTF_8));
+    @PostConstruct
+    public void init() {
+        if (secretKey == null) {
+            throw new IllegalArgumentException("Secret key cannot be null");
+        }
+        this.key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+    }
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
@@ -96,9 +104,6 @@ public class SecurityConfig  {
             public OidcUser loadUser(OidcUserRequest userRequest) {
                 OidcUser oidcUser = super.loadUser(userRequest);
                 String jwt = generateJwt(oidcUser);
-
-                // You might want to store the JWT in a cookie or return it in a response body
-                // Here’s a simple example of how to return the JWT:
                 HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
                 if (response != null) {
                     response.setHeader("Authorization", "Bearer " + jwt);
@@ -114,7 +119,8 @@ public class SecurityConfig  {
                 .subject(oidcUser.getEmail())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + 3600000))
-                .signWith(key, Jwts.SIG.HS256).compact();
+                .signWith(key, Jwts.SIG.HS256)
+                .compact();
 
     }
 
@@ -139,5 +145,6 @@ public class SecurityConfig  {
         provider.setPasswordEncoder(passwordEncoder);
         return provider;
     }
+
 
 }

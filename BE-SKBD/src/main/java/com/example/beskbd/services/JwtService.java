@@ -44,10 +44,11 @@ public class JwtService {
 
     public boolean isValidJwtToken(String token) {
         try {
-            Jwts.parserBuilder()
-                    .setSigningKey(getSignKey())
+            Jwts.parser()
+                    .verifyWith(getSignKey())
                     .build()
-                    .parseClaimsJws(token);
+                    .parseSignedClaims(token)
+                    .getPayload();
             return true;
         } catch (MalformedJwtException e) {
             logger.error("Invalid JWT token: {}", e.getMessage());
@@ -80,11 +81,11 @@ public class JwtService {
 
     private String createToken(Map<String, Object> claims, String username) {
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(getSignKey(), SignatureAlgorithm.HS256)
+                .claims(claims)
+                .subject(username)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSignKey(), Jwts.SIG.HS256)
                 .compact();
     }
 
@@ -94,11 +95,11 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignKey())
+        return Jwts.parser()
+                .verifyWith(getSignKey())
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     public void invalidateToken(String token) {
