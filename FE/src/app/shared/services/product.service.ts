@@ -14,7 +14,7 @@ export class ProductService {
 
   // Method to get all product categories from the API
   getAllProductsCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.apiUrl}/ca tegory`); // Adjust the endpoint as needed
+    return this.http.get<Category[]>(`${this.apiUrl}/category`); // Adjust the endpoint as needed
   }
 
   // Method to get product gender as an observable array

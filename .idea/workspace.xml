@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/JwtService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
     &quot;JUnit.RestProductControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor&quot;: &quot;Profiler#1&quot;,
@@ -96,12 +94,12 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Admin\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Accounttestapi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
+    <configuration name="PaypalAPITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +108,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.Accounttestapi" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.PaypalAPITest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,7 +130,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestCategoryControllerTest.test_create_category_with_invalid_gender" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PaypalAPITest.test_successful_payment_execution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
         <pattern>
@@ -141,8 +139,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestCategoryControllerTest" />
-      <option name="METHOD_NAME" value="test_create_category_with_invalid_gender" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.PaypalAPITest" />
+      <option name="METHOD_NAME" value="test_successful_payment_execution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestOrderControllerTest.test_create_order_with_null_request" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestOrderControllerTest" />
+      <option name="METHOD_NAME" value="test_create_order_with_null_request" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,22 +178,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestProductControllerTest.test_create_product_with_invalid_category_id" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BE-SKBD" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.beskbd.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestProductControllerTest" />
-      <option name="METHOD_NAME" value="test_create_product_with_invalid_category_id" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BeSkbdApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="BE-SKBD" />
@@ -190,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Accounttestapi" />
-        <item itemvalue="JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id" />
-        <item itemvalue="JUnit.RestOrderControllerTest.test_logging_when_fetching_orders" />
-        <item itemvalue="JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender" />
         <item itemvalue="JUnit.PaypalAPITest.test_payment_id_null_or_empty" />
+        <item itemvalue="JUnit.PaypalAPITest.test_successful_payment_execution" />
+        <item itemvalue="JUnit.PaypalAPITest" />
+        <item itemvalue="JUnit.RestOrderControllerTest.test_logging_when_fetching_orders" />
+        <item itemvalue="JUnit.RestOrderControllerTest.test_create_order_with_null_request" />
       </list>
     </recent_temporary>
   </component>
@@ -218,9 +216,6 @@
       <workItem from="1732274983191" duration="9077000" />
       <workItem from="1732288325561" duration="16085000" />
       <workItem from="1732345213403" duration="5437000" />
-      <workItem from="1732380334884" duration="1927000" />
-      <workItem from="1732386440449" duration="377000" />
-      <workItem from="1732387457373" duration="1930000" />
     </task>
     <servers />
   </component>
@@ -236,97 +231,97 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>285</line>
+          <line>289</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>288</line>
+          <line>292</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>289</line>
+          <line>293</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>292</line>
+          <line>296</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>293</line>
+          <line>297</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>73</line>
+          <line>77</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>83</line>
+          <line>87</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>84</line>
+          <line>88</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>90</line>
+          <line>94</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>91</line>
+          <line>95</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>92</line>
+          <line>96</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>93</line>
+          <line>97</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>95</line>
+          <line>99</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>98</line>
+          <line>102</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>101</line>
+          <line>105</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>103</line>
+          <line>107</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>102</line>
+          <line>106</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>104</line>
+          <line>108</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>105</line>
+          <line>109</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -361,112 +356,57 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>143</line>
+          <line>147</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>52</line>
+          <line>58</line>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>53</line>
+          <line>59</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>54</line>
+          <line>60</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>56</line>
+          <line>62</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>58</line>
+          <line>64</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>63</line>
+          <line>69</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>62</line>
+          <line>68</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>65</line>
+          <line>71</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/PaypalAPITest.java</url>
-          <line>66</line>
+          <line>72</line>
           <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="120" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="121" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestCategoryControllerTest.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="126" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
-          <line>70</line>
+          <line>74</line>
           <properties class="com.example.beskbd.RestProductControllerTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
