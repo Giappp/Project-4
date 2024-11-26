@@ -3,6 +3,6 @@ import { Gender } from './gender';
 export interface Category {
   id: number;
   categoryName: string;
-  productCategory: string;
+  loai: string;
   genders?: Gender[];
 }

@@ -2,33 +2,36 @@ import {
   Component,
   inject,
   Inject,
+  Input,
   OnInit,
   PLATFORM_ID,
-  OnDestroy,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 import { Store } from '@ngrx/store';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { last, Observable } from 'rxjs';
 import { Category } from '../../model/category';
 import { Gender } from '../../model/gender';
 import { ProductService } from '../../shared/services/product.service';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AccountService } from '../../core/auth/account.service';
-
+import { AuthServerProvider } from '../../core/auth/auth-jwt.service';
+import { LoginService } from '../../page/auth/login/login.service';
 
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'], // Corrected from styleUrl to styleUrls
+  styleUrl: './header.component.css',
   imports: [
     CommonModule,
     RouterModule,
@@ -39,17 +42,18 @@ import { AccountService } from '../../core/auth/account.service';
     MegaMenuModule,
   ],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-
+export class HeaderComponent implements OnInit {
+  account = inject(AccountService).trackCurrentAccount();
+  
+  authService = inject(LoginService);
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
   genders$!: Observable<Gender[]>;
-  uniqueCategory$!: Observable<string[]>;
+  uniqueLoai$!: Observable<string[]>;
   isBrowser: boolean = false;
   menuItems: MegaMenuItem[] = [];
   subMenuItems: MenuItem[] = [];
   genders: Gender[] = [];
-  private destroy$ = new Subject<void>(); // Subject to manage unsubscription
 
   constructor(
     library: FaIconLibrary,
@@ -61,48 +65,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.categories$ = this.productService.getAllProductsCategories();
     this.genders$ = this.productService.getProductGender();
   }
-
   ngOnInit() {
-    this.genders$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (genders) => {
-          // Check if genders is an array
-          if (Array.isArray(genders)) {
-            this.menuItems = genders.map((gender) => ({
-              label: gender.name,
-              root: true,
-              items: this.groupCategoriesByProductCategory(gender.categories || []), // Ensure categories is an array
-            }));
-          } else {
-            console.error('Expected genders to be an array, but got:', genders);
-          }
-        },
-        error: (err) => {
-          console.error('Error fetching genders:', err);
-        },
-      });
+    // Fetch the genders data as an observable
+    this.genders$ = this.productService.getProductGender(); // Fetch data from service
+
+    // Subscribe to the observable to populate menuItems with grouped categories
+    this.genders$.subscribe((genders) => {
+      this.menuItems = genders.map((gender) => ({
+        label: gender.name,
+        root: true,
+        items: this.groupCategoriesByLoai(gender.categories!),
+      }));
+    });
   }
 
-  private groupCategoriesByProductCategory(categories: Category[]): MenuItem[][] {
-    if (!Array.isArray(categories) || categories.length === 0) {
-      console.warn('No categories provided or categories is not an array');
-      return [];
-    }
-
+  private groupCategoriesByLoai(categories: Category[]): MenuItem[][] {
     const map: Map<string, string[]> = categories.reduce(
       (acc: Map<string, string[]>, category: Category) => {
-        if (!acc.has(category.productCategory)) {
-          acc.set(category.productCategory, []);
+        if (!acc.has(category.loai)) {
+          acc.set(category.loai, []);
         }
-        acc.get(category.productCategory)?.push(category.categoryName);
+        acc.get(category.loai)?.push(category.categoryName);
         return acc;
       },
       new Map()
     );
 
     const menu: MenuItem[][] = [];
-    let tempPair: MenuItem[] = [];
+    let tempPair: MenuItem[] = []; // Temporary array to hold each pair
 
     map.forEach((value: string[], key: string) => {
       const menuItem: MenuItem = {
@@ -119,9 +109,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         menu.push([menuItem]);
       }
 
+      // If `tempPair` has 2 items, push it to `menu` and reset
       if (tempPair.length === 2) {
         menu.push(tempPair);
-        tempPair = [];
+        tempPair = []; // Reset the pair array
       }
     });
 
@@ -131,9 +122,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     return menu;
   }
-
-  ngOnDestroy() {
-    this.destroy$.next(); // Trigger unsubscription
-    this.destroy$.complete(); // Complete the subject
+  logout(): void {
+    this.authService.logout();
   }
 }
