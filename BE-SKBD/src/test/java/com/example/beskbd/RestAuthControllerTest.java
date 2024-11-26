@@ -44,7 +44,7 @@ public class RestAuthControllerTest {
         when(authenticationService.authenticate(request)).thenReturn(expectedResponse);
 
         // Act
-        ApiResponse<AuthenticationResponse> response = restAuthController.authenticate(request);
+        ApiResponse<AuthenticationResponse> response = restAuthController.authenticate(request).getBody();
 
         // Assert
         assertNotNull(response);

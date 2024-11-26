@@ -38,23 +38,31 @@ public class RestAuthController {
 
 
     @PostMapping("/login")
-    public ApiResponse<AuthenticationResponse> authenticate(@RequestBody @Valid AuthenticationRequest request) {
+    public ResponseEntity<ApiResponse<AuthenticationResponse>> authenticate(@RequestBody @Valid AuthenticationRequest request) {
         try {
             AuthenticationResponse result = authenticationService.authenticate(request);
 
             if (result == null) {
-                return ApiResponse.<AuthenticationResponse>builder()
-                        .errorMessage("Invalid credentials")
-                        .build();
+                // Return a 401 Unauthorized if authentication fails
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(ApiResponse.<AuthenticationResponse>builder()
+                                .errorMessage("Invalid credentials")
+                                .errorCode(401) // Optional: Include error codes in the response
+                                .build());
             }
 
-            return ApiResponse.<AuthenticationResponse>builder()
+            // Return 200 OK if authentication is successful
+            return ResponseEntity.ok(ApiResponse.<AuthenticationResponse>builder()
                     .data(result)
-                    .build();
+                    .success(true)
+                    .build());
         } catch (Exception e) {
-            return ApiResponse.<AuthenticationResponse>builder()
-                    .errorMessage("Authentication failed: " + e.getMessage())
-                    .build();
+            // Return 500 Internal Server Error for unexpected exceptions
+            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT)
+                    .body(ApiResponse.<AuthenticationResponse>builder()
+                            .errorMessage("Authentication failed: " + e.getMessage())
+                            .errorCode(400) // Optional: Include error codes in the response
+                            .build());
         }
     }
 

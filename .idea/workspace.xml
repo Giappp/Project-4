@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/AuthService .ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/AuthService .ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/guard/auth.guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/guard/auth.guard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/model/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/model/category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestAuthControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +56,7 @@
     "JUnit.PaypalAPITest.test_successful_payment_execution.executor": "Run",
     "JUnit.RestAuthControllerTest.executor": "Run",
     "JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor": "Run",
-    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Debug",
+    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Run",
     "JUnit.RestCategoryControllerTest.executor": "Run",
     "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor": "Run",
     "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor": "Run",
@@ -164,7 +155,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestOrderControllerTest.test_create_order_with_null_request" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestAuthControllerTest.test_successful_authentication_returns_valid_response" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
         <pattern>
@@ -173,8 +164,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestOrderControllerTest" />
-      <option name="METHOD_NAME" value="test_create_order_with_null_request" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestAuthControllerTest" />
+      <option name="METHOD_NAME" value="test_successful_authentication_returns_valid_response" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -206,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response" />
         <item itemvalue="JUnit.PaypalAPITest.test_payment_id_null_or_empty" />
         <item itemvalue="JUnit.PaypalAPITest.test_successful_payment_execution" />
         <item itemvalue="JUnit.PaypalAPITest" />
         <item itemvalue="JUnit.RestOrderControllerTest.test_logging_when_fetching_orders" />
-        <item itemvalue="JUnit.RestOrderControllerTest.test_create_order_with_null_request" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +226,7 @@
       <workItem from="1732288325561" duration="16085000" />
       <workItem from="1732345213403" duration="5437000" />
       <workItem from="1732588257350" duration="4002000" />
+      <workItem from="1732598275064" duration="1463000" />
     </task>
     <servers />
   </component>
