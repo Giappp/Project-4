@@ -10,6 +10,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 
@@ -30,6 +32,15 @@ public class CategoryService {
         } catch (IllegalArgumentException ex) {
             throw new IllegalArgumentException("Invalid gender value: " + request.getGender());
         }
+    }
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    public Category getCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new IllegalArgumentException("Category not found"));
+
     }
 
 

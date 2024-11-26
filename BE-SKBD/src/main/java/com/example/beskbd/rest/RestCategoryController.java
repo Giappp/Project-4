@@ -25,4 +25,18 @@ public class RestCategoryController {
                 .success(true)
                 .build());
     }
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllCategories() {
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .data(categoryService.getAllCategories())
+                .build());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCategoryById(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .data(categoryService.getCategoryById(id))
+                .build());
+    }
 }

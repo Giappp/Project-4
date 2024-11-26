@@ -84,9 +84,9 @@ public class RestAuthController {
     public String generateJwt(String email) {
         Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Use HS256 for simplicity
         return Jwts.builder()
-                .setSubject(email)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3000000L)) // 50 minutes
+                .subject(email)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 3000000L)) // 50 minutes
                 .signWith(key)
                 .compact();
     }

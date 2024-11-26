@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
