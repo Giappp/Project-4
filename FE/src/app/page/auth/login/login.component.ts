@@ -1,9 +1,9 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
+  ElementRef, Inject,
   inject,
-  OnInit,
+  OnInit, PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
@@ -16,6 +16,7 @@ import {
 import { Router } from '@angular/router';
 import { AccountService } from '../../../core/auth/account.service';
 import { LoginService } from './login.service';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   private loginService = inject(LoginService);
   private router = inject(Router);
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder,@Inject(PLATFORM_ID) private platformId: Object) {
     this.loginForm = this.fb.group({
       username: new FormControl('', {
         nonNullable: true,
@@ -53,6 +55,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem('key', 'value');
+    }
     this.accountService.identity().subscribe(() => {
       if (this.accountService.isAuthenticated()) {
         this.router.navigate(['']);

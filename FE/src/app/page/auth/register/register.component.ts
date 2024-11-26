@@ -1,5 +1,5 @@
 import { User } from '../../../model/user';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import {Component, Inject, inject, OnInit, PLATFORM_ID, signal} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -13,6 +13,7 @@ import { phoneValidator } from './Validator/phoneValidator/phone-validator.direc
 import { AccountService } from '../../../core/auth/account.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
   private router = inject(Router);
   private loginService = inject(LoginService);
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,@Inject(PLATFORM_ID) private platformId: Object) {
     this.signupForm = this.fb.group(
       {
         username: ['', Validators.required],
@@ -47,6 +48,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem('key', 'value');
+    }
     this.accountService.identity().subscribe(() => {
       if (this.accountService.isAuthenticated()) {
         this.router.navigate(['']);

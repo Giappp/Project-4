@@ -19,7 +19,7 @@ export class ProductService {
 
   // Method to get product gender as an observable array
   getProductGender(): Observable<Gender[]> {
-    return this.http.get<Gender>(`${this.apiUrl}/gender`).pipe(
+    return this.http.get<Gender>(`${this.apiUrl}/by-gender`).pipe(
       map((gender) => [gender]) // Wrap the single Gender object in an array
     );
   }

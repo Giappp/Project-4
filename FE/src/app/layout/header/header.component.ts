@@ -44,7 +44,7 @@ import { LoginService } from '../../page/auth/login/login.service';
 })
 export class HeaderComponent implements OnInit {
   account = inject(AccountService).trackCurrentAccount();
-  
+
   authService = inject(LoginService);
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
@@ -67,6 +67,9 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
     // Fetch the genders data as an observable
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem('key', 'value');
+    }
     this.genders$ = this.productService.getProductGender(); // Fetch data from service
 
     // Subscribe to the observable to populate menuItems with grouped categories
@@ -74,26 +77,32 @@ export class HeaderComponent implements OnInit {
       this.menuItems = genders.map((gender) => ({
         label: gender.name,
         root: true,
-        items: this.groupCategoriesByLoai(gender.categories!),
+        items: this.groupCategoriesByproductCategory(gender.categories!),
       }));
     });
   }
 
-  private groupCategoriesByLoai(categories: Category[]): MenuItem[][] {
+  private groupCategoriesByproductCategory(categories: Category[] | undefined): MenuItem[][] {
+    // Ensure categories is defined and has content
+    if (!categories || categories.length === 0) {
+      return [];  // Return an empty array if categories is undefined or empty
+    }
+
+    // Proceed with the existing logic
     const map: Map<string, string[]> = categories.reduce(
       (acc: Map<string, string[]>, category: Category) => {
-        if (!acc.has(category.loai)) {
-          acc.set(category.loai, []);
+        if (!acc.has(category.productCategory)) {
+          acc.set(category.productCategory, []);
         }
-        acc.get(category.loai)?.push(category.categoryName);
+        acc.get(category.productCategory)?.push(category.categoryName);
         return acc;
       },
       new Map()
     );
 
+
     const menu: MenuItem[][] = [];
     let tempPair: MenuItem[] = []; // Temporary array to hold each pair
-
     map.forEach((value: string[], key: string) => {
       const menuItem: MenuItem = {
         label: key,
@@ -109,10 +118,9 @@ export class HeaderComponent implements OnInit {
         menu.push([menuItem]);
       }
 
-      // If `tempPair` has 2 items, push it to `menu` and reset
       if (tempPair.length === 2) {
         menu.push(tempPair);
-        tempPair = []; // Reset the pair array
+        tempPair = [];
       }
     });
 

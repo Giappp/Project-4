@@ -33,7 +33,7 @@ describe('ProductService', () => {
       expect(categories).toEqual(mockCategories);
     });
 
-    const req = httpMock.expectOne('/api/products/genders');
+    const req = httpMock.expectOne('/api/products/by-gender');
     expect(req.request.method).toBe('GET');
     req.flush(mockCategories); // Respond with mock data
   });

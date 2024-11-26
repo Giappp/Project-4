@@ -18,6 +18,10 @@ export const authGuard: CanActivateFn = (
   const stateStorageService = inject(StateStorageService);
   return accountService.identity().pipe(
     map((account) => {
+      if (typeof window !== 'undefined') {
+        // Safe to use sessionStorage
+        sessionStorage.setItem('key', 'value');
+      }
       if (account) {
         const { authorities } = next.data;
 
@@ -35,6 +39,7 @@ export const authGuard: CanActivateFn = (
 
       stateStorageService.storeUrl(state.url);
       router.navigate(['/login']);
+      router.navigate(['/auth/registration']);
       return false;
     })
   );
