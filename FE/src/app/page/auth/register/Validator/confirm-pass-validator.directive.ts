@@ -7,16 +7,16 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-export const confirmPassValidator: ValidatorFn = (
-  control: AbstractControl
-): ValidationErrors | null => {
+export const confirmPassValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
-  if (password && confirmPassword && password !== confirmPassword) {
-    return { passwordsMismatch: true };
+
+  // Check if both controls exist and compare their values
+  if (password && confirmPassword && password.value !== confirmPassword.value) {
+    return { passwordsMismatch: true }; // Return error if passwords do not match
   }
 
-  return null;
+  return null; // Return null if validation passes
 };
 
 @Directive({
@@ -31,9 +31,10 @@ export const confirmPassValidator: ValidatorFn = (
 })
 export class ConfirmPassValidatorDirective implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
-    return confirmPassValidator(control);
+    return confirmPassValidator(control); // Use the validator function
   }
+
   registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
+    // This can be implemented if you need to handle changes dynamically
   }
 }

@@ -5,43 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.module.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/interceptors/jwt.interceptor.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/login/login.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/service/auth-response.interface.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/app/service/auth.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/main.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/FE-fb/tsconfig.spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-jwt.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/auth-jwt.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/auth-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/auth-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/phoneValidator/phone-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/phoneValidator/phone-validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +239,7 @@
       <workItem from="1732598275064" duration="1463000" />
       <workItem from="1732687216041" duration="6242000" />
       <workItem from="1732716046779" duration="153000" />
-      <workItem from="1732719294575" duration="4450000" />
+      <workItem from="1732719294575" duration="4763000" />
     </task>
     <servers />
   </component>
