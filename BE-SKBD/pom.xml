@@ -90,6 +90,14 @@
             <version>1.14.0</version> <!-- Check for latest version -->
         </dependency>
 
+        <!-- PayPal SDK for payment processing (V2-will fix and integration) -->
+        <dependency>
+            <groupId>com.braintreepayments.gateway</groupId>
+            <artifactId>braintree-java</artifactId>
+            <version>3.37.0</version>
+        </dependency>
+
+
         <!-- AssertJ for fluent assertions in tests -->
         <dependency>
             <groupId>org.assertj</groupId>
