@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/PromotionProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/PromotionProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestPromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestPromotionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/PromotionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/PromotionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,87 +41,74 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.Accounttestapi.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_null_authentication.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_message_with_payment_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_successful_payment_execution.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_success.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.CodyAccountHistoryMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAccountsIdsRefresh&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyConvertUrlToCodebaseName&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyHistoryLlmMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyMigrateChatHistory-v2&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyProjectSettingsMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ToggleCodyToolWindowAfterMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BeSkbdApplication.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dang&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\FE-fb\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.Accounttestapi.executor": "Run",
+    "JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_null_authentication.executor": "Debug",
+    "JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor": "Run",
+    "JUnit.PaypalAPITest.executor": "Run",
+    "JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_message_with_payment_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_successful_payment_execution.executor": "Run",
+    "JUnit.RestAuthControllerTest.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Run",
+    "JUnit.RestCategoryControllerTest.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor": "Run",
+    "JUnit.RestOrderControllerTest.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor": "Run",
+    "JUnit.RestProductControllerTest.executor": "Run",
+    "JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor": "Profiler#1",
+    "JUnit.RestProductControllerTest.test_get_by_gender_success.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor": "Run",
+    "JUnit.RestPromotionControllerTest.executor": "Run",
+    "JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor": "Debug",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyAccountsIdsRefresh": "true",
+    "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyMigrateChatHistory-v2": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BeSkbdApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dang",
+    "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\FE-fb\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
-    <configuration name="PaypalAPITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BE-SKBD" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.beskbd.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.PaypalAPITest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="JUnit.RestPromotionControllerTest">
     <configuration name="PaypalAPITest.test_payment_id_null_or_empty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
@@ -171,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestOrderControllerTest.test_logging_when_fetching_orders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestPromotionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
         <pattern>
@@ -180,8 +166,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.beskbd" />
-      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestOrderControllerTest" />
-      <option name="METHOD_NAME" value="test_logging_when_fetching_orders" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestPromotionControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestPromotionControllerTest.test_create_promotion_with_invalid_date_range" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BE-SKBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.beskbd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.beskbd" />
+      <option name="MAIN_CLASS_NAME" value="com.example.beskbd.RestPromotionControllerTest" />
+      <option name="METHOD_NAME" value="test_create_promotion_with_invalid_date_range" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RestPromotionControllerTest" />
+        <item itemvalue="JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range" />
         <item itemvalue="JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response" />
         <item itemvalue="JUnit.PaypalAPITest.test_payment_id_null_or_empty" />
         <item itemvalue="JUnit.PaypalAPITest.test_successful_payment_execution" />
-        <item itemvalue="JUnit.PaypalAPITest" />
-        <item itemvalue="JUnit.RestOrderControllerTest.test_logging_when_fetching_orders" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +228,7 @@
       <workItem from="1732345213403" duration="5437000" />
       <workItem from="1732588257350" duration="4002000" />
       <workItem from="1732598275064" duration="1463000" />
-      <workItem from="1732687216041" duration="1008000" />
+      <workItem from="1732687216041" duration="2290000" />
     </task>
     <servers />
   </component>
@@ -416,6 +417,51 @@
           <line>72</line>
           <option name="timeStamp" value="119" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestProductControllerTest.java</url>
           <line>74</line>
@@ -427,6 +473,16 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.beskbd.rest.RestPromotionController" memberName="promotionService" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/RestPromotionControllerTest.java" line="76">
+        <watch expression="restPromotionController.promotionService" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_4$Accounttestapi_test_get_details_unauthenticated_user.ic" NAME="Accounttestapi.test_get_details_unauthenticated_user Coverage Results" MODIFIED="1732345924246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

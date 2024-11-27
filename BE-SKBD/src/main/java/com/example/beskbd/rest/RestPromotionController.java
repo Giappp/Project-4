@@ -2,6 +2,7 @@ package com.example.beskbd.rest;
 
 import com.example.beskbd.dto.request.PromotionCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
+import com.example.beskbd.dto.response.PromotionDTO;
 import com.example.beskbd.services.PromotionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +19,15 @@ public class RestPromotionController {
 
     @PostMapping("/create")
     public ResponseEntity<?> createPromotion(@Valid @RequestBody PromotionCreationRequest request) {
-        promotionService.createPromotion(request);
+        // Validation logic for date range
+        if (request.getStartDate().isAfter(request.getEndDate())) {
+            throw new RuntimeException("Invalid date range: Start date must be before end date");
+        }
+
+        PromotionDTO promotionDTO = promotionService.createPromotion(request);
         return ResponseEntity.ok(ApiResponse.builder()
                 .success(true)
+                .data(promotionDTO) // Include the created PromotionDTO
                 .build());
     }
 
