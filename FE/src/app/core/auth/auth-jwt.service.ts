@@ -35,7 +35,7 @@ export class AuthServerProvider {
         })
       );
   }
-  register(model: Register): Observable<void> {
+  register(model: Register): Observable<any> {
     return this.http
       .post(this.applicationConfig.getEndpointFor('auth/registration'), model)
       .pipe(

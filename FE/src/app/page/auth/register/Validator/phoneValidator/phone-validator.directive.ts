@@ -1,17 +1,15 @@
 import { Directive } from '@angular/core';
-import {
-  AbstractControl,
-  NG_VALIDATORS,
-  ValidationErrors,
-  Validator,
-  ValidatorFn,
-} from '@angular/forms';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
 
 export function phoneValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const phone = control.value;
 
-    const onlyDigit = /^0\d{9}$/.test(phone);
+    if (!phone) {
+      return null; // Don't validate empty values
+    }
+
+    const onlyDigit = /^0\d{9}$/.test(phone); // Check formatting
     return !onlyDigit ? { phoneNotMatch: true } : null;
   };
 }
@@ -30,7 +28,8 @@ export class PhoneValidatorDirective implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
     return phoneValidator()(control);
   }
+
   registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
+    // Implement if needed
   }
 }
