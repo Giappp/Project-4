@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestPromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestPromotionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/Accounttestapi.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/test/java/com/example/beskbd/TestAccountController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +76,10 @@
     "JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor": "Run",
     "JUnit.RestPromotionControllerTest.executor": "Run",
     "JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor": "Debug",
+    "JUnit.TestAccountController.executor": "Run",
+    "Maven.BE-SKBD [clean].executor": "Run",
+    "Maven.BE-SKBD [compile].executor": "Run",
+    "Maven.BE-SKBD [test].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -108,7 +114,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RestPromotionControllerTest">
+  <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
     <configuration name="PaypalAPITest.test_payment_id_null_or_empty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
       <extension name="coverage">
@@ -228,7 +234,7 @@
       <workItem from="1732345213403" duration="5437000" />
       <workItem from="1732588257350" duration="4002000" />
       <workItem from="1732598275064" duration="1463000" />
-      <workItem from="1732687216041" duration="2290000" />
+      <workItem from="1732687216041" duration="3148000" />
     </task>
     <servers />
   </component>
