@@ -5,9 +5,11 @@ import com.example.beskbd.dto.response.PromotionDTO; // Assuming you have a Prom
 import com.example.beskbd.dto.response.PromotionProductDTO;
 import com.example.beskbd.entities.Promotion;
 import com.example.beskbd.entities.PromotionProduct;
+import com.example.beskbd.repositories.PromotionProductRepository;
 import com.example.beskbd.repositories.PromotionRepository;
 import com.example.beskbd.repositories.ProductRepository; // Assuming you have a ProductRepository
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +18,12 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class PromotionService {
-
-    private final PromotionRepository promotionRepository;
-    private final ProductRepository productRepository; // For fetching Product entities
+    @Autowired
+    private PromotionProductRepository promotionProductRepository;
+    @Autowired
+    private  PromotionRepository promotionRepository;
+    @Autowired
+    private  ProductRepository productRepository; // For fetching Product entities
 
     public PromotionDTO createPromotion(PromotionCreationRequest request) {
         // Create a new Promotion entity
@@ -59,6 +64,9 @@ public class PromotionService {
         Promotion promotion = promotionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Promotion not found: " + id));
         return convertToDTO(promotion);
+    }
+    public List<PromotionProduct> getPromotionProducts(Long promotionId) {
+        return promotionProductRepository.findByPromotionId(promotionId);
     }
 
     private PromotionDTO convertToDTO(Promotion promotion) {

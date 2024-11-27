@@ -39,4 +39,11 @@ public class RestPromotionController {
                 .data(promotionService.getPromotionById(id))
                 .build());
     }
+    @GetMapping("/products/{promotionId}")
+    public ResponseEntity<?> getPromotionProducts(@PathVariable Long promotionId) {
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .data(promotionService.getPromotionProducts(promotionId))
+                .build());
+    }
 }
