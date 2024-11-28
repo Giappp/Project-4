@@ -28,7 +28,17 @@ export class PassValidatorDirective implements Validator {
     return passwordValidator()(control);
   }
 
-  registerOnValidatorChange?(fn: () => void): void {
-    // Implement if needed
+  registerOnValidatorChange(fn: () => void): void {
+    this.onValidatorChange = fn;
   }
+
+// Somewhere else in your code (for example, when validation conditions change)
+  private onValidatorChange: () => void = () => {};
+
+  triggerValidationChange() {
+    if (this.onValidatorChange) {
+      this.onValidatorChange(); // Notify Angular that validation has changed
+    }
+  }
+
 }

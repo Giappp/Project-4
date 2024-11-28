@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/StateStorageService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/StateStorageService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-server-provider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/auth-server-provider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/state-storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/auth/state-storage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/guard/auth.guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/guard/auth.guard.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +38,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/FE/src/app/page/home/home.component.ts" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -45,79 +53,79 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.Accounttestapi.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_null_authentication.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_message_with_payment_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_successful_payment_execution.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestBraintreeApiTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestBraintreeApiTest.test_process_payment_with_zero_or_negative_amount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_success.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestPromotionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestAccountController.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [test].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.CodyAccountHistoryMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAccountsIdsRefresh&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyConvertUrlToCodebaseName&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyHistoryLlmMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyMigrateChatHistory-v2&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyProjectSettingsMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ToggleCodyToolWindowAfterMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BeSkbdApplication.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dang&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Admin\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.Accounttestapi.executor": "Run",
+    "JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_null_authentication.executor": "Debug",
+    "JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor": "Run",
+    "JUnit.PaypalAPITest.executor": "Run",
+    "JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_message_with_payment_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_successful_payment_execution.executor": "Run",
+    "JUnit.RestAuthControllerTest.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Run",
+    "JUnit.RestBraintreeApiTest.executor": "Run",
+    "JUnit.RestBraintreeApiTest.test_process_payment_with_zero_or_negative_amount.executor": "Run",
+    "JUnit.RestCategoryControllerTest.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor": "Run",
+    "JUnit.RestOrderControllerTest.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor": "Run",
+    "JUnit.RestProductControllerTest.executor": "Run",
+    "JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor": "Profiler#1",
+    "JUnit.RestProductControllerTest.test_get_by_gender_success.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor": "Run",
+    "JUnit.RestPromotionControllerTest.executor": "Run",
+    "JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor": "Debug",
+    "JUnit.TestAccountController.executor": "Run",
+    "Maven.BE-SKBD [clean].executor": "Run",
+    "Maven.BE-SKBD [compile].executor": "Run",
+    "Maven.BE-SKBD [test].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyAccountsIdsRefresh": "true",
+    "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyMigrateChatHistory-v2": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BeSkbdApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dang",
+    "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\dangn\\OneDrive\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
     <configuration name="RestAuthControllerTest.test_successful_authentication_returns_valid_response" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
@@ -240,6 +248,7 @@
       <workItem from="1732687216041" duration="6242000" />
       <workItem from="1732716046779" duration="153000" />
       <workItem from="1732719294575" duration="4763000" />
+      <workItem from="1732778521845" duration="3189000" />
     </task>
     <servers />
   </component>
