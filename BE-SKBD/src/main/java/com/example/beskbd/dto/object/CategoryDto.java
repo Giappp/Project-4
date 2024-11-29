@@ -19,6 +19,7 @@ public class CategoryDto {
         if (category != null) {
             this.id = category.getId();
             this.categoryName = category.getName();
+            this.gender = category.getGender().toString();
             this.productType = category.getProductType();
         }
     }

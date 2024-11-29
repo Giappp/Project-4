@@ -40,7 +40,9 @@ public class SecurityConfig {
             "/paypal/pay",
             "/error",
             "/api/categories",
-            "/api/products/"
+            "/api/products/",
+            "/api/products/search",
+            "/api/orders/new"
     };
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;

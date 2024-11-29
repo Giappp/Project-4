@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("api/account")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RestAccountController {
     static Logger logger = LoggerFactory.getLogger(RestAccountController.class);
     AccountService accountService;
 
-    @GetMapping()
+    @GetMapping("/")
     public ApiResponse<?> getDetails() {
         logger.info("Account details request");
         return ApiResponse.builder()

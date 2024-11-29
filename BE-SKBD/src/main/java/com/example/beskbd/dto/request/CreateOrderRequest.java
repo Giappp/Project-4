@@ -1,6 +1,6 @@
 package com.example.beskbd.dto.request;
 
-import com.example.beskbd.dto.object.ProductAttributeDto;
+import com.example.beskbd.dto.events.CartItem;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -16,9 +16,9 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CreateOrderRequest {
     @NotNull
-    Long userId;
+    String username;
     @NotBlank
     String address;
     @Size(min = 1, max = 255)
-    List<ProductAttributeDto> items;
+    List<CartItem> items;
 }

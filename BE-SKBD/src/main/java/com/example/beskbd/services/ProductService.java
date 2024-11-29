@@ -1,9 +1,6 @@
 package com.example.beskbd.services;
 
-import com.example.beskbd.dto.object.CategoryDto;
-import com.example.beskbd.dto.object.NewArrivalProductDto;
-import com.example.beskbd.dto.object.ProductAttributeDto;
-import com.example.beskbd.dto.object.ProductSizeDto;
+import com.example.beskbd.dto.object.*;
 import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.entities.Product;
 import com.example.beskbd.entities.ProductAttribute;
@@ -18,6 +15,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +45,7 @@ public class ProductService {
                 .collect(groupingBy(category -> category.getGender().toString(),
                         Collectors.mapping(CategoryDto::new, Collectors.toList())));
     }
-
+    
     @Transactional
     public void addProduct(ProductCreationRequest request) {
         if (request == null) throw new AppException(ErrorCode.INVALID_REQUEST);
@@ -65,6 +65,14 @@ public class ProductService {
             product.setAttributes(attributes);
         }
         productRepository.save(product);
+    }
+
+    public Page<Product> searchProducts(ProductFilterDto filter) {
+        Pageable pageable = PageRequest.of(
+                filter.getPage() != null ? filter.getPage() : 0,
+                filter.getPageSize() != null ? filter.getPageSize() : 10
+        );
+        return productRepository.searchProducts(filter, pageable);
     }
 
     private ProductAttribute toProductAttribute(ProductAttributeDto dto) {

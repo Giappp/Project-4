@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -14,6 +15,8 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AccountResponse {
     Boolean activated;
+    BigDecimal amountAvailable;
+    BigDecimal amountReserved;
     List<String> authorities;
     String email;
     String firstName;

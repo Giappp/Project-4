@@ -14,8 +14,8 @@ import java.math.BigDecimal;
 @Table(name = "tbl_order_items")
 public class OrderItems extends BaseEntity {
     @ManyToOne
-    @JoinColumn(name = "product_attribute_id", nullable = false)
-    private ProductAttribute product;
+    @JoinColumn(name = "product_size_id", nullable = false)
+    private ProductSize product;
 
     @Column(nullable = false)
     private Integer quantity;

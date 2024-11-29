@@ -25,6 +25,8 @@ public class AccountService {
             User user = (User) authentication.getPrincipal();
             return AccountResponse.builder()
                     .activated(user.isEnabled())
+                    .amountAvailable(user.getAmountAvailable())
+                    .amountReserved(user.getAmountReserved())
                     .email(user.getEmail())
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())

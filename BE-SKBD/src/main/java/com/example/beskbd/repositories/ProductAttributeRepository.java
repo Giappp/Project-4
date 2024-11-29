@@ -1,9 +1,14 @@
 package com.example.beskbd.repositories;
 
 import com.example.beskbd.entities.ProductAttribute;
+import com.example.beskbd.entities.ProductSize;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductAttributeRepository extends JpaRepository<ProductAttribute, Long> {
+    @Query("SELECT pa FROM ProductAttribute pa JOIN pa.sizes ps WHERE ps = :size")
+    ProductAttribute findByProductSize(@Param("size") ProductSize size);
 }

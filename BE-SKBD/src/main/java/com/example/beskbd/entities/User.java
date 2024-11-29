@@ -8,6 +8,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -25,6 +26,9 @@ public class User extends BaseEntity implements UserDetails {
 
     @Column(unique = true)
     private String email;
+
+    private BigDecimal amountAvailable;
+    private BigDecimal amountReserved;
 
     private String password; // Note: In real scenarios, exclude from JSON serialization with @JsonIgnore
     private Role authority;

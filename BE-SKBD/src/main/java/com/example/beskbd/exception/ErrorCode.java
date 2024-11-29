@@ -19,7 +19,12 @@ public enum ErrorCode {
     ALREADY_LOGIN(1011, "User already logged in", HttpStatus.BAD_REQUEST),
     INVALID_REQUEST(1012, "Invalid request", HttpStatus.BAD_REQUEST),
     INVALID_CREDENTIALS(1013, "Expired or Invalid Token", HttpStatus.UNAUTHORIZED),
-    EMAIL_NOT_EXISTS(1014, "Email not found", HttpStatus.NOT_FOUND);
+    EMAIL_NOT_EXISTS(1014, "Email not found", HttpStatus.NOT_FOUND),
+    CATEGORY_ALREADY_EXISTS(1015, "Category already exists", HttpStatus.BAD_REQUEST),
+    PRODUCT_NOT_FOUND(1016, "Product not found", HttpStatus.NOT_FOUND),
+    ORDER_ITEM_EMPTY(1017, "Order item is empty or not found", HttpStatus.BAD_REQUEST),
+    ORDER_ALREADY_CANCEL(1018, "Order has already been cancel", HttpStatus.BAD_REQUEST),
+    SERVICE_NOT_AVAILABLE(1019, "Current service is not available, please try later", HttpStatus.SERVICE_UNAVAILABLE);
 
 
     private final int code;
