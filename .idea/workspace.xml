@@ -5,8 +5,791 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0eea82-64d9-4c47-83f0-3c104ee29a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/entities/CartItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/CartItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/CartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/cart-items-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/cart-items.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/add-cart-item/add-cart-item.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/add-cart-item/add-cart-item.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/edit-cart-item/edit-cart-item.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/edit-cart-item/edit-cart-item.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/list-cart-items/list-cart-items.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/list-cart-items/list-cart-items.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/service/cart-item.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/cart-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/cart.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/add-cart/add-cart.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/add-cart/add-cart.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/edit-cart/edit-cart.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/edit-cart/edit-cart.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/list-cart/list-cart.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/list-cart/list-cart.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/service/cart.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/login/forgot-password-component/forgot-password-component.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/login/forgot-password-component/forgot-password-component.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/login/forgot-password-component/forgot-password-component.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ProductCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/request/ProductCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CartItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/dto/response/CartItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestAuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestBraintreeApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestBraintreeApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/rest/RestProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE-SKBD/src/main/java/com/example/beskbd/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/apexcharts.com/samples/assets/github-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/apexcharts.com/samples/assets/irregular-data-series.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/apexcharts.com/samples/assets/ohlc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/apexcharts.com/samples/assets/series1000.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/apexcharts.com/samples/assets/stock-prices.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/backblue.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.0/dayjs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.0/plugin/quarterOfYear.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.17/dayjs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/fade.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/hts-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/apps-calendar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/apps-chat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/apps-email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/apps-todo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/css/app.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/css/icons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/css/vendor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/boxicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/boxicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/boxicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/boxicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/boxiconsd41d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/tabler-icons3026.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/tabler-icons3026.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/fonts/tabler-iconsd41d.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/404-error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/google-analytics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/google-mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/google-meet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/slack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/stripe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/app-calendar/zoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/brands/dhl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/brands/fedex.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/brands/ups.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/card/mastercard.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/card/paypal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/card/stripe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/card/visa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/check-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/coming-soon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/double.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/logo-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/logo-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/logo-sm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/maintenance-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/party.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/product/p-9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/products/product-1(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/products/product-1(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/products/product-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/products/product-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/products/product-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/qr-code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/dyson.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/gopro.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/h&amp;m.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/huawei.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/image.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/nike.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/rolex.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/thenorthface.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/seller/zara.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/small/img-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/user-profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/avatar-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/chat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/images/users/dummy-avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-area.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-bar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-boxplot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-bubble.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-candlestick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-column.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-heatmap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-line.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-mixed.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-pie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-polar-area.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-radar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-radialbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-scatter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-timeline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/apexchart-treemap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/extended-rating.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/extended-sweetalert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/form-clipboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/form-flatepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/form-quilljs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/form-slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-canada.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-google.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-iraq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-russia.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-spain.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-us-aea-en.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-us-lcc-en.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-us-mill-en.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/maps-vector.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/components/table-gridjs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/app-calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/app-chat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/app-email.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/coming-soon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/coupons-add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/customer-details.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/invoice-add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/order-cart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/product-details.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/product-grid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/seller-add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/seller-detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/pages/widgets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/js/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/fullcalendar/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/fullcalendar/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/gmaps/gmaps.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/gridjs/gridjs.umd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/gridjs/theme/mermaid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/jsvectormap/js/jsvectormap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/jsvectormap/maps/world-merc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/assets/vendor/jsvectormap/maps/world.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/attributes-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/attributes-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/attributes-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/auth-lock-screen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/auth-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/auth-signin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/auth-signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/category-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/category-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/category-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-area.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-bar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-boxplot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-bubble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-candlestick.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-column.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-heatmap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-line.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-mixed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-pie.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-polar-area.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-radar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-radialbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-scatter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-timeline.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/charts-apex-treemap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/coupons-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/coupons-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/customer-detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/customer-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/extended-ratings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/extended-scrollbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/extended-sweetalert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/extended-swiper-silder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/extended-toastify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-basic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-checkbox-radio.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-choices.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-clipboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-editors.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-fileuploads.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-flatepicker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-input-mask.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-range-slider.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-validation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/forms-wizard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/help-center.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/icons-boxicons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/icons-solar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/inventory-received-orders.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/inventory-warehouse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/invoice-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/invoice-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/invoice-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/layouts-simple-sidenav.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/maps-google.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/maps-vector.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/order-cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/order-checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/order-detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/orders-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-404-alt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-comingsoon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-faqs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-maintenance.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-permissions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-pricing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-review.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-starter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/pages-timeline.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/privacy-policy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/product-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/product-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/product-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/product-grid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/product-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/purchase-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/purchase-order.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/purchase-returns.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/role-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/role-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/role-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/seller-add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/seller-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/seller-edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/seller-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/settings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/tables-basic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/tables-gridjs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-accordion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-avatar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-badge.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-breadcrumb.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-carousel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-collapse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-dropdown.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-list-group.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-offcanvas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-pagination.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-placeholders.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-popovers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-progress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-scrollspy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-spinners.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-tabs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-toasts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/ui-tooltips.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/admin/widgets.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___techzaa.in_larkon_admin_layouts-simple-sidenav.html/techzaa.in/larkon/assets/js/components/form-wizard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/doit.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/new.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/new.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/new.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/hts-cache/winprofile.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/pinterest.com/pin/create/button/indexa879.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/pinterest.com/pin/create/button/indexefca.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/account_dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/account_edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/account_edit_address.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/account_orders.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/account_wishlist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/blog_list1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/blog_list2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/blog_list3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/blog_single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/coming_soon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticon.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/Flaticond41d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/jquery.fancybox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/plugins/swiper.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/faq.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/fonts/SofiaProBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/details-disclosure.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/googlemap-setting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/bootstrap-slider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/countdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/jquery.fancybox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/plugins/swiper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/share.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/js/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/login_register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/lookbook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product10_v5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product11_v6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product12_v7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product13_v8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product14_v9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product15_v10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product16_v11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product1_simple.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product2_variable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product3_external.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product4_grouped.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product5_onsale.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product6_outofstock.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product7_v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product8_v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/product9_v4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/reset_password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop_cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop_checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop_order_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/shop_order_tracking.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/store_location.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/Demo5/terms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/about/about-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/about/about-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog/blog-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/blog_title_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/brands/brand7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/cart-item-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/cart-item-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/cart-item-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/collection_grid_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/collection_grid_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/collection_grid_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo10/slider_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo2/post1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo2/post2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo2/post3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo3/slider_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/category_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/deal_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/lookbook-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/lookbook-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/lookbook-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/lookbook-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-0-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-10-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-11-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-12-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-13-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-3-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-4-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-5-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-6-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-7-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/product-8-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/slider1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/home/demo5/slider2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/logo-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/lookbook/lookbook-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/mega-menu-item.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/nav-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/newsletter-popup.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/pattern_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/payment-options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-17-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-17-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-18-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-19-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-19-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-19-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-20-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-20-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-21-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-21-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-22-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-22-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-22-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-23-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-24-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-25-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-26-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-26-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-27-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-27-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-28-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-28-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-29-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-29-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-30-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-31-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-32-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-33-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-35-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-36-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-37-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-38-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-39-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-40-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-41-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-42-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product-46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_10-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_11-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_12-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_13-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_14-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_15-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_16-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_3-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_4-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_5-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_6-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_7-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_8-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_9-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/product_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/quickview_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/quickview_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/quickview_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/quickview_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/swatch_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/swatch_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/products/swatch_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/category-item8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/shop_banner3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/shop_banner6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/shop_banner8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/shop_banner_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/shop/shop_banner_character1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/size-guide.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/slideshow-character1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/slideshow-character2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/FE/https___uomo-html.flexkitux.com_Demo5_index.html/uomo-html.flexkitux.com/images/slideshow-pattern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/be-v1.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/db/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.module.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/cart/components/shopping-cart/shopping-cart.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/add-cart-item/add-cart-item.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/cart/components/shopping-cart/shopping-cart.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/cart/components/shopping-cart/shopping-cart.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/cart/components/shopping-cart/shopping-cart.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/config/font-awesome-icons.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/AuthService .ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/StateStorageService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/account.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/account.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-jwt.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/auth-server-provider.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/auth/state-storage.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/config/application-config.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/core.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/guard/auth.guard.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/core/interceptor/auth.interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/auth-layout/auth-layout.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/edit-cart-item/edit-cart-item.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/auth-layout/auth-layout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/auth-layout/auth-layout.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/auth-layout/auth-layout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/error/error.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/error/error.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/error/error.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart-items/pages/list-cart-items/list-cart-items.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/add-cart/add-cart.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/footer/footer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/footer/footer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/active-header.directive.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/header/header.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/home-layout/home-layout.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/edit-cart/edit-cart.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/home-layout/home-layout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/home-layout/home-layout.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/layout/home-layout/home-layout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/category.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/gender.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/product-attribute.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/product.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/register.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/model/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/about/about.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/about/about.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/auth-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/auth.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/add-cart/add-cart.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/login/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/confirm-pass-validator.directive.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/passwordValidator/pass-validator.directive.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/phoneValidator/phone-validator.directive.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/Validator/phoneValidator/phone-validator.directive.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/auth/register/register.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/cart/pages/list-cart/list-cart.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/filter-options.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product-filter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/interfaces/PasswordResetResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/page/product-list/product.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ecommerce-angular/src/app/login/forgot-password-component/forgot-password-component.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/components/breadcrumb/breadcrumb.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/pipe/filter.pipe.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/pipe/filter.pipe.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/services/product.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/shared/shared.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/store/app.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/store/cart/cart.action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/store/cart/cart.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/store/cart/cart.reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/app/store/cart/cart.selector.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/css/satoshi.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Black.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Black.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BlackItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BlackItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BlackItalic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BoldItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-BoldItalic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Italic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Light.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-LightItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-LightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-LightItalic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Medium.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-MediumItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-MediumItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-MediumItalic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Variable.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Variable.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Variable.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-Variable.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-VariableItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-VariableItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-VariableItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/fonts/Satoshi-VariableItalic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/10.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/11.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/12.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/17150541229617388.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/17277697730331009.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/17289654441295587.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/17291301779762643.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/5.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/6.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/7.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/8.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/9.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/SlimFitTextured-knit-polo-shirt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/cap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/dress.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/hero_img/hero.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/jacket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/jeans.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/regular-fit-linen-blend-trousers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/regular-fit-textured-knit-polo-shirt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/shirt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/slim-fit-cotton-trousers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/slim-fit-textured-knit-polo-shirt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/sneakers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/sunglasses.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/sweater.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/t-shirt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/images/trousers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/assets/svg/right-arrow-svgrepo-com.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/main.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/tsconfig.spec.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +813,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/FE/src/app/page/home/home.component.ts" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -41,83 +824,87 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2pC7Is3I3e7zgWB8aAfOPIo4yS9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.Accounttestapi.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_null_authentication.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_message_with_payment_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PaypalAPITest.test_successful_payment_execution.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestBraintreeApiTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestBraintreeApiTest.test_process_payment_with_zero_or_negative_amount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor&quot;: &quot;Profiler#1&quot;,
-    &quot;JUnit.RestProductControllerTest.test_get_by_gender_success.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestPromotionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestAccountController.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BE-SKBD [test].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.CodyAccountHistoryMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAccountsIdsRefresh&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyConvertUrlToCodebaseName&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyHistoryLlmMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyMigrateChatHistory-v2&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.CodyProjectSettingsMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ToggleCodyToolWindowAfterMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BeSkbdApplication.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dang&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Admin\\Documents\\GitHub\\Project-4\\FE\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.Accounttestapi.executor": "Run",
+    "JUnit.Accounttestapi.test_getAccountDetails_unauthenticated.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_null_authentication.executor": "Debug",
+    "JUnit.Accounttestapi.test_get_details_unauthenticated_user.executor": "Run",
+    "JUnit.Accounttestapi.test_get_details_with_incomplete_user_details.executor": "Run",
+    "JUnit.PaypalAPITest.executor": "Run",
+    "JUnit.PaypalAPITest.test_payment_id_null_or_empty.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_message_with_payment_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_success_with_null_or_empty_payer_id.executor": "Run",
+    "JUnit.PaypalAPITest.test_successful_payment_execution.executor": "Run",
+    "JUnit.RestAuthControllerTest.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_register_user_with_valid_details.executor": "Run",
+    "JUnit.RestAuthControllerTest.test_successful_authentication_returns_valid_response.executor": "Run",
+    "JUnit.RestBraintreeApiTest.executor": "Run",
+    "JUnit.RestBraintreeApiTest.test_process_payment_with_zero_or_negative_amount.executor": "Run",
+    "JUnit.RestCategoryControllerTest.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_data.executor": "Run",
+    "JUnit.RestCategoryControllerTest.test_create_category_with_invalid_gender.executor": "Run",
+    "JUnit.RestOrderControllerTest.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_handles_service_exception.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_create_order_with_null_request.executor": "Run",
+    "JUnit.RestOrderControllerTest.test_logging_when_fetching_orders.executor": "Run",
+    "JUnit.RestProductControllerTest.executor": "Run",
+    "JUnit.RestProductControllerTest.testGetNewArrivalsSuccess.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_image_upload_exception.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_category_id.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_invalid_request.executor": "Run",
+    "JUnit.RestProductControllerTest.test_create_product_with_multipart_form_data.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_get_by_gender_empty_category_list.executor": "Profiler#1",
+    "JUnit.RestProductControllerTest.test_get_by_gender_success.executor": "Debug",
+    "JUnit.RestProductControllerTest.test_handles_empty_category_list_gracefully.executor": "Run",
+    "JUnit.RestPromotionControllerTest.executor": "Run",
+    "JUnit.RestPromotionControllerTest.test_create_promotion_with_invalid_date_range.executor": "Debug",
+    "JUnit.TestAccountController.executor": "Run",
+    "Maven.BE-SKBD [clean].executor": "Run",
+    "Maven.BE-SKBD [compile].executor": "Run",
+    "Maven.BE-SKBD [test].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyAccountsIdsRefresh": "true",
+    "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyMigrateChatHistory-v2": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BeSkbdApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dang",
+    "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/Project-4/BE-SKBD/src/test/java/com/example/beskbd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\Admin\\Documents\\GitHub\\Project-4\\frontend-ecommerce-angular\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.BeSkbdApplication">
     <configuration name="RestAuthControllerTest.test_successful_authentication_returns_valid_response" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BE-SKBD" />
@@ -239,12 +1026,18 @@
       <workItem from="1732598275064" duration="1463000" />
       <workItem from="1732687216041" duration="6242000" />
       <workItem from="1732716046779" duration="153000" />
-      <workItem from="1732719294575" duration="4763000" />
+      <workItem from="1732719294575" duration="6044000" />
+      <workItem from="1732896043339" duration="1268000" />
+      <workItem from="1732897884604" duration="1940000" />
+      <workItem from="1732899884033" duration="18348000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

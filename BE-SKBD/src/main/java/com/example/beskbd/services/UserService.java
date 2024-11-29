@@ -39,6 +39,11 @@ public class UserService implements UserDetailsService {
     }
 
     public AuthenticationResponse createUser(UserCreationRequest request) {
+        // Check if the username is already taken
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new AppException(ErrorCode.EMAIL_ALREADY_EXISTS);
+            }
+
         User user = User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -48,25 +53,39 @@ public class UserService implements UserDetailsService {
                 .lastName(request.getLastName())
                 .address(request.getAddress())
                 .authority(Role.ROLE_USER)
-                .isEnabled(true)
+                .isEnabled(true)// Initially, the email is not verified
                 .build();
+
         userRepository.save(user);
-        String token = jwtService.generateToken(user);
+
+        // Generate verification token
+        String token = UUID.randomUUID().toString();
+        user.setResetToken(token); // Store token in the user entity
+        user.setResetTokenExpiryDate(LocalDateTime.now().plusHours(1)); // Set expiry
+        userRepository.save(user);
+        String jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
-                .token(token)
+                .token(jwtToken)
                 .authenticated(true)
                 .build();
     }
 
     public void forgotPassword(String email, HttpServletRequest request) {
         logger.info("Requesting password reset for email: {}", email);
+
         var user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new AppException(ErrorCode.EMAIL_NOT_EXISTS));
+
         String token = UUID.randomUUID().toString();
         user.setResetToken(token);
         user.setResetTokenExpiryDate(LocalDateTime.now().plusHours(1)); // Token valid for 1 hour
         userRepository.save(user);
+
         String resetUrl = "http://localhost:8083/reset-password?token=" + token;
-        emailService.sendResetLink(email, "Password Reset Request", "Click the link (valid for 1 hour) to reset your password: " + resetUrl);
+        emailService.sendResetLink(email, "Password Reset Request",
+                "Click the link (valid for 1 hour) to reset your password: " + resetUrl);
+    }
+    public void getAllUsers() {
+        userRepository.findAll();
     }
 }

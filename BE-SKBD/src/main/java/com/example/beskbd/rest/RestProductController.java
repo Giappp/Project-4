@@ -25,7 +25,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/products")
 @FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
 
@@ -52,6 +52,16 @@ public class RestProductController {
                 .build());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .success(true)
+                .data(product)
+                .build());
+    }
+
 
     private final ProductService productService;
     public RestProductController(ProductService productService){
@@ -68,10 +78,25 @@ public class RestProductController {
     }
     @GetMapping("/")
     public ResponseEntity<?> getAllProducts() {
-        var products = productService;
-        return ResponseEntity.ok(ApiResponse
-                .builder()
+        List<ProductDto> products = productService.getAllProducts();
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .data(products)
+                .build());
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProductById(@PathVariable Long id) {
+        productService.deleteProductById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
                 .success(true)
                 .build());
     }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable Long id, @RequestBody ProductCreationRequest request) {
+        productService.updateProduct(id, request);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .build());
+    }
+
 }

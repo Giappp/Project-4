@@ -1,0 +1,74 @@
+<div class="bg-white shadow p-4 rounded">
+    <h1 class="display-6 text-dark text-center">Place Order</h1>
+    <hr class="bg-dark text-dark" *ngIf="showOrderTable">
+
+    <table class="table table-striped" *ngIf="showOrderTable">
+        <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Order Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngIf="orders">
+            <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.client.lastName }}</td>
+                <td>
+                    <span *ngIf="order.state === 'CANCELED'" class="text-danger">Canceled</span>
+                    <span *ngIf="order.state === 'OPTION'">On Hold</span>
+                    <span *ngIf="order.state === 'CONFIRMED'" class="text-success">Confirmed</span>
+                </td>
+                <td>
+                    <!-- Action buttons -->
+                    <button class="btn btn-warning me-2" (click)="editOrder(order.id)">Edit Order</button>
+                </td>
+            </tr>
+        </ng-container>
+        </tbody>
+    </table>
+
+    <!-- Order details with associated items -->
+    <ng-container *ngIf="orders && !showOrderTable">
+        <div *ngFor="let order of orders">
+            <div class="invoice">
+                <div class="header">
+                    <p><strong>Client</strong>: {{ order.client.companyName }}</p>
+                    <p><strong>Email</strong>: {{ order.client.email }}</p>
+                    <p><strong>Phone</strong>: {{ order.client.phone }}</p>
+                </div>
+                <div class="items">
+                    <h3>Order Details:</h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Rating</th>
+                            <th>Unit Price</th>
+                            <th>Qty</th>
+                            <th>Total Excl. Tax</th>
+                            <th>Total Incl. Tax</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of order.cartItems">
+                            <td>{{ item.product.nameProd }}</td>
+                            <td>{{ item.product.rating }}</td>
+                            <td>{{ item.product.price | spaceSeparated }} €</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.totalExcludeTaxe | spaceSeparated }} €</td>
+                            <td>{{ item.totalWithTaxe | spaceSeparated }} €</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-end me-5">Total Cart: <strong>{{ totalPrice ? (totalPrice) : '0' }} €</strong></p>
+                    <button class="btn btn-success" (click)="payOrder()">
+                        Place Your Order and Pay
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

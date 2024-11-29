@@ -1,0 +1,55 @@
+<div class="row m-5">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="bg-white shadow rounded p-4">
+            <h1 class="display-6 text-dark text-center">Edit Product</h1>
+            <hr class="bg-dark mb-5" />
+            <div class="text-success border border-success text-center fs-3 mb-2" *ngIf="successMessage">{{ successMessage }}</div>
+            <div class="text-danger border border-danger text-center" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+            <form [formGroup]="editProductForm" (ngSubmit)="updateProduct()">
+                <div class="form-group mb-3">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" class="form-control" formControlName="nameProd">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="imageUrl">Product Image URL:</label>
+                    <input type="text" id="imageUrl" class="form-control" formControlName="imageUrl">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="productPrice">Product Price (Excl. Tax):</label>
+                    <input type="number" id="productPrice" class="form-control" formControlName="price">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="productRating">Product Rating:</label>
+                    <select id="productRating" class="form-control" formControlName="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="productCategory">Product Category:</label>
+                    <select id="productCategory" class="form-control" formControlName="categoryId">
+                        <option *ngFor="let category of categories" [value]="category.idCat">{{ category.nameCat }}</option>
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-center text-center">
+                    <button class="btn btn-success mx-2" type="submit" [disabled]="!editProductForm.valid">
+                        Save
+                    </button>
+                    <button class="btn btn-secondary mx-2" type="button" (click)="cancelUpdate()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

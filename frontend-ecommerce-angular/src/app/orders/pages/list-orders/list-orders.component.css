@@ -1,0 +1,38 @@
+.invoice {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin-bottom: 10px;
+}
+
+.items {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.items table {
+  width: 100%;
+}
+
+.items th,
+.items td {
+  padding: 10px;
+  text-align: left;
+}
+
+.items th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.items td {
+  border-top: 1px solid #ccc;
+}
+

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 @RequestMapping("/braintree")
 public class RestBraintreeApi {
 

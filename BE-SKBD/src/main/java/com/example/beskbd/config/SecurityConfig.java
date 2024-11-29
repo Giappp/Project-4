@@ -7,6 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,12 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import static java.lang.System.getProperty;
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
@@ -53,17 +56,26 @@ public class SecurityConfig  {
     private String  secretKey;
     private SecretKey key;
     private static final String[] WHITE_LIST_URL = {
-            "/auth/registration",
-            "/auth/login",
-            "/auth/token",
+            "/api/auth/registration",
+            "/api/auth/login",
+            "/api/auth/token",
             "/api/test",
             "/api/getTest",
-            "/paypal/pay",
+            "/api/paypal/pay",
             "/error",
             "/api/categories",
             "/api/products/",
             "/api/products/gender",
-            "/api/products/by-gender"
+            "/api/products/by-gender",
+            "/api/auth/oauth2/login",
+            "/api/auth/oauth2/callback",
+            "/api/auth/forgot-password",
+            "/api/auth/reset-password",
+            "/api/auth/logout",
+            "/api/auth/refresh-token",
+            "/api/auth/verify-email",
+            "/api/auth/resend-verification-email",
+            "/reset-password"
 
     };
     @Autowired
@@ -81,19 +93,15 @@ public class SecurityConfig  {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable) // Disabling CSRF as we use JWT which is immune to CSRF
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors(withDefaults())
+                        .csrf(AbstractHttpConfigurer::disable) // Disabling CSRF as we use JWT which is immune to CSRF
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(WHITE_LIST_URL).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()) // All other requests must be authenticated
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-                .oauth2Login(oauth2 -> oauth2
-                        .userInfoEndpoint(userInfo -> userInfo
-                                .oidcUserService(this.oidcUserService())))
+//                .oauth2Login(withDefaults())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
@@ -105,9 +113,7 @@ public class SecurityConfig  {
                 OidcUser oidcUser = super.loadUser(userRequest);
                 String jwt = generateJwt(oidcUser);
                 HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
-                if (response != null) {
-                    response.setHeader("Authorization", "Bearer " + jwt);
-                }
+                response.setHeader("Authorization", "Bearer " + jwt);
 
                 return oidcUser; // Return the OidcUser or any custom user object
             }

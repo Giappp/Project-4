@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/categories")
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 @RequiredArgsConstructor
 public class RestCategoryController {
             @Autowired
@@ -37,6 +37,13 @@ public class RestCategoryController {
         return ResponseEntity.ok(ApiResponse.builder()
                 .success(true)
                 .data(categoryService.getCategoryById(id))
+                .build());
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteCategoryById(@PathVariable Long id) {
+        categoryService.deleteCategoryById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
                 .build());
     }
 }

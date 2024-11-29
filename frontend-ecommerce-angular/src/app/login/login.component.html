@@ -1,0 +1,47 @@
+<div class="row m-5">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="bg-white shadow rounded p-4">
+            <h1 class="display-6 text-dark text-center">Login</h1>
+            <hr class="bg-dark mb-5" />
+
+            <div class="alert alert-danger" *ngIf="err === 1">
+                <strong>{{ message }}</strong>
+            </div>
+
+            <form [formGroup]="newUserForm" (ngSubmit)="onLoggedin()">
+                <div class="form-group mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="form-control" formControlName="username"
+                           (input)="err = 0"> <!-- Clear error on input -->
+                    <div *ngIf="newUserForm.get('username')?.invalid && newUserForm.get('username')?.touched"
+                         class="text-danger">
+                        Username is required.
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="form-control" formControlName="password"
+                           (input)="err = 0"> <!-- Clear error on input -->
+                    <div *ngIf="newUserForm.get('password')?.invalid && newUserForm.get('password')?.touched"
+                         class="text-danger">
+                        Password is required.
+                    </div>
+                </div>
+                <p>Don't have an account? <a routerLink="/register">Sign Up</a></p>
+                <p>Forgot your password? <a (click)="navigateToForgotPassword()">Reset it here</a></p>
+                <div class="d-flex">
+                    <button class="btn btn-success mx-auto" type="submit" [disabled]="!newUserForm.valid">
+                        Login
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" (click)="loginWithGoogle()">
+                        Login with Google
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
