@@ -145,4 +145,11 @@ public class ProductService {
                 .get().getPrice();
     }
 
+    public List<ProductDto> getAllproduct() {
+        return productRepository.findAll()
+                .stream()
+                .map(this::toProductDto)
+                .toList();
+    }
+
 }

@@ -19,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +29,8 @@ import java.util.Map;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
-
+    @Autowired
+    private final ProductService productService;
     @GetMapping("/by-gender")
     public ResponseEntity<ApiResponse<Map<String, List<CategoryDto>>>> getByGender() {
         // Call the service method to get categories by gender
@@ -53,7 +55,7 @@ public class RestProductController {
     }
 
 
-    private final ProductService productService;
+
     public RestProductController(ProductService productService){
         this.productService = productService;
     }// Constructor-based injection
@@ -68,10 +70,15 @@ public class RestProductController {
     }
     @GetMapping("/")
     public ResponseEntity<?> getAllProducts() {
-        var products = productService;
+        // Fetch all products from the productService
+        var products = productService.getAllproduct(); // Assuming findAll() method retrieves the products
+        System.out.println(products);
+
+        // Return the products in the response
         return ResponseEntity.ok(ApiResponse
                 .builder()
                 .success(true)
+                .data(products) // Include the product data in the response
                 .build());
     }
 }

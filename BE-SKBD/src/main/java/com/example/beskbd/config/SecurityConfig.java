@@ -61,9 +61,12 @@ public class SecurityConfig  {
             "/paypal/pay",
             "/error",
             "/api/categories",
-            "/api/products/",
+            "/api/products",
             "/api/products/gender",
-            "/api/products/by-gender"
+            "/api/products/by-gender",
+            "/api/products/create",
+            "/api/products/"
+
 
     };
     @Autowired
