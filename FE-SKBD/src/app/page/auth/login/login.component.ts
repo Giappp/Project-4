@@ -16,10 +16,12 @@ import {
 import { Router } from '@angular/router';
 import { AccountService } from '../../../core/auth/account.service';
 import { LoginService } from './login.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  providers: [MessageService],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   username = viewChild.required<ElementRef>('username');
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   private accountService = inject(AccountService);
   private loginService = inject(LoginService);
   private router = inject(Router);
+  private messageService = inject(MessageService);
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -74,9 +77,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
         this.authenticationError.set(false);
         if (!this.router.getCurrentNavigation()) {
           this.router.navigate(['']);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Login Success',
+            detail: 'Account Login Success',
+          });
         }
       },
-      error: () => this.authenticationError.set(true),
+      error: () => {
+        this.authenticationError.set(true);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Login Failed',
+          detail: 'Username or password is incorrect!',
+        });
+      },
     });
   }
 }

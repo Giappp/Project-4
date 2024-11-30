@@ -18,7 +18,6 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('Adding authorization header');
     const serverApiUrl = this.applicationConfigService.getEndpointFor('');
     if (
       !request.url ||

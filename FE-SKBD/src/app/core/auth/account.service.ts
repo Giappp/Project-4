@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, Signal, signal } from '@angular/core';
 import { StateStorageService } from './state-storage.service';
 import { Router } from '@angular/router';
@@ -74,7 +74,8 @@ export class AccountService {
 
   private fetch(): Observable<Account> {
     return this.http.get<Account>(
-      this.applicationConfigService.getEndpointFor('account')
+      this.applicationConfigService.getEndpointFor('api/account/'),
+      { headers: this.getHttpHeaders() }
     );
   }
 
@@ -86,5 +87,13 @@ export class AccountService {
       this.stateStorageService.clearUrl();
       this.router.navigateByUrl(previousUrl);
     }
+  }
+  private getHttpHeaders(extraHeaders?: {
+    [key: string]: string;
+  }): HttpHeaders {
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+    return new HttpHeaders({ ...defaultHeaders, ...extraHeaders });
   }
 }

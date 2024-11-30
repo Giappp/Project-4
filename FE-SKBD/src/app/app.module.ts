@@ -28,6 +28,10 @@ import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 import { HomeLayoutComponent } from './layout/home-layout/home-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { HeaderComponent } from './layout/header/header.component';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
 
 registerLocaleData(en);
 
@@ -36,6 +40,7 @@ registerLocaleData(en);
   imports: [
     CoreModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,
@@ -48,6 +53,7 @@ registerLocaleData(en);
   ],
   providers: [
     provideAnimationsAsync(),
+    provideAnimations(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,

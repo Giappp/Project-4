@@ -13,6 +13,7 @@ import { phoneValidator } from './Validator/phoneValidator/phone-validator.direc
 import { AccountService } from '../../../core/auth/account.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +21,12 @@ import { LoginService } from '../login/login.service';
 })
 export class RegisterComponent implements OnInit {
   signupForm!: FormGroup;
-
   showPassword = false;
   authenticationError = signal(false);
-
   private accountService = inject(AccountService);
   private router = inject(Router);
   private loginService = inject(LoginService);
+  private messageService = inject(MessageService);
 
   constructor(private fb: FormBuilder) {
     this.signupForm = this.fb.group(
@@ -68,6 +68,11 @@ export class RegisterComponent implements OnInit {
       },
       error: () => {
         this.authenticationError.set(true);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Login Failed',
+          detail: 'Username or password is incorrect!',
+        });
       },
     });
   }

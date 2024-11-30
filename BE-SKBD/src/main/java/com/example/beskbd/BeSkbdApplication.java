@@ -20,6 +20,7 @@ public class BeSkbdApplication {
         return new JsonMessageConverter();
     }
 
+
     @Bean
     NewTopic orderProcess() {
         return new NewTopic("inventory-orders", 2, (short) 1);

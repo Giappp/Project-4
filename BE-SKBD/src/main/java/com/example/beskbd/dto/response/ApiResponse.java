@@ -17,8 +17,4 @@ public class ApiResponse<T> {
     private String errorMessage;
     private String message;
     private Boolean success;
-
-
-    public ApiResponse(AuthenticationResponse sampleToken) {
-    }
 }
