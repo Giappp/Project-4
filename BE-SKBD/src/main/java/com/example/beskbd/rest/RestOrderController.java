@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/api/orders")
 @FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 public class RestOrderController {
     public static Logger logger = LoggerFactory.getLogger(RestOrderController.class);
     @Autowired
@@ -58,6 +58,24 @@ public class RestOrderController {
         return ResponseEntity.ok(ApiResponse.builder()
                 .data(newOrders)
                 .success(true)
+                .build());
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<ApiResponse> deleteOrder(@PathVariable Long id) {
+        logger.info("Deleting order with ID: {}", id);
+        orderService.deleteOrder(id);
+        logger.info("Order with ID {} deleted successfully", id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .build());
+    }
+    @GetMapping("/get/{id}")
+    public ResponseEntity<ApiResponse> getOrderById(@PathVariable Long id) {
+        logger.info("Fetching order with ID: {}", id);
+        Order order = orderService.getOrderById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .data(order)
                 .build());
     }
 

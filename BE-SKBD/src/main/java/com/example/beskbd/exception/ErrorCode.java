@@ -19,7 +19,8 @@ public enum ErrorCode {
     ALREADY_LOGIN(1011, "User already logged in", HttpStatus.BAD_REQUEST),
     INVALID_REQUEST(1012, "Invalid request", HttpStatus.BAD_REQUEST),
     INVALID_CREDENTIALS(1013, "Expired or Invalid Token", HttpStatus.UNAUTHORIZED),
-    EMAIL_NOT_EXISTS(1014, "Email not found", HttpStatus.NOT_FOUND);
+    EMAIL_NOT_EXISTS(1014, "Email not found", HttpStatus.NOT_FOUND),
+    EMAIL_ALREADY_EXISTS(1015,"Email have been here" ,HttpStatus.NOT_ACCEPTABLE );
 
 
     private final int code;

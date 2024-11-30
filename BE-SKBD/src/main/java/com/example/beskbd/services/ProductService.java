@@ -142,14 +142,50 @@ public class ProductService {
         return product.getAttributes()
                 .stream()
                 .min(Comparator.comparing(ProductAttribute::getPrice))
-                .get().getPrice();
+                .map(ProductAttribute::getPrice)
+                .orElse(BigDecimal.ZERO);
     }
 
-    public List<ProductDto> getAllproduct() {
+    public List<ProductDto> getAllProducts() {
         return productRepository.findAll()
                 .stream()
                 .map(this::toProductDto)
                 .toList();
     }
 
+    public void deleteProductById(Long id) {
+            productRepository.deleteById(id);
+            System.out.println("Product with ID " + id + " deleted successfully.");
+
+    }
+
+    public Product getProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    }
+
+    public void updateProduct(Long id, ProductCreationRequest request) {
+        // Fetch the product by ID, throwing an exception if not found
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+
+        // Update product fields from the request
+        product.setName(request.getProductName());  // Use the correct field
+        product.setDescription(request.getProductDescription());
+
+        // Fetch the category by ID and set it
+        Category category = categoryRepository.findById(request.getCategoryId())
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + request.getCategoryId()));
+        product.setCategory(category);
+
+        // Map the attributes from the request to ProductAttribute entities
+        List<ProductAttribute> attributes = request.getAttributes()
+                .stream()
+                .map(this::toProductAttribute)
+                .collect(Collectors.toList());
+        product.setAttributes(attributes);
+
+        // Save the updated product back to the repository
+        productRepository.save(product);  // Corrected to use productRepository
+    }
 }

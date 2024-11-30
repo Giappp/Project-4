@@ -19,4 +19,10 @@ public class EmailService {
 
         mailSender.send(message);
     }
+
+    public void sendVerificationEmail(String email, String verificationUrl) {
+        String subject = "Email Verification";
+        String text = "Click the following link to verify your email: " + verificationUrl;
+        sendResetLink(email, subject, text);
+    }
 }

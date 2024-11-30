@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/account")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 @FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 public class RestAccountController {
     public static Logger logger = LoggerFactory.getLogger(RestAccountController.class);

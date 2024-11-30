@@ -1,5 +1,6 @@
 package com.example.beskbd.dto.request;
 
+import com.example.beskbd.dto.object.CategoryDto;
 import com.example.beskbd.dto.object.ProductAttributeDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -20,7 +21,7 @@ public class ProductCreationRequest {
     private String productDescription;
     @NotEmpty
     private List<ProductAttributeDto> attributes;
-    private String categoryName;
+    private CategoryDto categoryName;
     @NotNull
     private Long categoryId;
 }

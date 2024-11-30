@@ -1,0 +1,21 @@
+img {
+  height: 10rem;
+  width: 10rem;
+  display: block;
+  /* padding: 10px; */
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.no-margin {
+  margin: 0;
+}
+

@@ -1,0 +1,48 @@
+<!-- header.component.html -->
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light pagination">
+        <a class="navbar-brand page-link" [routerLink]="['/products']">Product Management</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <li *ngIf="authService.isLoggedIn" class="nav-item dropdown ms-auto">
+            <a class="navbar-brand page-link dropdown-toggle" href="#" id="navbardropProducts" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                Products and Orders
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbardropProducts">
+                <li *ngIf="authService.isAdmin()"><a class="dropdown-item" [routerLink]="['products/addProduct']">Add a Product</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/orders']">Order Management</a></li>
+            </ul>
+        </li>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li><a class="nav-link">{{ authService.loggedUser | uppercase }}</a></li>
+
+                <li (click)="reloadCart()">
+                    <a class="navbar-brand page-link" [routerLink]="['/basket']">
+                        Basket <i class="fas fa-shopping-cart"></i>
+                        <span *ngIf="cart" class="badge bg-danger rounded-circle">{{ cart.totalItems }}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="navbar-brand page-link dropdown-toggle" href="#" id="navbardrop" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu w-100" aria-labelledby="navbardrop">
+                        <li *ngIf="!authService.isLoggedIn"><a class="dropdown-item" [routerLink]="['/login']">Log In</a></li>
+                        <li *ngIf="authService.isLoggedIn"><a class="dropdown-item" (click)="onLogout()">Log Out</a></li>
+                         <li><a class="dropdown-item" href="#">Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -40,4 +40,12 @@ public class OrderService {
 
     }
 
+    public void deleteOrder(Long id) {
+            orderRepository.deleteById(id);
+    }
+
+    public Order getOrderById(Long id) {
+            return orderRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.INVALID_REQUEST));
+    }
 }

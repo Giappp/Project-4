@@ -1,0 +1,42 @@
+<!-- <p>edit-cart works!</p> -->
+<div *ngIf="cart && cart.cartItems.length > 0" class="bg-white shadow p-4 rounded">
+    <h1 class="display-6 text-dark text-center">Your Cart</h1>
+    <hr class="bg-dark text-dark">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <!-- <th scope="col">Product ID</th> -->
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Image</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Total Including Tax</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of cart.cartItems">
+            <!-- <td>{{ item.product.idProd }}</td> -->
+            <td>{{ item.product.nameProd }}</td>
+            <td><img [src]="item.product.imageUrl" alt="{{ item.product.nameProd }}"
+                     style="max-width: 50px; max-height: 50px;"></td>
+            <td>
+                <button class="btn btn-danger me-2" (click)="removeItemFromcart(item.product.idProd, 1)">-</button>
+                {{ item.quantity }}
+                <button class="btn btn-primary ms-2" (click)="addItemTocart(item.product.idProd, 1)">+</button>
+            </td>
+            <td>{{ item.product.price }} €</td>
+            <!-- <td>{{ item.product.rating }} €</td> -->
+            <td>{{ item.totalWithTaxe }} €</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-end me-5">Total of the cart: <strong>{{ totalPrice ? (totalPrice ) : '0' }} €</strong></p>
+    <!-- <p class="text-end me-5">Total of the cart: <strong>{{ totalPrice ? (totalPrice | spaceSeparated) : '0' }} €</strong></p> -->
+    <button class="btn btn-success" (click)="validateOrder()">
+        Place Order
+    </button>
+</div>
+
+<div *ngIf="!(cart && cart.cartItems.length > 0)" class="bg-white shadow p-5 rounded text-center">
+    <h1 class="display-6 text-dark">Cart is Empty</h1>
+</div>

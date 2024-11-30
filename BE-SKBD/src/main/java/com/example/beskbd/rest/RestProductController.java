@@ -19,18 +19,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Console;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/products")
 @FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 360000)
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
-    @Autowired
-    private final ProductService productService;
+
     @GetMapping("/by-gender")
     public ResponseEntity<ApiResponse<Map<String, List<CategoryDto>>>> getByGender() {
         // Call the service method to get categories by gender
@@ -54,8 +52,18 @@ public class RestProductController {
                 .build());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .success(true)
+                .data(product)
+                .build());
+    }
 
 
+    private final ProductService productService;
     public RestProductController(ProductService productService){
         this.productService = productService;
     }// Constructor-based injection
@@ -70,15 +78,25 @@ public class RestProductController {
     }
     @GetMapping("/")
     public ResponseEntity<?> getAllProducts() {
-        // Fetch all products from the productService
-        var products = productService.getAllproduct(); // Assuming findAll() method retrieves the products
-        System.out.println(products);
-
-        // Return the products in the response
-        return ResponseEntity.ok(ApiResponse
-                .builder()
+        List<ProductDto> products = productService.getAllProducts();
+        return ResponseEntity.ok(ApiResponse.builder()
                 .success(true)
-                .data(products) // Include the product data in the response
+                .data(products)
                 .build());
     }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProductById(@PathVariable Long id) {
+        productService.deleteProductById(id);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .build());
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable Long id, @RequestBody ProductCreationRequest request) {
+        productService.updateProduct(id, request);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .build());
+    }
+
 }
