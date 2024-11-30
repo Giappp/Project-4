@@ -4,6 +4,8 @@ import com.example.beskbd.dto.object.ProductFilterDto;
 import com.example.beskbd.dto.request.ProductCreationRequest;
 import com.example.beskbd.dto.response.ApiResponse;
 import com.example.beskbd.entities.Product;
+import com.example.beskbd.exception.AppException;
+import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.services.ProductService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +23,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
-    @Autowired
     ProductService productService;
 
     @GetMapping("/genders")

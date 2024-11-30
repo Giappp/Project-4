@@ -35,11 +35,8 @@ import static java.util.stream.Collectors.groupingBy;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
     Logger logger = LoggerFactory.getLogger(ProductService.class);
-    @Autowired
     ProductRepository productRepository;
-    @Autowired
     CategoryRepository categoryRepository;
-    @Autowired
     CloudinaryService cloudinaryService;
 
     public Map<String, List<CategoryDto>> getCategoryByGender() {
@@ -48,7 +45,7 @@ public class ProductService {
                 .collect(groupingBy(category -> category.getGender().toString(),
                         Collectors.mapping(CategoryDto::new, Collectors.toList())));
     }
-    
+
     @Transactional
     public void addProduct(ProductCreationRequest request) {
         if (request == null) throw new AppException(ErrorCode.INVALID_REQUEST);
