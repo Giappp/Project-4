@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Category } from '../../model/category';
-import { ProductService } from '../../shared/services/product.service';
 import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
 @Component({
@@ -10,7 +9,7 @@ import { GalleriaModule } from 'primeng/galleria';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [CommonModule, NgOptimizedImage, CarouselModule, GalleriaModule],
+  imports: [CommonModule, CarouselModule, GalleriaModule],
   providers: [],
 })
 export class HomeComponent implements OnInit {
@@ -33,9 +32,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private productService: ProductService) {
-    this.categories$ = this.productService.getAllProductsCategories();
-  }
+  constructor() {}
   ngOnInit(): void {
     this.carouselImageUrl = [
       '/assets/images/17277697730331009.webp',

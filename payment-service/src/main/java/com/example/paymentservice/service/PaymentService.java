@@ -47,6 +47,7 @@ public class PaymentService {
                         logger.info("Payment reject for user: {}",paymentEvent.getUsername());
                         // Insufficient funds
                         paymentEvent.setStatus(PaymentStatus.REJECTED);
+                        kafkaTemplate.send("payment-error-topic", paymentEvent);
                         notificationService.sendPaymentFailure(paymentEvent);
                     }
                     break;

@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -85,7 +86,7 @@ public class OrderService {
                 .map(CartItem::new)
                 .toList();
 
-        OrderEvent inventoryEvent = OrderEvent
+        OrderEvent orderEvent = OrderEvent
                 .builder()
                 .orderId(order.getId())
                 .eventType(OrderEventType.CREATED)
@@ -95,16 +96,16 @@ public class OrderService {
                 .build();
 
         // Save event if something send message failed
-        orderEventRepo.save(inventoryEvent);
+        orderEventRepo.save(orderEvent);
 
         // Send events to Kafka topics
         try {
-            kafkaTemplate.send(INVENTORY_TOPIC, inventoryEvent)
+            kafkaTemplate.send(INVENTORY_TOPIC, orderEvent)
                     .whenComplete((result, ex) -> {
                         if (ex == null) {
                             logger.info("Inventory event sent successfully for order: {}", order.getId());
-                            inventoryEvent.setStatus(true);
-                            orderEventRepo.save(inventoryEvent);
+                            orderEvent.setStatus(true);
+                            orderEventRepo.save(orderEvent);
                         } else {
                             logger.error("Failed to send inventory event for order: {}", order.getId(), ex);
                         }
@@ -112,6 +113,27 @@ public class OrderService {
         } catch (Exception e) {
             logger.error("Error sending Kafka events for order: {}", order.getId(), e);
             throw new AppException(ErrorCode.PRODUCT_NOT_FOUND);
+        }
+    }
+
+    @KafkaListener(topics = "inventory-error-topic", groupId = "payment-error-group")
+    public void processPaymentCancellation(OrderEvent orderEvent) {
+        logger.info("Payment denied, rejecting order: {}", orderEvent.getOrderId());
+        var order = orderRepository.findById(orderEvent.getOrderId())
+                .orElseThrow(() -> new AppException(ErrorCode.ORDER_NOT_FOUND));
+        switch (orderEvent.getEventType()) {
+            case COMPLETED -> {
+                order.setStatus(Order.Status.PENDING);
+                orderRepository.save(order);
+            }
+            case CANCELLED -> {
+                order.setStatus(Order.Status.REJECTED);
+                orderRepository.save(order);
+            }
+            default -> {
+                order.setStatus(Order.Status.PROCESSING);
+                orderRepository.save(order);
+            }
         }
     }
 

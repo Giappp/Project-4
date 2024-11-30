@@ -27,7 +27,7 @@ import { AuthRoutingModule } from './page/auth/auth-routing.module';
 import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 import { HomeLayoutComponent } from './layout/home-layout/home-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
-import { HeaderComponent } from "./layout/header/header.component";
+import { HeaderComponent } from './layout/header/header.component';
 
 registerLocaleData(en);
 
@@ -44,8 +44,8 @@ registerLocaleData(en);
     AuthModule,
     AuthRoutingModule,
     StoreModule.forRoot(reducers),
-    HeaderComponent
-],
+    HeaderComponent,
+  ],
   providers: [
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),

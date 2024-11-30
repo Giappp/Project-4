@@ -1,7 +1,6 @@
 package com.example.beskbd.services;
 
 import com.example.beskbd.dto.events.OrderEvent;
-import com.example.beskbd.repositories.CartItemRepo;
 import com.example.beskbd.repositories.OrderEventRepo;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +17,10 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class PollingService {
+public class JobSchedulerService {
 
     KafkaTemplate<String, Object> kafkaTemplate;
     OrderEventRepo orderEventRepo;
-    CartItemRepo cartItemRepo;
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Scheduled(fixedDelay = 10000)
@@ -42,7 +40,7 @@ public class PollingService {
         }
     }
 
-    @Scheduled(fixedDelay = 100000)
+    @Scheduled(fixedDelay = 60 * 60 * 60 * 1000)
     @Transactional
     public void delete() {
         List<OrderEvent> orderEvents = orderEventRepo.findAllByStatus(true);

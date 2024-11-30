@@ -25,6 +25,6 @@ public class InventoryServiceApplication {
 
     @Bean
     DefaultErrorHandler errorHandler(KafkaOperations<String,Object> template){
-        return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(template),new FixedBackOff(1000L,5));
+        return new DefaultErrorHandler(new DeadLetterPublishingRecoverer(template),new FixedBackOff(1000L,2));
     }
 }

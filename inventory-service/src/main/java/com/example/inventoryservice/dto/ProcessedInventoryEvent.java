@@ -1,4 +1,4 @@
-package com.example.inventoryservice.entities;
+package com.example.inventoryservice.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,14 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class ProcessedEvent {
+public class ProcessedInventoryEvent {
     @Id
     @Column(name = "event_id")
     private Long id;

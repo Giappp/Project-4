@@ -1,13 +1,10 @@
 package com.example.inventoryservice.service;
 
-import com.example.inventoryservice.dto.OrderEvent;
-import com.example.inventoryservice.dto.CartItem;
-import com.example.inventoryservice.dto.PaymentEvent;
-import com.example.inventoryservice.dto.PaymentStatus;
-import com.example.inventoryservice.entities.ProcessedEvent;
+import com.example.inventoryservice.dto.*;
 import com.example.inventoryservice.entities.ProductSize;
 import com.example.inventoryservice.exception.AppException;
 import com.example.inventoryservice.exception.ErrorCode;
+import com.example.inventoryservice.repo.OrderEventRepo;
 import com.example.inventoryservice.repo.PaymentEventRepo;
 import com.example.inventoryservice.repo.ProcessedOrderRepo;
 import com.example.inventoryservice.repo.ProductStockRepo;
@@ -34,6 +31,7 @@ public class InventoryService {
     ProductStockRepo productStockRepo;
     ProcessedOrderRepo processedOrderRepo;
     PaymentEventRepo paymentEventRepo;
+    OrderEventRepo orderEventRepo;
     KafkaTemplate<String, Object> kafkaTemplate;
     @KafkaListener(topics = "inventory-orders",groupId = "inventory-group")
     @Transactional
@@ -42,13 +40,13 @@ public class InventoryService {
             logger.warn("Duplicate event detected, skipping: {}",orderEvent.getId());
             return;
         }
-        ProcessedEvent processedEvent = ProcessedEvent
+        ProcessedInventoryEvent inventoryEvent = ProcessedInventoryEvent
                 .builder()
                 .id(orderEvent.getId())
                 .processedAt(LocalDateTime.now())
                 .build();
         try{
-            processedOrderRepo.save(processedEvent);
+            processedOrderRepo.save(inventoryEvent);
             switch (orderEvent.getEventType()){
                 case CREATED -> {
                     processInventoryReduction(orderEvent.getOrderItems());
@@ -64,12 +62,24 @@ public class InventoryService {
             logger.error("Error processing inventory event ", e);
         }
     }
-    @KafkaListener(topics = "payment-error-topic",groupId = "payment-error-inventory-group")
+    @KafkaListener(topics = "payment-error-topic",groupId = "payment-error-group")
     public void processPaymentCancellation(PaymentEvent paymentEvent){
-        logger.info("Receive information: {}",paymentEvent.getPaymentId());
+        logger.info("Payment denied for Order id: {}",paymentEvent.getOrderId());
+        var orderEvent = orderEventRepo.findByOrderId(paymentEvent.getOrderId())
+                .orElseThrow(() -> new AppException(ErrorCode.EVENT_NOT_FOUND_EXCEPTION));
+        processInventoryRestoration(orderEvent.getOrderItems());
+        sendOrderEvent(orderEvent,false);
     }
+
+    private void sendOrderEvent(OrderEvent orderEvent,boolean isOk) {
+        orderEvent.setEventType(isOk ? OrderEventType.COMPLETED : OrderEventType.CANCELLED);
+        logger.info("Send back notification to order service: {}",orderEvent);
+        kafkaTemplate.send("inventory-error-topic", orderEvent);
+    }
+
     private void sendPaymentEvent(OrderEvent orderEvent, boolean isConfirmed) {
         PaymentEvent paymentEvent = PaymentEvent.builder()
+                .orderId(orderEvent.getOrderId())
                 .username(orderEvent.getUsername())
                 .status(isConfirmed ? PaymentStatus.PENDING : PaymentStatus.CANCEL)
                 .amount(calculateTotalAmount(orderEvent.getOrderItems()))

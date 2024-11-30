@@ -21,7 +21,7 @@ public class OrderEvent {
     private Long id;
     private Long orderId;
     private String username;
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "order_event_id")
     private List<CartItem> orderItems;
     private OrderEventType eventType;

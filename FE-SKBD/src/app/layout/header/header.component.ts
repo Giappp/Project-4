@@ -19,8 +19,6 @@ import { selectCartItems } from '../../store/cart/cart.selector';
 import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
 import { last, Observable } from 'rxjs';
 import { Category } from '../../model/category';
-import { Gender } from '../../model/gender';
-import { ProductService } from '../../shared/services/product.service';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AccountService } from '../../core/auth/account.service';
@@ -44,48 +42,34 @@ import { LoginService } from '../../page/auth/login/login.service';
 })
 export class HeaderComponent implements OnInit {
   account = inject(AccountService).trackCurrentAccount();
-  
+
   authService = inject(LoginService);
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
-  genders$!: Observable<Gender[]>;
   uniqueLoai$!: Observable<string[]>;
   isBrowser: boolean = false;
   menuItems: MegaMenuItem[] = [];
   subMenuItems: MenuItem[] = [];
-  genders: Gender[] = [];
 
   constructor(
     library: FaIconLibrary,
     private store: Store,
-    private productService: ProductService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     library.addIcons();
-    this.categories$ = this.productService.getAllProductsCategories();
-    this.genders$ = this.productService.getProductGender();
   }
   ngOnInit() {
     // Fetch the genders data as an observable
-    this.genders$ = this.productService.getProductGender(); // Fetch data from service
-
     // Subscribe to the observable to populate menuItems with grouped categories
-    this.genders$.subscribe((genders) => {
-      this.menuItems = genders.map((gender) => ({
-        label: gender.name,
-        root: true,
-        items: this.groupCategoriesByLoai(gender.categories!),
-      }));
-    });
   }
 
   private groupCategoriesByLoai(categories: Category[]): MenuItem[][] {
     const map: Map<string, string[]> = categories.reduce(
       (acc: Map<string, string[]>, category: Category) => {
-        if (!acc.has(category.loai)) {
-          acc.set(category.loai, []);
+        if (!acc.has(category.productType)) {
+          acc.set(category.productType, []);
         }
-        acc.get(category.loai)?.push(category.categoryName);
+        acc.get(category.productType)?.push(category.categoryName);
         return acc;
       },
       new Map()
