@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 public class CategoryDto {
     Long id;
     String categoryName;
-    String gender;
+    Category.Gender gender;
     String productType;
 
     public CategoryDto(Category category) {
@@ -23,4 +23,5 @@ public class CategoryDto {
             this.productType = category.getProductType();
         }
     }
+
 }

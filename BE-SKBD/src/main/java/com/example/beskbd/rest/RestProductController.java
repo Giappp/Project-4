@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class RestProductController {
     static Logger logger = LoggerFactory.getLogger(RestProductController.class);
+    @Autowired
     ProductService productService;
 
     @GetMapping("/genders")
@@ -32,8 +33,12 @@ public class RestProductController {
                 .build());
     }
 
-    @PostMapping(value = "/", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> createProduct(@ModelAttribute ProductCreationRequest request) {
+        if (request == null) {
+            throw new AppException(ErrorCode.INVALID_REQUEST);
+        }
+        logger.info(request.toString());
         logger.info("Create new Product");
         productService.addProduct(request);
         return ResponseEntity.ok(ApiResponse.builder()

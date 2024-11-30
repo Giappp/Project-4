@@ -63,14 +63,14 @@ public class JwtService {
 
     public boolean validateToken(String token, UserDetails user) {
         if (invalidatedTokenRepository.existsById(token)) {
-            return false;
+            return true;
         }
         Date expirationDate = extractExpiration(token);
         if (expirationDate.before(new Date())) {
-            return false;
+            return true;
         }
         String username = extractUserName(token);
-        return user.getUsername().equals(username) && expirationDate.after(new Date());
+        return !user.getUsername().equals(username) || !expirationDate.after(new Date());
     }
 
     private Date extractExpiration(String token) {

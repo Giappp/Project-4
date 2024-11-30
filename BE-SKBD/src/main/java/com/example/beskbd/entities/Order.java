@@ -36,6 +36,9 @@ public class Order extends BaseEntity {
     @JoinColumn(name = "order_id")
     private List<OrderItems> orderItems;
 
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+
     public enum Status {
         PENDING, PROCESSING, DELIVERED, CANCELLED, REJECTED
     }

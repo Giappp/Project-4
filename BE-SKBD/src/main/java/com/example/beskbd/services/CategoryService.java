@@ -1,19 +1,21 @@
 package com.example.beskbd.services;
 
 import com.example.beskbd.dto.request.CategoryCreationRequest;
-import com.example.beskbd.dto.response.ApiResponse;
+
 import com.example.beskbd.entities.Category;
 import com.example.beskbd.exception.ErrorCode;
 import com.example.beskbd.repositories.CategoryRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class CategoryService {
+    @Autowired
     CategoryRepository categoryRepository;
 
     public ApiResponse<?> createNewCategory(CategoryCreationRequest request) {
@@ -31,9 +33,5 @@ public class CategoryService {
                 .productType(request.getProductType())
                 .build();
         categoryRepository.save(category);
-        return ApiResponse.builder()
-                .data("Add category successfully")
-                .success(true)
-                .build();
     }
 }

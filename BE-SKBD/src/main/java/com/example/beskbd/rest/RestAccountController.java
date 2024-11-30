@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RestAccountController {
-    static Logger logger = LoggerFactory.getLogger(RestAccountController.class);
+    public static Logger logger = LoggerFactory.getLogger(RestAccountController.class);
     AccountService accountService;
 
     @GetMapping("/")

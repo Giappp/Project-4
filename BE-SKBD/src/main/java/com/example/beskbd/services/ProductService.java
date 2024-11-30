@@ -35,8 +35,11 @@ import static java.util.stream.Collectors.groupingBy;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductService {
     Logger logger = LoggerFactory.getLogger(ProductService.class);
+    @Autowired
     ProductRepository productRepository;
+    @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
     CloudinaryService cloudinaryService;
 
     public Map<String, List<CategoryDto>> getCategoryByGender() {

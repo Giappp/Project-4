@@ -3,7 +3,10 @@ package com.example.beskbd.config;
 import com.example.beskbd.security.JwtAuthFilter;
 import com.example.beskbd.security.JwtAuthenticationEntryPoint;
 import com.example.beskbd.services.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,6 +19,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
+import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -23,6 +30,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Configuration
@@ -30,6 +38,8 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+    @Value("${application.security.jwt.secret-key-v2}")
+    private String secretKey;
     private static final String[] WHITE_LIST_URL = {
             "/auth/registration",
             "/auth/login",
@@ -61,8 +71,35 @@ public class SecurityConfig {
                         .anyRequest().authenticated()) // All other requests must be authenticated
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2Login(oauth2 -> oauth2
+                        .userInfoEndpoint(userInfo -> userInfo
+                                .oidcUserService(this.oidcUserService())))
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
+    }
+    @Bean
+    public OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
+        return new OidcUserService() {
+            @Override
+            public OidcUser loadUser(OidcUserRequest userRequest) {
+                OidcUser oidcUser = super.loadUser(userRequest);
+
+                String jwt = generateJwt(oidcUser);
+                // Here you might want to store the JWT in a cookie or return it in a response body
+
+                return oidcUser; // Return the OidcUser or any custom user object
+            }
+        };
+    }
+
+    private String generateJwt(OidcUser oidcUser) {
+        String jwt = Jwts.builder()
+                .setSubject(oidcUser.getEmail())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour
+                .signWith(SignatureAlgorithm.HS256, "secretKey")
+                .compact();
+        return jwt;
     }
 
     @Bean
