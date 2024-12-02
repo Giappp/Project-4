@@ -1,13 +1,10 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartItem } from '../../../store/cart/cart.model';
-import { Appstate } from '../../../store/app.state';
+import { CartItem } from '../../store/cart.model';
+import { Appstate } from '../../../app.state';
 import { Store } from '@ngrx/store';
-import {
-  selectCartItems,
-  selectCartTotal,
-} from '../../../store/cart/cart.selector';
-import { addItem, removeItem } from '../../../store/cart/cart.action';
+import { selectCartItems, selectCartTotal } from '../../store/cart.selector';
+import { addItem, removeItem } from '../../store/cart.action';
 import { CoreModule } from '../../../core/core.module';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

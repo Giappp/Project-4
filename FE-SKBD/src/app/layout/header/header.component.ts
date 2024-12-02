@@ -16,7 +16,7 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { Store } from '@ngrx/store';
-import { selectCartItems } from '../../store/cart/cart.selector';
+import { selectCartItems } from '../../cart/store/cart.selector';
 import { ShoppingCartComponent } from '../../cart/components/shopping-cart/shopping-cart.component';
 import { last, Observable } from 'rxjs';
 import { Category } from '../../model/category';

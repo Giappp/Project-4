@@ -38,8 +38,6 @@ import java.util.List;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    @Value("${application.security.jwt.secret-key-v2}")
-    private String secretKey;
     private static final String[] WHITE_LIST_URL = {
             "/auth/registration",
             "/auth/login",
@@ -58,6 +56,8 @@ public class SecurityConfig {
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAuthFilter jwtAuthFilter;
+    @Value("${application.security.jwt.secret-key-v2}")
+    private String secretKey;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -77,6 +77,7 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
     @Bean
     public OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
         return new OidcUserService() {
@@ -93,13 +94,12 @@ public class SecurityConfig {
     }
 
     private String generateJwt(OidcUser oidcUser) {
-        String jwt = Jwts.builder()
+        return Jwts.builder()
                 .setSubject(oidcUser.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour
                 .signWith(SignatureAlgorithm.HS256, "secretKey")
                 .compact();
-        return jwt;
     }
 
     @Bean
