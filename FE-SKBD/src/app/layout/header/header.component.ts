@@ -4,6 +4,7 @@ import {
   Inject,
   Input,
   OnInit,
+  output,
   PLATFORM_ID,
   Signal,
 } from '@angular/core';
@@ -23,9 +24,9 @@ import { Category } from '../../model/category';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AccountService } from '../../core/auth/account.service';
-import { AuthServerProvider } from '../../core/auth/auth-jwt.service';
-import { LoginService } from '../../page/auth/login/login.service';
+import * as authJwtService from '../../core/auth/auth-jwt.service';
 import { Account } from '../../core/auth/account.model';
+import { AuthUser } from '../../auth/store/auth.model';
 
 @Component({
   standalone: true,
@@ -43,13 +44,14 @@ import { Account } from '../../core/auth/account.model';
   ],
 })
 export class HeaderComponent implements OnInit {
-  accountService = inject(AccountService);
-  account!: Signal<Account | null>;
-  authService = inject(LoginService);
+  @Input({ required: true })
+  authUser: AuthUser | null | undefined = null;
+
+  readonly logout = output<void>();
+
   cartItems$ = this.store.select(selectCartItems);
   categories$!: Observable<Category[]>;
   uniqueLoai$!: Observable<string[]>;
-  isBrowser: boolean = false;
   menuItems: MegaMenuItem[] = [];
   subMenuItems: MenuItem[] = [];
 
@@ -60,11 +62,7 @@ export class HeaderComponent implements OnInit {
   ) {
     library.addIcons();
   }
-  ngOnInit() {
-    // Fetch the genders data as an observable
-    // Subscribe to the observable to populate menuItems with grouped categories
-    this.account = this.accountService.trackCurrentAccount();
-  }
+  ngOnInit() {}
 
   private groupCategoriesByLoai(categories: Category[]): MenuItem[][] {
     const map: Map<string, string[]> = categories.reduce(
@@ -108,8 +106,5 @@ export class HeaderComponent implements OnInit {
     }
 
     return menu;
-  }
-  logout(): void {
-    this.authService.logout();
   }
 }

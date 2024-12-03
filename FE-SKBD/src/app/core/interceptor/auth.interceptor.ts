@@ -6,12 +6,12 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { StateStorageService } from '../auth/state-storage.service';
 import { ApplicationConfigService } from '../config/application-config.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private readonly stateStorageService = inject(StateStorageService);
+  private readonly stateStorageService = inject(TokenStorageService);
   private readonly applicationConfigService = inject(ApplicationConfigService);
 
   intercept(
@@ -27,8 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
-    const token: string | null =
-      this.stateStorageService.getAuthenticationToken();
+    const token: string | null = this.stateStorageService.getAccessToken();
     if (token) {
       request = request.clone({
         setHeaders: {

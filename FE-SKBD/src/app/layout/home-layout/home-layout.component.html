@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [authUser]="authUser$ | async" (logout)="onLogout()"></app-header>
 <div>
     <div>
         <router-outlet></router-outlet>

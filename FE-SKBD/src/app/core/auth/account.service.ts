@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, Signal, signal } from '@angular/core';
-import { StateStorageService } from './state-storage.service';
 import { Router } from '@angular/router';
 import { ApplicationConfigService } from '../config/application-config.service';
 import { Account } from './account.model';
@@ -22,7 +21,7 @@ export class AccountService {
   private accountCache$?: Observable<Account> | null;
 
   private http = inject(HttpClient);
-  private stateStorageService = inject(StateStorageService);
+
   private router = inject(Router);
   private applicationConfigService = inject(ApplicationConfigService);
 
@@ -79,15 +78,7 @@ export class AccountService {
     );
   }
 
-  private navigateToStoredUrl(): void {
-    // previousState can be set in the authExpiredInterceptor and in the userRouteAccessService
-    // if login is successful, go to stored previousState and clear previousState
-    const previousUrl = this.stateStorageService.getUrl();
-    if (previousUrl) {
-      this.stateStorageService.clearUrl();
-      this.router.navigateByUrl(previousUrl);
-    }
-  }
+  private navigateToStoredUrl(): void {}
   private getHttpHeaders(extraHeaders?: {
     [key: string]: string;
   }): HttpHeaders {

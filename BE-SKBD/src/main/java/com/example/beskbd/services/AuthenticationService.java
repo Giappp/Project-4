@@ -10,6 +10,8 @@ import com.example.beskbd.repositories.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,6 +24,7 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
     UserRepository userRepository;
     JwtService jwtService;
+    Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
@@ -42,8 +45,10 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse refreshToken(RefreshRequest request) {
+        logger.info("Receive Token: {}", request.getRefreshToken());
         var checkValidToken = jwtService.isValidJwtToken(request.getRefreshToken());
         if (checkValidToken) {
+
             jwtService.invalidateToken(request.getRefreshToken());
             var username = jwtService.extractUserName(request.getRefreshToken());
             var user = userRepository.findByUsername(username)
@@ -51,6 +56,7 @@ public class AuthenticationService {
             var token = jwtService.generateToken(user);
             return AuthenticationResponse.builder().token(token).authenticated(true).build();
         }
+        logger.info("Invalid token!!!!");
         throw new AppException(ErrorCode.UNSUPPORTED_TOKEN);
     }
 

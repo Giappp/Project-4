@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { AccountService } from '../auth/account.service';
-import { StateStorageService } from '../auth/state-storage.service';
+import { StateStorageService } from '../auth/token-storage.service';
 import { map } from 'rxjs';
 
 export const authGuard: CanActivateFn = (

@@ -15,7 +15,7 @@ import {
 } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { StoreModule } from '@ngrx/store';
+import { provideStore, StoreModule } from '@ngrx/store';
 import { reducers } from './app.state';
 import { FooterComponent } from './layout/footer/footer.component';
 import { registerLocaleData } from '@angular/common';
@@ -32,6 +32,9 @@ import {
   provideAnimations,
 } from '@angular/platform-browser/animations';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { EffectsModule, provideEffects } from '@ngrx/effects';
+import { cartReducer } from './cart/store/cart.reducer';
+import { AuthEffects } from './auth/store/auth.effect';
 
 registerLocaleData(en);
 
@@ -49,9 +52,12 @@ registerLocaleData(en);
     AuthModule,
     AuthRoutingModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects]),
     HeaderComponent,
   ],
   providers: [
+    provideStore(reducers),
+    provideEffects(),
     provideAnimationsAsync(),
     provideAnimations(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),

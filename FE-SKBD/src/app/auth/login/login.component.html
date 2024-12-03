@@ -1,3 +1,4 @@
+@if(vm$ | async; as vm){
 <div class="bg-gray-50">
     <p-toast></p-toast>
     <div class="py-5">
@@ -21,6 +22,9 @@
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white px-4 pb-4 pt-8 sm:rounded-lg sm:px-10 sm:pb-6 sm:shadow">
+                @if (vm.showLoginError) {
+                <div class="alert alert--error">Ooops! Invalid username or password.</div>
+                }
                 <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-6">
                     <!-- Email Field -->
                     <div>
@@ -68,7 +72,7 @@
 
                     <!-- Submit Button -->
                     <div>
-                        <button type="submit" [disabled]="loginForm.invalid"
+                        <button type="submit" [disabled]="vm.isLoading"
                             class="group relative flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-slate-50 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                             Sign In
                         </button>
@@ -90,3 +94,4 @@
         </div>
     </div>
 </div>
+}

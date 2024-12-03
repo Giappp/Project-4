@@ -17,6 +17,8 @@ import * as AuthSelectors from '../store/auth.selectors';
 import { Store } from '@ngrx/store';
 import { MessageService } from 'primeng/api';
 import { LoginActions } from '../store/auth.action';
+import { combineLatest } from 'rxjs';
+import { AuthFacade } from '../store/auth.fascade';
 
 @Component({
   selector: 'app-login',
@@ -26,13 +28,12 @@ import { LoginActions } from '../store/auth.action';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  readonly authUser$ = this.store.select(AuthSelectors.selectAuthUser);
-  readonly isLoggedIn$ = this.store.select(AuthSelectors.selectIsLoggedIn);
-  readonly isLoaddingLogin$ = this.store.select(
-    AuthSelectors.selectIsLoadingLogin
-  );
+  private readonly authFacade = inject(AuthFacade);
 
-  readonly hasLoginError$ = this.store.select(AuthSelectors.selectLoginError);
+  readonly vm$ = combineLatest({
+    isLoading: this.authFacade.isLoadingLogin$,
+    showLoginError: this.authFacade.hasLoginError$,
+  });
 
   constructor(private fb: FormBuilder, private store: Store) {
     this.loginForm = this.fb.group({
@@ -51,7 +52,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.authFacade.isLoggedIn$){
+      
+    }
+  }
 
   get userName() {
     return this.loginForm.get('username');
@@ -62,13 +67,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    const { username, password } = this.loginForm.getRawValue();
-    this.store.dispatch(
-      LoginActions.request({
-        username: username as string,
-        password: password as string,
-        rememberMe: true,
-      })
+    const { username, password, rememberMe } = this.loginForm.value;
+    this.authFacade.login(
+      username as string,
+      password as string,
+      rememberMe as boolean
     );
   }
 }

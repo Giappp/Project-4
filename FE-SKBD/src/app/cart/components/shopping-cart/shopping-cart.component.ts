@@ -2,7 +2,7 @@ import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../store/cart.model';
 import { Appstate } from '../../../app.state';
-import { Store } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { selectCartItems, selectCartTotal } from '../../store/cart.selector';
 import { addItem, removeItem } from '../../store/cart.action';
 import { CoreModule } from '../../../core/core.module';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BadgeModule } from 'primeng/badge';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { cartReducer } from '../../store/cart.reducer';
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,

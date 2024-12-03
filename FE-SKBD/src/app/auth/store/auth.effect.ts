@@ -2,14 +2,23 @@ import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthService } from '../services/auth.service';
-import { StateStorageService } from '../../core/auth/state-storage.service';
 import {
   AuthUserActions,
   LoginActions,
   LogoutAction,
   RefreshTokenActions,
 } from './auth.action';
-import { catchError, exhaustMap, finalize, map, of, tap } from 'rxjs';
+import {
+  catchError,
+  exhaustMap,
+  finalize,
+  map,
+  merge,
+  mergeMap,
+  of,
+  tap,
+} from 'rxjs';
+import { TokenStorageService } from '../../core/auth/token-storage.service';
 
 @Injectable()
 export class AuthEffects {
@@ -17,32 +26,28 @@ export class AuthEffects {
   private readonly actions$ = inject(Actions);
   private readonly authService = inject(AuthService);
   private readonly activatedRoute = inject(ActivatedRoute);
-  private readonly tokenStorageService = inject(StateStorageService);
+  private readonly tokenStorageService = inject(TokenStorageService);
 
-  readonly login$ = createEffect(() => {
-    return this.actions$.pipe(
+  readonly login$ = createEffect(() =>
+    this.actions$.pipe(
       ofType(LoginActions.request),
-      exhaustMap((credentials) =>
-        this.authService.login(credentials.username, credentials.password).pipe(
-          map((response: any) => {
-            this.tokenStorageService.storeAuthenticationToken(
-              response.data.token,
-              credentials.rememberMe
-            );
-            return LoginActions.success();
+      mergeMap(({ username, password, rememberMe }) =>
+        this.authService.login(username, password).pipe(
+          tap((response) => {
+            this.tokenStorageService.saveAccessToken(response.data.token);
           }),
+          map(() => LoginActions.success()),
           catchError((error) => of(LoginActions.failure({ error })))
         )
       )
-    );
-  });
+    )
+  );
 
   readonly onLoginSuccess$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(LoginActions.success),
       map(() => {
         // redirect to return url or home
-
         this.router.navigateByUrl(
           this.activatedRoute.snapshot.queryParams['returnUrl'] || '/'
         );
@@ -59,39 +64,23 @@ export class AuthEffects {
           this.router.navigateByUrl('/');
           return this.authService
             .logout()
-            .pipe(
-              finalize(() =>
-                this.tokenStorageService.clearAuthenticationToken()
-              )
-            );
+            .pipe(finalize(() => this.tokenStorageService.removeTokens()));
         })
       );
     },
     { dispatch: false }
   );
 
-  readonly getUser$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(LoginActions.success, AuthUserActions.request),
-      exhaustMap(() => {
-        return this.authService.getAuthUser().pipe(
-          map((user) => AuthUserActions.success({ user })),
-          catchError(() => of(AuthUserActions.failure()))
-        );
-      })
-    );
-  });
-
   readonly refreshToken$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(RefreshTokenActions.request),
       exhaustMap(() =>
         this.authService.refreshToken().pipe(
-          map((response: any) => {
-            this.tokenStorageService.storeAuthenticationToken(
-              response.data.token,
-              false
-            );
+          map((data: any) => {
+            // save tokens
+            console.log(data);
+            this.tokenStorageService.saveTokens(data.data.token);
+            // trigger refresh token success action
             return RefreshTokenActions.success();
           }),
           catchError(() => of(RefreshTokenActions.failure()))
@@ -100,11 +89,25 @@ export class AuthEffects {
     );
   });
 
+  readonly authUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(RefreshTokenActions.success, AuthUserActions.request),
+      exhaustMap(() =>
+        this.authService.getAuthUser().pipe(
+          map((user) => {
+            console.log(user);
+            return AuthUserActions.success({ user });
+          }),
+          catchError(() => of(AuthUserActions.failure()))
+        )
+      )
+    )
+  );
   readonly onLoginOrRefreshTokenFailure$ = createEffect(
     () => {
       return this.actions$.pipe(
         ofType(LoginActions.failure, RefreshTokenActions.failure),
-        tap(() => this.tokenStorageService.clearAuthenticationToken())
+        tap(() => this.tokenStorageService.removeTokens())
       );
     },
     { dispatch: false }
