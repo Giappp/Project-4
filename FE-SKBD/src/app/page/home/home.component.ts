@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Category } from '../../model/category';
 import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
+import { HomeService } from './home-service.service';
+import { NewArrivalsProducts } from '../../model/new-arrivals';
 @Component({
   standalone: true,
   selector: 'app-home',
@@ -16,6 +18,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('carousel') carousel!: any;
   categories$!: Observable<Category[]>;
   carouselImageUrl!: any[];
+
+  private readonly homeService = inject(HomeService);
+  newArrivals: NewArrivalsProducts[] = [];
 
   responsiveOptions: any[] = [
     {
@@ -32,7 +37,12 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    this.homeService.getNewArrivalsProducts().subscribe((response: any) => {
+      console.log(response);
+      this.newArrivals = response.data;
+    });
+  }
   ngOnInit(): void {
     this.carouselImageUrl = [
       '/assets/images/17277697730331009.webp',

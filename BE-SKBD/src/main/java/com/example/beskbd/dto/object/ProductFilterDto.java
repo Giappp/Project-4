@@ -18,6 +18,4 @@ public class ProductFilterDto {
     List<String> productSizes;
     List<String> productColors;
     String productType;
-    Integer page;
-    Integer pageSize;
 }

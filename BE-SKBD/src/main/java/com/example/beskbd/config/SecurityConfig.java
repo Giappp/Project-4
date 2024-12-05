@@ -47,6 +47,7 @@ public class SecurityConfig {
             "/api/categories",
             "/api/products/",
             "/api/products/search",
+            "/api/products/new-arrivals",
             "/api/orders/new"
     };
     private final UserService userService;

@@ -17,7 +17,7 @@ public class ProductDto {
     String productImageUrl;
     BigDecimal productMinPrice;
     BigDecimal productMaxPrice;
-    List<String> productSizes;
+    List<Integer> productSizes;
     List<String> productColors;
     String productType;
 }

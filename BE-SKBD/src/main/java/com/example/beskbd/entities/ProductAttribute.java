@@ -19,6 +19,8 @@ public class ProductAttribute extends BaseEntity {
     private String color;
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal price;
+    @Column(name = "product_id")
+    private Long productId;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_attribute_id")
     private List<ProductSize> sizes = new ArrayList<>();
