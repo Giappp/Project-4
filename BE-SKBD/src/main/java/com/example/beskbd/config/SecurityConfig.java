@@ -45,9 +45,10 @@ public class SecurityConfig {
             "/paypal/pay",
             "/error",
             "/api/categories",
-            "/api/products/",
+            "/api/products",
             "/api/products/search",
             "/api/products/new-arrivals",
+            "api/products/filters",
             "/api/orders/new"
     };
     private final UserService userService;

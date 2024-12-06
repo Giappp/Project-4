@@ -15,6 +15,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/products")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -45,6 +47,15 @@ public class RestProductController {
                 .build());
     }
 
+    @GetMapping(value = "/{productId}")
+    public ResponseEntity<?> getProductDetail(@PathVariable Long productId) {
+        if (productId == null) {
+            throw new AppException(ErrorCode.INVALID_REQUEST);
+        }
+        logger.info("Get Product details by Id: " + productId);
+        return null;
+    }
+
     @PostMapping("/search")
     public ResponseEntity<?> searchProducts(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
                                             @RequestParam(value = "size", required = false, defaultValue = "10") int pageSize,
@@ -60,5 +71,23 @@ public class RestProductController {
                 .data(products)
                 .success(true)
                 .build());
+    }
+
+    @GetMapping("/{productId}/colors")
+    public ResponseEntity<List<String>> getAllColors(@PathVariable Long productId) {
+        List<String> colors = productService.getAllColorsByProductId(productId);
+        return ResponseEntity.ok(colors);
+    }
+
+    @GetMapping("/filters")
+    public ResponseEntity<?> getColors() {
+        var filters = productService.getFilter();
+        return ResponseEntity.ok(filters);
+    }
+
+    @GetMapping("/{productId}/sizes")
+    public ResponseEntity<List<Integer>> getAllSizes(@PathVariable Long productId) {
+        List<Integer> sizes = productService.getAllSizesByProductId(productId);
+        return ResponseEntity.ok(sizes);
     }
 }

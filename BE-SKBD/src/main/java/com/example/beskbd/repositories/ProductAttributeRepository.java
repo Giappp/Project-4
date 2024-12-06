@@ -19,4 +19,10 @@ public interface ProductAttributeRepository extends JpaRepository<ProductAttribu
 
     @Query("SELECT DISTINCT ps.size FROM ProductAttribute pa JOIN pa.sizes ps WHERE pa.productId = :productId")
     List<Integer> findAllSizesByProductId(@Param("productId") Long productId);
+
+    @Query("SELECT DISTINCT pa.color FROM ProductAttribute pa")
+    List<String> findAllByColor();
+
+    @Query("SELECT DISTINCT pa.sizes FROM ProductAttribute pa")
+    List<ProductSize> findAllBySizes();
 }

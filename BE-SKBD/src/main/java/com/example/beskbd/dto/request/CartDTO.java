@@ -1,16 +1,13 @@
 package com.example.beskbd.dto.request;
 
 
-
-
 import com.example.beskbd.dto.response.CartItemDTO;
-import com.example.beskbd.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 public class CartDTO {
@@ -28,24 +25,5 @@ public class CartDTO {
             }
         }
 
-    }
-
-    public List<CartItemDTO> getItems() {
-        return items;
-    }
-    public void setItems(List<CartItemDTO> items) {
-        this.items = items;
-    }
-    public void getCart(User UserId) {
-
-        List<CartItemDTO> cartItems = getCartItemsForUser(UserId);
-    }
-
-    private List<CartItemDTO> getCartItemsForUser(User userId) {
-        return List.of(items.toArray(new CartItemDTO[0]));
-    }
-
-    public void clear() {
-        items.clear();
     }
 }

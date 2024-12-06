@@ -2,6 +2,7 @@ package com.example.beskbd.services;
 
 import com.example.beskbd.dto.object.*;
 import com.example.beskbd.dto.request.ProductCreationRequest;
+import com.example.beskbd.dto.response.FilterOptionResponse;
 import com.example.beskbd.dto.response.PageResponse;
 import com.example.beskbd.dto.response.ProductDto;
 import com.example.beskbd.entities.Product;
@@ -50,6 +51,39 @@ public class ProductService {
                 .stream()
                 .collect(groupingBy(category -> category.getGender().toString(),
                         Collectors.mapping(CategoryDto::new, Collectors.toList())));
+    }
+
+    public ProductDto getProductDetails(Long productId) {
+        var product = productRepository.findById(productId)
+                .orElseThrow(() -> new AppException(ErrorCode.PRODUCT_NOT_FOUND));
+        return new ProductDto(product);
+    }
+
+    public List<String> getAllColorsByProductId(Long productId) {
+        return productAttributeRepository.findAllColorsByProductId(productId);
+    }
+
+    public List<Integer> getAllSizesByProductId(Long productId) {
+        return productAttributeRepository.findAllSizesByProductId(productId);
+    }
+
+    public FilterOptionResponse getFilter() {
+        return FilterOptionResponse.builder()
+                .colors(getAllColors())
+                .sizes(getAllSize())
+                .build();
+    }
+
+
+    private List<String> getAllColors() {
+        return productAttributeRepository.findAllByColor();
+    }
+
+    private List<Integer> getAllSize() {
+        return productAttributeRepository.findAllBySizes()
+                .stream()
+                .map(ProductSize::getSize)
+                .toList();
     }
 
     @Transactional

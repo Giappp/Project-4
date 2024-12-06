@@ -1,5 +1,6 @@
 package com.example.beskbd.dto.response;
 
+import com.example.beskbd.entities.Product;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +21,9 @@ public class ProductDto {
     List<Integer> productSizes;
     List<String> productColors;
     String productType;
+
+    public ProductDto(Product product) {
+        this.productId = product.getId();
+        this.productName = product.getName();
+    }
 }

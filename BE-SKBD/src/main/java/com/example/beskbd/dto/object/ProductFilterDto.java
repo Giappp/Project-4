@@ -14,8 +14,8 @@ import java.util.List;
 public class ProductFilterDto {
     BigDecimal minPrice;
     BigDecimal maxPrice;
-    Long categoryId;
     List<String> productSizes;
+    Long categoryId;
     List<String> productColors;
     String productType;
 }
