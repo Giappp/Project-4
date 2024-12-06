@@ -24,7 +24,7 @@
       @for (item of newArrivals; track item.productId) {
       <div class="max-w-[25%] flex-grow-0 text-sm">
         <div class="block min-w-[220px] min-h-[300px]">
-          <a href="{{item.productId}}" class="w-full">
+          <a [routerLink] = "[]" class="w-full">
             <div class="m-0 border-0">
               <img src="{{item.imageUrl}}" class="w-full h-full object-top">
             </div>

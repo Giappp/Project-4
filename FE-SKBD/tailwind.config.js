@@ -23,6 +23,7 @@ module.exports = {
       amber: colors.amber,
       red:colors.red,
       indigo: colors.indigo,
+      purple: colors.purple,
     }
   },
   plugins: [require('tailwindcss-primeui')]

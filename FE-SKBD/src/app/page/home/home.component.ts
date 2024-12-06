@@ -6,12 +6,13 @@ import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
 import { HomeService } from './home-service.service';
 import { NewArrivalsProducts } from '../../model/new-arrivals';
+import { RouterModule } from '@angular/router';
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [CommonModule, CarouselModule, GalleriaModule],
+  imports: [CommonModule, CarouselModule, GalleriaModule, RouterModule],
   providers: [],
 })
 export class HomeComponent implements OnInit {

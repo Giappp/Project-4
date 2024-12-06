@@ -17,10 +17,8 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        loadComponent: () =>
-          import('./page/product-list/product-list.component').then(
-            (c) => c.ProductListComponent
-          ),
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
     ],
   },

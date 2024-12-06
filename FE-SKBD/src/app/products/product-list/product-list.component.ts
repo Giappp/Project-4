@@ -1,17 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BreadcrumbComponentDemo } from '../../shared/components/breadcrumb/breadcrumb.component';
-import { SliderModule } from 'primeng/slider';
-import { DropdownModule } from 'primeng/dropdown';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { Category } from '../../model/category';
-import { CheckboxModule } from 'primeng/checkbox';
-import { RadioButtonModule } from 'primeng/radiobutton';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { ProductFilter } from './product-filter';
 import { ProductService } from './product.service';
@@ -19,19 +7,7 @@ import { FilterOptions } from './filter-options';
 import { Product } from './product.interface';
 @Component({
   selector: 'app-product-list',
-  standalone: true,
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css',
-  imports: [
-    CommonModule,
-    BreadcrumbComponentDemo,
-    SliderModule,
-    DropdownModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CheckboxModule,
-    RadioButtonModule,
-  ],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
@@ -79,17 +55,18 @@ export class ProductListComponent implements OnInit {
     };
 
     if (this.selectedSizes.length) {
-      filter.sizes = this.selectedSizes;
+      filter.productSizes = this.selectedSizes;
     }
 
     if (this.selectedColors.length) {
-      filter.colors = this.selectedColors;
+      filter.productColors = this.selectedColors;
     }
 
     this.productService.getProducts(filter).subscribe((response) => {
-      this.products = response.items;
-      this.totalItems = response.total;
-      this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+      console.log(response);
+      this.products = response.data;
+      this.totalItems = response.totalElements;
+      this.totalPages = response.totalPages;
     });
   }
   onSizeChange(event: Event) {
